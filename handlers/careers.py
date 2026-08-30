@@ -661,8 +661,6 @@ def _rescue_types() -> dict:
 async def _fire_action(event, kind: str):
     user_id = sender_id(event)
     data = await _require_career(event, "firefighter")
-    user_id = sender_id(event)
-    data = await _require_career(event, "firefighter")
     career_state = data["career"]
     pool = _fire_types() if kind == "fire" else _rescue_types()
     if not pool:

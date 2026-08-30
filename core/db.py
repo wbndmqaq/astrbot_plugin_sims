@@ -214,7 +214,7 @@ class AsyncStore:
                 players = (await cur.fetchone())[0]
             async with conn.execute("SELECT COUNT(*) FROM kv") as cur:
                 kv_count = (await cur.fetchone())[0]
-        size = self.db_path.stat().st_size if self.db_path.exists() else 0
+        size = (await asyncio.to_thread(lambda: self.db_path.stat().st_size)) if self.db_path.exists() else 0
         return {"players": players, "kv": kv_count, "db_size": size}
 
 

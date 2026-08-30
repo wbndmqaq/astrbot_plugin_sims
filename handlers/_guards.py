@@ -8,7 +8,7 @@ from __future__ import annotations
 from typing import Any
 
 from ..core.context import CommandError, cd_remaining, sender_id
-from ..core.db import check_banned, get_player_ref
+from ..core.db import check_banned, check_user
 
 DEFAULT_PLAYER = {
     "name": None,
@@ -91,7 +91,7 @@ async def require_player(event: Any, *, repair: bool = True) -> dict[str, Any]:
     """异步加载调用者存档；不存在时抛出 CommandError."""
     user_id = sender_id(event)
     await ensure_not_banned(user_id)
-    data = await get_player_ref(user_id)
+    data = await check_user(user_id)
     if data is None:
         raise CommandError("未找到您的游戏数据，请使用 #开始模拟人生 创建角色")
     if repair:

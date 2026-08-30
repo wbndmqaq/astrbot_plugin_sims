@@ -1,6 +1,6 @@
 # astrbot_plugin_sims (模拟人生 Sims AstrBot 插件)
 
-基于 Yunzai 原版 [sims-plugin](https://github.com/) **全量移植**的 AstrBot 插件 v1.0.0。
+基于 Yunzai 原版 [sims-plugin](https://github.com/wbndm/sims-plugin) **全量移植**的 AstrBot 插件 v1.0.0。
 角色扮演、职业晋升、买房置业、农场种植、酒馆/网吧/影院经营、钓鱼、股市、抽奖、恋爱养成、宠物等玩法一应俱全，共 **184 条指令**。
 
 ## ✨ 移植完成度
