@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 from pathlib import Path
 from typing import Any
 
@@ -22,14 +23,19 @@ def _load_fallback_yaml(filename: str) -> dict[str, Any]:
             path = sims_defset
     if path.exists():
         try:
-            with open(path, "r", encoding="utf-8") as f:
-                data = yaml.safe_load(f)
-                if isinstance(data, dict):
-                    _FALLBACK_CACHE[filename] = data
-                    return data
+            import functools
+            data = asyncio.run(asyncio.to_thread(functools.partial(_read_yaml_file, path)))
+            if isinstance(data, dict):
+                _FALLBACK_CACHE[filename] = data
+                return data
         except Exception:
             pass
     return {}
+
+
+def _read_yaml_file(path: Path) -> dict[str, Any]:
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f) or {}
 
 
 def set_config(cfg: dict[str, Any] | None) -> None:

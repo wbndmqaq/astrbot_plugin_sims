@@ -8,6 +8,7 @@ import uuid
 from pathlib import Path
 from typing import Any
 
+from collections import OrderedDict
 from .config import scale_pct
 from .context import CommandError
 
@@ -25,7 +26,28 @@ def resources_uri() -> str:
     return RESOURCES_DIR.as_uri().rstrip("/") + "/"
 
 
-_compile_cache: dict[str, tuple[float, Any]] = {}
+class LRUCache:
+    """LRU 缓存限制编译缓存大小，防止内存泄露"""
+    def __init__(self, maxsize: int = 100):
+        self.maxsize = maxsize
+        self.cache: OrderedDict[str, tuple[float, Any]] = OrderedDict()
+    
+    def get(self, key: str) -> tuple[float, Any] | None:
+        if key in self.cache:
+            self.cache.move_to_end(key)
+            return self.cache[key]
+        return None
+    
+    def put(self, key: str, value: tuple[float, Any]) -> None:
+        if key in self.cache:
+            self.cache.move_to_end(key)
+        else:
+            if len(self.cache) >= self.maxsize:
+                self.cache.popitem(last=False)
+            self.cache[key] = value
+
+
+_compile_cache = LRUCache(maxsize=100)
 
 
 def _find_template(name: str) -> Path | None:

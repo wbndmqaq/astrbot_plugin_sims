@@ -5,13 +5,13 @@
 
 from __future__ import annotations
 
+import asyncio
 import os
 from datetime import datetime, timedelta
 from pathlib import Path
 
 from ..core.context import arg_after, rnd, sender_id, set_cd
 from ..core.db import get_store, save_user
-from ..core.db import save_user as save
 from ..core.renderer import renderer
 from ..core.systems.player import (
     SENSITIVE_WORDS,
@@ -56,7 +56,7 @@ async def set_sex(self, event):
         yield "性别只能是 男 或 女。"
         return
     data["gender"] = gender
-    await save(sender_id(event), data)
+    await save_user(user_id, data)
     set_cd(sender_id(event), "mnrs", "set_sex")
     yield f"你的性别已设置为: {gender}"
 
@@ -78,7 +78,7 @@ async def change_player_name(self, event):
         yield "该名字已被其他玩家使用，请选择其他名字。"
         return
     data["name"] = new_name
-    await save(sender_id(event), data)
+    await save_user(user_id, data)
     set_cd(sender_id(event), "mnrs", "rename")
     yield f"你的名字已更改为: {new_name}"
 
@@ -117,7 +117,7 @@ async def daily_gift(self, event):
     data["thirst"] = min(100, int(data.get("thirst", 0)) + thirst_bonus)
     data["lastSignInDate"] = today
     data["dailySignIn"] = True
-    await save(sender_id(event), data)
+    await save_user(user_id, data)
     set_cd(sender_id(event), "mnrs", "daily")
 
     path = await renderer.render_image(
@@ -182,11 +182,13 @@ async def view_avatars(self, event):
     require_cd(event, "mnrs", "avatar")
     data = await require_player(event)
     try:
-        avatars = [
-            f
-            for f in sorted(os.listdir(AVATAR_DIR))
-            if f.lower().endswith((".jpg", ".png", ".jpeg", ".gif"))
-        ]
+        avatars = await asyncio.to_thread(
+            lambda: [
+                f
+                for f in sorted(os.listdir(AVATAR_DIR))
+                if f.lower().endswith((".jpg", ".png", ".jpeg", ".gif"))
+            ]
+        )
     except OSError:
         yield "读取头像文件夹出错，请联系管理员检查路径。"
         return
@@ -231,7 +233,7 @@ async def set_avatar(self, event):
         return
 
     data["avatar"] = avatar_file
-    await save(sender_id(event), data)
+    await save_user(user_id, data)
     set_cd(sender_id(event), "mnrs", "set_avatar")
     yield f"你的头像已更新为：{avatar_file}"
 
@@ -266,7 +268,7 @@ async def change_signature(self, event):
         data["money"] = int(data.get("money", 0)) - 300
 
     data["signature"] = new_signature
-    await save(sender_id(event), data)
+    await save_user(user_id, data)
     set_cd(sender_id(event), "mnrs", "set")
 
     if is_first_change:
@@ -321,7 +323,7 @@ async def buy_stamina_potion(self, event):
             "recovery": potion["recovery"],
         },
     )
-    await save(sender_id(event), data)
+    await save_user(user_id, data)
     set_cd(sender_id(event), "mnrs", "buy")
     yield (
         f"你成功购买了{potion['name']}，花费{potion['price']}元。剩余金钱：{data['money']}元"
@@ -345,6 +347,6 @@ async def use_stamina_potion(self, event):
     data["stamina"] = min(100, old_stamina + int(potion.get("recovery", 0)))
     actual_recovery = data["stamina"] - old_stamina
     data["backpack"].remove(potion)
-    await save(sender_id(event), data)
+    await save_user(user_id, data)
     set_cd(sender_id(event), "mnrs", "use")
     yield f"你使用了{potion['name']}，恢复了{actual_recovery}点体力。当前体力：{data['stamina']}/100"
