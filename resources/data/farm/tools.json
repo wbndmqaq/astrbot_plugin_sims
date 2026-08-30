@@ -1,0 +1,169 @@
+{
+  "tools": [
+    {
+      "id": 1,
+      "name": "基础锄头",
+      "price": 100,
+      "durability": 50,
+      "efficiency": 1,
+      "description": "最基础的耕地工具，效率一般",
+      "function": "plow",
+      "level": 1,
+      "icon": "hoe_basic.png"
+    },
+    {
+      "id": 2,
+      "name": "铁质锄头",
+      "price": 300,
+      "durability": 100,
+      "efficiency": 1.5,
+      "description": "坚固耐用的锄头，可以提高耕地效率",
+      "function": "plow",
+      "level": 2,
+      "icon": "hoe_iron.png"
+    },
+    {
+      "id": 3,
+      "name": "金质锄头",
+      "price": 800,
+      "durability": 200,
+      "efficiency": 2,
+      "description": "高端锄头，耕地效率显著提升",
+      "function": "plow",
+      "level": 3,
+      "icon": "hoe_gold.png"
+    },
+    {
+      "id": 4,
+      "name": "小水壶",
+      "price": 80,
+      "durability": 40,
+      "efficiency": 1,
+      "description": "简单的浇水工具，容量有限",
+      "function": "water",
+      "level": 1,
+      "icon": "watercan_small.png"
+    },
+    {
+      "id": 5,
+      "name": "中型水壶",
+      "price": 250,
+      "durability": 80,
+      "efficiency": 1.5,
+      "description": "容量更大的水壶，浇水更高效",
+      "function": "water",
+      "level": 2,
+      "icon": "watercan_medium.png"
+    },
+    {
+      "id": 6,
+      "name": "大型水壶",
+      "price": 600,
+      "durability": 160,
+      "efficiency": 2,
+      "description": "大容量水壶，可以一次浇灌多个作物",
+      "function": "water",
+      "level": 3,
+      "icon": "watercan_large.png"
+    },
+    {
+      "id": 7,
+      "name": "自动灌溉系统",
+      "price": 1500,
+      "durability": 300,
+      "efficiency": 3,
+      "description": "高科技灌溉系统，大幅提高浇水效率",
+      "function": "water",
+      "level": 4,
+      "icon": "irrigation_system.png"
+    },
+    {
+      "id": 8,
+      "name": "小镰刀",
+      "price": 120,
+      "durability": 50,
+      "efficiency": 1,
+      "description": "基础收割工具，可以提高收获效率",
+      "function": "harvest",
+      "level": 1,
+      "icon": "sickle_small.png"
+    },
+    {
+      "id": 9,
+      "name": "大镰刀",
+      "price": 350,
+      "durability": 100,
+      "efficiency": 1.5,
+      "description": "更大的镰刀，收割更加高效",
+      "function": "harvest",
+      "level": 2,
+      "icon": "sickle_large.png"
+    },
+    {
+      "id": 10,
+      "name": "收割机",
+      "price": 1000,
+      "durability": 200,
+      "efficiency": 2.5,
+      "description": "机械化收割工具，大幅提高收获速度和产量",
+      "function": "harvest",
+      "level": 3,
+      "icon": "harvester.png"
+    },
+    {
+      "id": 11,
+      "name": "基础肥料袋",
+      "price": 50,
+      "durability": 10,
+      "efficiency": 1,
+      "description": "普通肥料，可以适量提高产量",
+      "function": "fertilize",
+      "level": 1,
+      "icon": "fertilizer_basic.png"
+    },
+    {
+      "id": 12,
+      "name": "高级肥料",
+      "price": 150,
+      "durability": 15,
+      "efficiency": 1.5,
+      "description": "优质肥料，提高产量和品质",
+      "function": "fertilize",
+      "level": 2,
+      "icon": "fertilizer_premium.png"
+    },
+    {
+      "id": 13,
+      "name": "特效肥料",
+      "price": 300,
+      "durability": 20,
+      "efficiency": 2,
+      "description": "最高级肥料，显著增加产量和品质",
+      "function": "fertilize",
+      "level": 3,
+      "icon": "fertilizer_special.png"
+    },
+    {
+      "id": 14,
+      "name": "害虫喷雾器",
+      "price": 200,
+      "durability": 30,
+      "efficiency": 1,
+      "description": "喷洒农药，防止害虫侵袭",
+      "function": "pesticide",
+      "level": 1,
+      "icon": "pesticide_sprayer.png"
+    },
+    {
+      "id": 15,
+      "name": "除草工具",
+      "price": 150,
+      "durability": 40,
+      "efficiency": 1,
+      "description": "去除杂草，让作物生长更健康",
+      "function": "weed",
+      "level": 1,
+      "icon": "weeder.png"
+    }
+  ]
+} 

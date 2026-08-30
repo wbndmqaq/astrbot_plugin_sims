@@ -1,0 +1,225 @@
+stock:
+  simulate: 300
+  view: 60
+  buy: 180
+  sell: 180
+  market: 120
+  dividend: 3600
+  trends: 300
+  bubble: 600
+  delisting: 3600
+  good_news: 1800
+  bad_news: 1800
+  sector: 300
+  pledge: 3600
+  dragon_tiger: 600
+  margin: 1800
+  discount: 3600
+  ex_dividend: 3600
+  fill: 3600
+  ex_right: 3600
+  right: 3600
+  allotment: 3600
+  bonus: 3600
+  gift: 3600
+  included: 600
+  interest: 600
+  unlock: 1800
+  trapped: 1800
+  bull_trap: 1800
+  rebound: 300
+  dive: 300
+mnrs:
+  create: 3600
+  rename: 1800
+  set_sex: 1800
+  daily_gift: 86400
+  show_status: 60
+ktv:
+  enter: 300
+  sing: 180
+  dance: 180
+  drink: 300
+  leave: 60
+shop:
+  view: 60
+  buy: 180
+  sell: 180
+  manage: 300
+  restock: 3600
+work:
+  start: 300
+  quit: 1800
+  salary: 86400
+  overtime: 3600
+  promotion: 604800
+social:
+  chat: 60
+  date: 3600
+  gift: 1800
+  relationship: 300
+entertainment:
+  game: 300
+  movie: 7200
+  sports: 1800
+  read: 1800
+life:
+  eat: 300
+  sleep: 28800
+  exercise: 1800
+  study: 3600
+  travel: 7200
+welfare:
+  give_item: 300
+  send_red_packet: 600
+  grab_red_packet: 60
+  send_benefits: 86400
+  deduct_item: 300
+battle:
+  start: 300
+  attack: 60
+  defend: 60
+  use_skill: 120
+  use_item: 180
+  retreat: 300
+activity:
+  join: 300
+  claim_reward: 600
+  check: 60
+alarm:
+  set: 300
+  cancel: 180
+  check: 60
+password:
+  decrypt: 300
+  hint: 180
+  reset: 600
+cafe:
+  enter: 300
+  order: 180
+  chat: 120
+  leave: 60
+disease:
+  check: 300
+  treat: 1800
+  prevent: 3600
+food:
+  cook: 600
+  eat: 300
+  learn_recipe: 1800
+fishing:
+  start: 300
+  catch: 180
+  sell: 300
+  upgrade: 1800
+programmer:
+  code: 600
+  debug: 300
+  project: 1800
+  learn: 3600
+realestate:
+  view: 180
+  buy: 3600
+  sell: 3600
+  rent: 1800
+pet:
+  adopt: 3600
+  feed: 300
+  play: 600
+  train: 1800
+cinema:
+  check: 180
+  buy_ticket: 300
+  watch: 7200
+story:
+  start: 300
+  choice: 60
+  end: 300
+infrastructure:
+  build: 1800
+  upgrade: 3600
+  repair: 600
+marriage:
+  propose: 3600
+  divorce: 86400
+  date: 1800
+  gift: 600
+chef:
+  cook: 600
+  learn: 1800
+  compete: 3600
+furniture:
+  buy: 600
+  arrange: 300
+  upgrade: 1800
+isekai:
+  enter: 3600
+  quest: 1800
+  battle: 600
+  return: 1800
+mechanic:
+  repair: 600
+  build: 1800
+  upgrade: 3600
+clothing:
+  view: 180
+  buy: 300
+  design: 1800
+tavern:
+  enter: 300
+  drink: 180
+  gossip: 300
+  leave: 60
+space:
+  travel: 3600
+  explore: 1800
+  mine: 900
+  battle: 600
+gym:
+  workout: 1800
+  train: 600
+  compete: 3600
+research:
+  start: 1800
+  experiment: 900
+  publish: 3600
+art:
+  create: 1800
+  appreciate: 600
+  exhibit: 3600
+misc:
+  random: 300
+  daily: 86400
+  weekly: 604800
+toys:
+  view: 180
+  buy: 300
+  play: 600
+home:
+  rest: 1800
+  clean: 900
+  decorate: 1800
+netcafe:
+  enter: 300
+  play: 1800
+  surf: 600
+  leave: 60
+backpack:
+  view: 60
+  use: 180
+  sort: 300
+career:
+  select: 300
+  info: 30
+  work: 300
+  promote: 300
+  learn: 300
+  skills: 30
+  resign: 1800
+  action: 300
+  collab: 60
+  chain: 120
+lottery:
+  draw: 10
+  ten: 30
+  view: 5

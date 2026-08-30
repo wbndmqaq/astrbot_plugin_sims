@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒馆市场</title>
+    <style>
+        @font-face { font-family: miaomiao; src: url(./也字工厂喵喵体.ttf); }
+        body {
+            font-family: miaomiao, 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            background-attachment: fixed;
+            color: #7a3b5c;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #e75490;
+            margin: 0;
+            padding: 10px;
+            text-shadow: 2px 2px 4px rgba(255, 183, 213, 0.5);
+        }
+
+        .header .subtitle {
+            font-size: 18px;
+            color: #8a4a68;
+            margin-top: 5px;
+        }
+
+        .divider {
+            border-bottom: 2px solid #ffd3e6;
+            margin: 20px 0;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: #e75490;
+            margin-bottom: 10px;
+            border-left: 4px solid #ff6fae;
+            padding-left: 10px;
+        }
+
+        .market-info {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 16px;
+            color: #7a3b5c;
+        }
+
+        .market-trend {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 999px;
+            font-size: 14px;
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        .market-trend.up {
+            background: linear-gradient(90deg, #ff9a8b, #ff8a80);
+        }
+
+        .market-trend.down {
+            background: linear-gradient(90deg, #a5d6a7, #81c784);
+        }
+
+        .market-trend.stable {
+            background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .item-card {
+            background: #fff8fb;
+            border: 1px solid #ffd3e6;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(255, 133, 183, 0.4);
+            background: #fff0f7;
+        }
+
+        .item-header {
+            padding: 15px;
+            background: #fff0f7;
+            border-bottom: 1px solid #ffd3e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-name {
+            font-weight: bold;
+            font-size: 18px;
+            color: #d63384;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: #e75490;
+            background: rgba(255, 143, 191, 0.2);
+            padding: 2px 10px;
+            border-radius: 999px;
+        }
+
+        .item-body {
+            padding: 15px;
+        }
+
+        .item-desc {
+            color: #7a3b5c;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .item-stock {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .stock-label {
+            color: #8a4a68;
+        }
+
+        .stock-value {
+            font-weight: bold;
+        }
+
+        .stock-value.high {
+            color: #66bb6a;
+        }
+
+        .stock-value.medium {
+            color: #ffb74d;
+        }
+
+        .stock-value.low {
+            color: #e57373;
+        }
+
+        .price-trend {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 12px;
+            color: #8a4a68;
+        }
+
+        .trend-icon {
+            margin-right: 5px;
+            font-size: 14px;
+        }
+
+        .trend-up {
+            color: #e57373;
+        }
+
+        .trend-down {
+            color: #66bb6a;
+        }
+
+        .trend-stable {
+            color: #ff6fae;
+        }
+
+        .buy-command {
+            background: #fff0f7;
+            border: 1px solid #ffd3e6;
+            padding: 10px;
+            border-radius: 12px;
+            font-family: monospace;
+            text-align: center;
+            color: #d63384;
+        }
+
+        .purchase-tips {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+        }
+
+        .tips-title {
+            font-size: 18px;
+            color: #e75490;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .tips-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tip-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .tip-icon {
+            color: #e75490;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .tip-content {
+            flex-grow: 1;
+            font-size: 14px;
+            color: #7a3b5c;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #8a4a68;
+        }
+
+        .deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .deco.heart {
+            clip-path: path('M12 22 C4.5 15 0 10.5 0 6 C0 2.2 2.7 0 6 0 C8.8 0 11 1.8 12 4.2 C13 1.8 15.2 0 18 0 C21.3 0 24 2.2 24 6 C24 10.5 19.5 15 12 22 Z');
+            background: #ffb7d5;
+            animation: floatUp 6s ease-in-out infinite;
+        }
+
+        .deco.star {
+            clip-path: polygon(50% 0%,63% 35%,100% 38%,71% 60%,82% 100%,50% 76%,18% 100%,29% 60%,0% 38%,37% 35%);
+            background: #ffd98e;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.15); }
+        }
+    </style>
+</head>
+<body>
+    <div class="deco heart" style="top: 40px; left: 6%; width: 32px; height: 29px; opacity: 0.5;"></div>
+    <div class="deco star" style="top: 140px; right: 7%; width: 26px; height: 26px; opacity: 0.5;"></div>
+    <div class="deco heart" style="top: 55%; left: 3%; width: 22px; height: 20px; opacity: 0.4;"></div>
+    <div class="deco star" style="bottom: 120px; right: 4%; width: 22px; height: 22px; opacity: 0.45;"></div>
+    <div class="deco heart" style="bottom: 40px; left: 12%; width: 26px; height: 23px; opacity: 0.5;"></div>
+    <div class="container">
+        <div class="header">
+            <h1>酒馆市场</h1>
+            <div class="subtitle">购买物资，满足酒馆需求</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="market-info">
+                当前市场趋势:
+                <span class="market-trend {{marketTrend}}">
+                    {{marketTrend === 'up' ? '物价上涨' : marketTrend === 'down' ? '物价下跌' : '市场稳定'}}
+                </span>
+            </div>
+
+            <div class="section-title">可购物资</div>
+            <div class="items-grid">
+                {{each marketItems item}}
+                <div class="item-card">
+                    <div class="item-header">
+                        <div class="item-name">{{item.name}}</div>
+                        <div class="item-price">{{item.price}}元</div>
+                    </div>
+                    <div class="item-body">
+                        <div class="item-desc">{{item.description}}</div>
+                        <div class="item-stock">
+                            <span class="stock-label">市场库存:</span>
+                            <span class="stock-value {{item.stockStatus}}">
+                                {{item.stockStatus === 'high' ? '充足' : item.stockStatus === 'medium' ? '一般' : '不足'}}
+                            </span>
+                        </div>
+                        <div class="price-trend">
+                            <span class="trend-icon">
+                                {{if item.trend === 'up'}}📈{{/if}}
+                                {{if item.trend === 'down'}}📉{{/if}}
+                                {{if item.trend === 'stable'}}📊{{/if}}
+                            </span>
+                            <span class="trend-{{item.trend}}">
+                                {{item.trend === 'up' ? '价格上涨中' : item.trend === 'down' ? '价格下跌中' : '价格稳定'}}
+                            </span>
+                        </div>
+                        <div class="buy-command">
+                            #购买物资 {{item.id}} [数量]
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">采购建议</div>
+            <div class="purchase-tips">
+                <div class="tips-title">聪明购物，聪明经营</div>
+                <ul class="tips-list">
+                    <li class="tip-item">
+                        <div class="tip-icon">💡</div>
+                        <div class="tip-content">在价格下跌时多购物资，可以节省成本。</div>
+                    </li>
+                    <li class="tip-item">
+                        <div class="tip-icon">💡</div>
+                        <div class="tip-content">保持啤酒和葡萄酒的库存充足，这些是最受欢迎的饮品。</div>
+                    </li>
+                    <li class="tip-item">
+                        <div class="tip-icon">💡</div>
+                        <div class="tip-content">装饰品可以提升酒馆的氛围值，间接提高顾客满意度。</div>
+                    </li>
+                    <li class="tip-item">
+                        <div class="tip-icon">💡</div>
+                        <div class="tip-content">市场趋势每天刷新，关注趋势变化获取最佳购买时机。</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            模拟人生插件 - 酒馆系统 v1.0
+        </div>
+    </div>
+</body>
+</html>

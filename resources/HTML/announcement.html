@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模拟人生 - 版本公告</title>
+  <style>
+    @font-face {
+      font-family: miaomiao;
+      src: url('{{@fontPath}}');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 560px;
+      background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 30%, #ffd3e6 60%, #ffc3dd 100%);
+      font-family: 'Microsoft YaHei', sans-serif;
+      color: #7a3b5c;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* 装饰元素 */
+    .deco {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      background: #ffb7d5;
+      clip-path: polygon(50% 100%, 0 35%, 25% 0, 50% 20%, 75% 0, 100% 35%);
+      opacity: 0.6;
+      animation: floatUp 3.5s ease-in-out infinite;
+    }
+
+    .heart.h1 { top: 5%; left: 5%; width: 30px; height: 30px; }
+    .heart.h2 { top: 12%; right: 8%; width: 24px; height: 24px; animation-duration: 4s; }
+    .heart.h3 { top: 45%; left: 3%; width: 20px; height: 20px; animation-duration: 3s; }
+    .heart.h4 { top: 60%; right: 5%; width: 26px; height: 26px; animation-duration: 4.5s; }
+    .heart.h5 { top: 80%; left: 10%; width: 22px; height: 22px; animation-duration: 3.5s; }
+
+    .star {
+      position: absolute;
+      background: #ffd98e;
+      clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      animation: twinkle 2s infinite;
+    }
+
+    .star.s1 { top: 3%; left: 40%; width: 18px; height: 18px; }
+    .star.s2 { top: 18%; right: 15%; width: 14px; height: 14px; animation-delay: 0.5s; }
+    .star.s3 { top: 50%; right: 3%; width: 16px; height: 16px; animation-delay: 1s; }
+    .star.s4 { top: 70%; left: 5%; width: 20px; height: 20px; animation-delay: 1.5s; }
+    .star.s5 { top: 90%; right: 20%; width: 15px; height: 15px; animation-delay: 0.8s; }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 183, 213, 0.3);
+      animation: bubbleFloat 4s ease-in-out infinite;
+    }
+
+    .bubble.b1 { top: 10%; left: 20%; width: 40px; height: 40px; }
+    .bubble.b2 { top: 30%; right: 10%; width: 30px; height: 30px; animation-delay: 1s; }
+    .bubble.b3 { top: 55%; left: 15%; width: 25px; height: 25px; animation-delay: 2s; }
+
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(5deg); }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.8); }
+    }
+
+    @keyframes bubbleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 3px solid #ffc3da;
+      box-shadow: 0 8px 32px rgba(255, 133, 183, 0.35);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #ff9ecd 0%, #ffb7d5 50%, #ffc3dd 100%);
+      padding: 35px 25px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .header h1 {
+      font-family: miaomiao;
+      font-size: 36px;
+      color: #d63384;
+      text-shadow: 3px 3px 0 rgba(255,255,255,0.5);
+      position: relative;
+      margin-bottom: 12px;
+    }
+
+    .header .cute-icon {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .header .version-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.9);
+      padding: 8px 24px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #d63384;
+      margin-top: 8px;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(214, 51, 132, 0.3);
+    }
+
+    .header .date {
+      font-size: 13px;
+      color: #b83b5e;
+      margin-top: 12px;
+      position: relative;
+      opacity: 0.9;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .update-section {
+      margin-bottom: 20px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      border: 2px solid #ffd3e6;
+      box-shadow: 0 4px 16px rgba(255, 133, 183, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .update-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #ff9ecd, #ffc3dd, #ff9ecd);
+    }
+
+    .update-section h2 {
+      font-size: 20px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #d63384;
+      font-family: miaomiao;
+    }
+
+    .update-section h2 .icon {
+      font-size: 24px;
+    }
+
+    .update-list {
+      list-style: none;
+    }
+
+    .update-list li {
+      padding: 10px 0 10px 28px;
+      position: relative;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #8b4a6b;
+      border-bottom: 1px dashed #ffd3e6;
+    }
+
+    .update-list li:last-child {
+      border-bottom: none;
+    }
+
+    .update-list li::before {
+      content: '♡';
+      position: absolute;
+      left: 8px;
+      color: #ff9ecd;
+      font-weight: bold;
+    }
+
+    .type-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 15px;
+      font-size: 11px;
+      font-weight: bold;
+      margin-left: 10px;
+      text-transform: uppercase;
+    }
+
+    .type-major {
+      background: linear-gradient(135deg, #ff6b9d, #ff9ecd);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(255, 107, 157, 0.4);
+    }
+
+    .type-minor {
+      background: linear-gradient(135deg, #7fdbca, #a8e6cf);
+      color: #1a5f4a;
+    }
+
+    .type-patch {
+      background: linear-gradient(135deg, #ffd93d, #ffe66d);
+      color: #8b6914;
+    }
+
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ffd3e6, transparent);
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '✿';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ffb7d5;
+      font-size: 14px;
+    }
+
+    .divider::before { left: 20%; }
+    .divider::after { right: 20%; }
+
+    .footer {
+      text-align: center;
+      padding: 25px;
+      background: linear-gradient(135deg, #fff0f6, #ffe3ee);
+      border-top: 2px dashed #ffc3da;
+    }
+
+    .footer p {
+      font-size: 14px;
+      color: #b83b5e;
+      margin: 5px 0;
+    }
+
+    .footer .cute-text {
+      font-family: miaomiao;
+      font-size: 16px;
+      color: #d63384;
+    }
+
+    .cmd {
+      display: inline-block;
+      background: linear-gradient(135deg, #ffe3ee, #ffd3e6);
+      padding: 3px 12px;
+      border-radius: 12px;
+      font-family: 'Microsoft YaHei', sans-serif;
+      font-size: 12px;
+      color: #d63384;
+      font-weight: bold;
+      border: 1px solid #ffb7d5;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .stat-item {
+      background: linear-gradient(135deg, #fff, #fff0f6);
+      padding: 16px;
+      border-radius: 16px;
+      text-align: center;
+      border: 2px solid #ffd3e6;
+      box-shadow: 0 4px 12px rgba(255, 133, 183, 0.15);
+    }
+
+    .stat-item .number {
+      font-size: 28px;
+      font-weight: bold;
+      color: #d63384;
+      font-family: miaomiao;
+    }
+
+    .stat-item .label {
+      font-size: 12px;
+      color: #b83b5e;
+      margin-top: 6px;
+    }
+
+    .sub-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #d63384;
+      margin: 14px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sub-title::before {
+      content: '❀';
+      color: #ff9ecd;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #fff5f8, #ffe3ee);
+      border: 2px solid #ffc3da;
+      border-radius: 16px;
+      padding: 16px;
+      margin: 12px 0;
+    }
+
+    .history-section {
+      opacity: 0.85;
+      border-color: #e8d3e0;
+    }
+
+    .history-section h2 {
+      color: #a66b8f;
+    }
+
+    .history-section .update-list li {
+      color: #9b7a8f;
+    }
+
+    .cute-border {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #ffc3da;
+    }
+
+    .cute-border.tl { top: 8px; left: 8px; border-right: none; border-bottom: none; border-radius: 12px 0 0 0; }
+    .cute-border.tr { top: 8px; right: 8px; border-left: none; border-bottom: none; border-radius: 0 12px 0 0; }
+    .cute-border.bl { bottom: 8px; left: 8px; border-right: none; border-top: none; border-radius: 0 0 0 12px; }
+    .cute-border.br { bottom: 8px; right: 8px; border-left: none; border-top: none; border-radius: 0 0 12px 0; }
+  </style>
+</head>
+<body>
+  <div class="deco">
+    <div class="heart h1"></div>
+    <div class="heart h2"></div>
+    <div class="heart h3"></div>
+    <div class="heart h4"></div>
+    <div class="heart h5"></div>
+    <div class="star s1"></div>
+    <div class="star s2"></div>
+    <div class="star s3"></div>
+    <div class="star s4"></div>
+    <div class="star s5"></div>
+    <div class="bubble b1"></div>
+    <div class="bubble b2"></div>
+    <div class="bubble b3"></div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <span class="cute-icon"></span>
+      <h1>模拟人生版本公告</h1>
+      <div class="version-badge"> v{{currentVersion}} </div>
+      <div class="date"> 最后更新：{{lastUpdate}} </div>
+    </div>
+
+    <div class="content">
+      {{each changelogs item index}}
+      {{if index === 0}}
+      <!-- 当前版本 -->
+      <div class="update-section">
+        <div class="cute-border tl"></div>
+        <div class="cute-border tr"></div>
+        <div class="cute-border bl"></div>
+        <div class="cute-border br"></div>
+        <h2>
+          <span class="icon"></span>
+          {{item.title}}
+          <span class="type-badge type-{{item.type}}">{{item.type}}</span>
+        </h2>
+        <div style="font-size:13px;color:#b83b5e;margin-bottom:14px;"> 发布日期：{{item.date}}</div>
+        
+        {{each item.logs log}}
+        <div style="margin-bottom:16px;">
+          <div class="sub-title">{{log.title}}</div>
+          <ul class="update-list">
+            {{each log.logs detail}}
+            <li>{{@detail}}</li>
+            {{/each}}
+          </ul>
+        </div>
+        {{/each}}
+      </div>
+
+      {{if index === 0 && changelogs.length > 1}}
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="number">{{totalVersions}}</div>
+          <div class="label">历史版本</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">{{totalFeatures}}</div>
+          <div class="label">累计功能</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">{{totalFixes}}</div>
+          <div class="label">修复优化</div>
+        </div>
+      </div>
+      {{/if}}
+
+      {{else}}
+      <div class="divider"></div>
+      
+      <!-- 历史版本 -->
+      <div class="update-section history-section">
+        <h2 style="font-size: 17px;">
+          <span class="icon"></span>
+          v{{item.version}} - {{item.title}}
+          <span class="type-badge type-{{item.type}}">{{item.type}}</span>
+        </h2>
+        <div style="font-size:12px;color:#a66b8f;margin-bottom:12px;"> {{item.date}}</div>
+        
+        {{each item.logs log}}
+        <div style="margin-bottom:12px;">
+          <div style="font-weight:bold;margin-bottom:8px;font-size:14px;color:#a66b8f;">{{log.title}}</div>
+          <ul class="update-list" style="font-size: 13px;">
+            {{each log.logs detail}}
+            <li>{{@detail}}</li>
+            {{/each}}
+          </ul>
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+      {{/each}}
+    </div>
+
+    <div class="footer">
+      <p class="cute-text"> 模拟人生插件 · 让游戏更精彩 </p>
+      <p style="margin-top: 10px; font-size: 12px;">
+        使用 <span class="cmd">#模拟人生帮助</span> 查看全部功能
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1200 @@
+{
+  "schema": "items_v1",
+  "version": "1.0.0",
+  "description": "统一物品数据库",
+  "categories": {
+    "food": {
+      "name": "食物类",
+      "icon": "🍎",
+      "stackable": true
+    },
+    "medicine": {
+      "name": "药品类",
+      "icon": "💊",
+      "stackable": true
+    },
+    "material": {
+      "name": "材料类",
+      "icon": "🔧",
+      "stackable": true
+    },
+    "tool": {
+      "name": "道具类",
+      "icon": "🎒",
+      "stackable": false
+    },
+    "clothing": {
+      "name": "服饰类",
+      "icon": "👕",
+      "stackable": false
+    },
+    "equipment": {
+      "name": "装备类",
+      "icon": "⚔️",
+      "stackable": false
+    },
+    "furniture": {
+      "name": "家具类",
+      "icon": "🪑",
+      "stackable": false
+    },
+    "pet": {
+      "name": "宠物类",
+      "icon": "🐾",
+      "stackable": false
+    },
+    "consumable": {
+      "name": "消耗品类",
+      "icon": "🧪",
+      "stackable": true
+    },
+    "special": {
+      "name": "特殊类",
+      "icon": "✨",
+      "stackable": false
+    }
+  },
+  "items": {
+    "food_001": {
+      "id": "food_001",
+      "name": "苹果",
+      "category": "food",
+      "basePrice": 5,
+      "sellPrice": 2,
+      "description": "新鲜的红色苹果，富含维生素C。",
+      "icon": "🍎",
+      "stackable": true,
+      "maxStack": 99,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "hunger",
+          "value": 10,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "nutrition": 5,
+        "freshness": 100
+      }
+    },
+    "food_002": {
+      "id": "food_002",
+      "name": "面包",
+      "category": "food",
+      "basePrice": 10,
+      "sellPrice": 4,
+      "description": "松软的白面包，适合早餐。",
+      "icon": "🍞",
+      "stackable": true,
+      "maxStack": 99,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "hunger",
+          "value": 15,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "nutrition": 8,
+        "freshness": 100
+      }
+    },
+    "food_003": {
+      "id": "food_003",
+      "name": "矿泉水",
+      "category": "food",
+      "basePrice": 3,
+      "sellPrice": 1,
+      "description": "清爽的矿泉水，解渴必备。",
+      "icon": "💧",
+      "stackable": true,
+      "maxStack": 99,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "thirst",
+          "value": 20,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "nutrition": 0,
+        "freshness": 100
+      }
+    },
+    "food_004": {
+      "id": "food_004",
+      "name": "巧克力",
+      "category": "food",
+      "basePrice": 15,
+      "sellPrice": 6,
+      "description": "美味的黑巧克力，令人愉悦的甜品。",
+      "icon": "🍫",
+      "stackable": true,
+      "maxStack": 99,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "mood",
+          "value": 10,
+          "duration": 0
+        },
+        {
+          "type": "hunger",
+          "value": 5,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "nutrition": 3,
+        "freshness": 100
+      }
+    },
+    "food_005": {
+      "id": "food_005",
+      "name": "牛肉干",
+      "category": "food",
+      "basePrice": 20,
+      "sellPrice": 8,
+      "description": "风味独特的牛肉干，适合零食。",
+      "icon": "🥩",
+      "stackable": true,
+      "maxStack": 99,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "hunger",
+          "value": 25,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "nutrition": 15,
+        "freshness": 100
+      }
+    },
+    "food_006": {
+      "id": "food_006",
+      "name": "能量饮料",
+      "category": "food",
+      "basePrice": 25,
+      "sellPrice": 10,
+      "description": "提神醒脑的能量饮料，适合运动后饮用。",
+      "icon": "⚡",
+      "stackable": true,
+      "maxStack": 99,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "stamina",
+          "value": 15,
+          "duration": 0
+        },
+        {
+          "type": "thirst",
+          "value": 15,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "nutrition": 2,
+        "freshness": 100
+      }
+    },
+    "med_001": {
+      "id": "med_001",
+      "name": "急救包",
+      "category": "medicine",
+      "basePrice": 50,
+      "sellPrice": 20,
+      "description": "包含基础医疗用品的急救包。",
+      "icon": "🏥",
+      "stackable": true,
+      "maxStack": 50,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "health",
+          "value": 30,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "healing": 30
+      }
+    },
+    "med_002": {
+      "id": "med_002",
+      "name": "感冒药",
+      "category": "medicine",
+      "basePrice": 30,
+      "sellPrice": 12,
+      "description": "缓解感冒症状的药品。",
+      "icon": "💊",
+      "stackable": true,
+      "maxStack": 99,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "cure",
+          "value": "cold",
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "cureDisease": [
+          "cold",
+          "flu"
+        ]
+      }
+    },
+    "med_003": {
+      "id": "med_003",
+      "name": "止痛药",
+      "category": "medicine",
+      "basePrice": 35,
+      "sellPrice": 14,
+      "description": "缓解疼痛的药物。",
+      "icon": "💉",
+      "stackable": true,
+      "maxStack": 99,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "health",
+          "value": 10,
+          "duration": 0
+        },
+        {
+          "type": "mood",
+          "value": 5,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "healing": 10
+      }
+    },
+    "med_004": {
+      "id": "med_004",
+      "name": "绷带",
+      "category": "medicine",
+      "basePrice": 5,
+      "sellPrice": 2,
+      "description": "用于包扎伤口的绷带。",
+      "icon": "🩹",
+      "stackable": true,
+      "maxStack": 99,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "health",
+          "value": 5,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "healing": 5
+      }
+    },
+    "mat_001": {
+      "id": "mat_001",
+      "name": "木材",
+      "category": "material",
+      "basePrice": 15,
+      "sellPrice": 6,
+      "description": "制作家具和工具的基本材料。",
+      "icon": "🪵",
+      "stackable": true,
+      "maxStack": 999,
+      "usable": false,
+      "consumable": false,
+      "effects": [],
+      "attributes": {
+        "durability": 50,
+        "crafting": true
+      }
+    },
+    "mat_002": {
+      "id": "mat_002",
+      "name": "铁矿石",
+      "category": "material",
+      "basePrice": 25,
+      "sellPrice": 10,
+      "description": "用于冶炼铁的矿石。",
+      "icon": "⛏️",
+      "stackable": true,
+      "maxStack": 999,
+      "usable": false,
+      "consumable": false,
+      "effects": [],
+      "attributes": {
+        "durability": 80,
+        "crafting": true
+      }
+    },
+    "mat_003": {
+      "id": "mat_003",
+      "name": "布料",
+      "category": "material",
+      "basePrice": 20,
+      "sellPrice": 8,
+      "description": "制作衣物和其他物品的布料。",
+      "icon": "🧵",
+      "stackable": true,
+      "maxStack": 999,
+      "usable": false,
+      "consumable": false,
+      "effects": [],
+      "attributes": {
+        "durability": 30,
+        "crafting": true
+      }
+    },
+    "mat_004": {
+      "id": "mat_004",
+      "name": "塑料",
+      "category": "material",
+      "basePrice": 10,
+      "sellPrice": 4,
+      "description": "多用途的塑料材料。",
+      "icon": "🧴",
+      "stackable": true,
+      "maxStack": 999,
+      "usable": false,
+      "consumable": false,
+      "effects": [],
+      "attributes": {
+        "durability": 20,
+        "crafting": true
+      }
+    },
+    "mat_005": {
+      "id": "mat_005",
+      "name": "钉子",
+      "category": "material",
+      "basePrice": 5,
+      "sellPrice": 2,
+      "description": "用于固定物品的钉子。",
+      "icon": "🔩",
+      "stackable": true,
+      "maxStack": 999,
+      "usable": false,
+      "consumable": false,
+      "effects": [],
+      "attributes": {
+        "durability": 40,
+        "crafting": true
+      }
+    },
+    "tool_001": {
+      "id": "tool_001",
+      "name": "手电筒",
+      "category": "tool",
+      "basePrice": 40,
+      "sellPrice": 16,
+      "description": "在黑暗中提供光源的手电筒。",
+      "icon": "🔦",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "effects": [
+        {
+          "type": "light",
+          "value": 1,
+          "duration": 3600
+        }
+      ],
+      "attributes": {
+        "durability": 100,
+        "battery": 100
+      }
+    },
+    "tool_002": {
+      "id": "tool_002",
+      "name": "登山绳",
+      "category": "tool",
+      "basePrice": 60,
+      "sellPrice": 24,
+      "description": "用于攀岩和登山的安全绳。",
+      "icon": "🪢",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "effects": [
+        {
+          "type": "climb",
+          "value": 1,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "durability": 100,
+        "strength": 50
+      }
+    },
+    "tool_003": {
+      "id": "tool_003",
+      "name": "地图",
+      "category": "tool",
+      "basePrice": 15,
+      "sellPrice": 6,
+      "description": "帮助导航的详细地图。",
+      "icon": "🗺️",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "effects": [
+        {
+          "type": "navigation",
+          "value": 1,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "durability": -1
+      }
+    },
+    "tool_004": {
+      "id": "tool_004",
+      "name": "指南针",
+      "category": "tool",
+      "basePrice": 25,
+      "sellPrice": 10,
+      "description": "用于确定方向的指南针。",
+      "icon": "🧭",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "effects": [
+        {
+          "type": "direction",
+          "value": 1,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "durability": -1
+      }
+    },
+    "tool_005": {
+      "id": "tool_005",
+      "name": "背包",
+      "category": "tool",
+      "basePrice": 50,
+      "sellPrice": 20,
+      "description": "用于携带物品的背包。",
+      "icon": "🎒",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "effects": [
+        {
+          "type": "inventory",
+          "value": 20,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "capacity": 20,
+        "durability": 100
+      }
+    },
+    "tool_006": {
+      "id": "tool_006",
+      "name": "手机",
+      "category": "tool",
+      "basePrice": 300,
+      "sellPrice": 120,
+      "description": "用于通讯和娱乐的手机。",
+      "icon": "📱",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "effects": [
+        {
+          "type": "communication",
+          "value": 1,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "durability": 100,
+        "battery": 100
+      }
+    },
+    "tool_007": {
+      "id": "tool_007",
+      "name": "电脑",
+      "category": "tool",
+      "basePrice": 500,
+      "sellPrice": 200,
+      "description": "用于工作和娱乐的电脑。",
+      "icon": "💻",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "effects": [
+        {
+          "type": "work",
+          "value": 1,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "durability": 100,
+        "performance": 100
+      }
+    },
+    "cloth_001": {
+      "id": "cloth_001",
+      "name": "红色T恤",
+      "category": "clothing",
+      "basePrice": 100,
+      "sellPrice": 40,
+      "description": "舒适的红色T恤，适合日常穿着。",
+      "icon": "👕",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "slot": "upper",
+      "effects": [],
+      "attributes": {
+        "health": 10,
+        "charm": 5,
+        "defense": 0
+      },
+      "gender": "male"
+    },
+    "cloth_002": {
+      "id": "cloth_002",
+      "name": "蓝色牛仔裤",
+      "category": "clothing",
+      "basePrice": 150,
+      "sellPrice": 60,
+      "description": "经典的蓝色牛仔裤，耐磨且时尚。",
+      "icon": "👖",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "slot": "lower",
+      "effects": [],
+      "attributes": {
+        "health": 5,
+        "charm": 8,
+        "defense": 2
+      },
+      "gender": "male"
+    },
+    "cloth_003": {
+      "id": "cloth_003",
+      "name": "黑色连衣裙",
+      "category": "clothing",
+      "basePrice": 200,
+      "sellPrice": 80,
+      "description": "优雅的黑色连衣裙，适合晚会和聚会。",
+      "icon": "👗",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "slot": "full",
+      "effects": [],
+      "attributes": {
+        "health": 15,
+        "charm": 20,
+        "defense": 0
+      },
+      "gender": "female"
+    },
+    "cloth_004": {
+      "id": "cloth_004",
+      "name": "休闲套装",
+      "category": "clothing",
+      "basePrice": 300,
+      "sellPrice": 120,
+      "description": "时尚的休闲套装，适合户外活动。",
+      "icon": "🧥",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "slot": "full",
+      "effects": [],
+      "attributes": {
+        "health": 20,
+        "charm": 15,
+        "defense": 5
+      },
+      "gender": "unisex"
+    },
+    "cloth_005": {
+      "id": "cloth_005",
+      "name": "运动套装",
+      "category": "clothing",
+      "basePrice": 250,
+      "sellPrice": 100,
+      "description": "舒适的运动套装，适合运动时穿着。",
+      "icon": "🎽",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "slot": "full",
+      "effects": [
+        {
+          "type": "stamina_regen",
+          "value": 5,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "health": 20,
+        "charm": 10,
+        "defense": 3
+      },
+      "gender": "unisex"
+    },
+    "cloth_006": {
+      "id": "cloth_006",
+      "name": "黑色运动鞋",
+      "category": "clothing",
+      "basePrice": 300,
+      "sellPrice": 120,
+      "description": "舒适的黑色运动鞋，适合各种运动。",
+      "icon": "👟",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "slot": "feet",
+      "effects": [
+        {
+          "type": "speed",
+          "value": 5,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "health": 0,
+        "charm": 8,
+        "defense": 2
+      },
+      "gender": "unisex"
+    },
+    "cloth_007": {
+      "id": "cloth_007",
+      "name": "黑色高跟鞋",
+      "category": "clothing",
+      "basePrice": 250,
+      "sellPrice": 100,
+      "description": "优雅的黑色高跟鞋，适合正式场合。",
+      "icon": "👠",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "slot": "feet",
+      "effects": [
+        {
+          "type": "charm",
+          "value": 10,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "health": 0,
+        "charm": 25,
+        "defense": 0
+      },
+      "gender": "female"
+    },
+    "cloth_008": {
+      "id": "cloth_008",
+      "name": "黑色风衣",
+      "category": "clothing",
+      "basePrice": 350,
+      "sellPrice": 140,
+      "description": "优雅的黑色风衣，适合秋冬季节。",
+      "icon": "🧥",
+      "stackable": false,
+      "maxStack": 1,
+      "usable": true,
+      "consumable": false,
+      "slot": "outer",
+      "effects": [
+        {
+          "type": "cold_resist",
+          "value": 10,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "health": 18,
+        "charm": 20,
+        "defense": 5
+      },
+      "gender": "unisex"
+    },
+    "cons_001": {
+      "id": "cons_001",
+      "name": "小型体力药水",
+      "category": "consumable",
+      "basePrice": 350,
+      "sellPrice": 140,
+      "description": "恢复少量体力的药水。",
+      "icon": "🧪",
+      "stackable": true,
+      "maxStack": 99,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "stamina",
+          "value": 10,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "recovery": 10
+      }
+    },
+    "cons_002": {
+      "id": "cons_002",
+      "name": "中型体力药水",
+      "category": "consumable",
+      "basePrice": 700,
+      "sellPrice": 280,
+      "description": "恢复中等体力的药水。",
+      "icon": "🧪",
+      "stackable": true,
+      "maxStack": 99,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "stamina",
+          "value": 25,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "recovery": 25
+      }
+    },
+    "cons_003": {
+      "id": "cons_003",
+      "name": "大型体力药水",
+      "category": "consumable",
+      "basePrice": 1050,
+      "sellPrice": 420,
+      "description": "恢复大量体力的药水。",
+      "icon": "🧪",
+      "stackable": true,
+      "maxStack": 99,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "stamina",
+          "value": 40,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "recovery": 40
+      }
+    },
+    "cons_004": {
+      "id": "cons_004",
+      "name": "超级体力药水",
+      "category": "consumable",
+      "basePrice": 1400,
+      "sellPrice": 560,
+      "description": "恢复巨量体力的药水。",
+      "icon": "🧪",
+      "stackable": true,
+      "maxStack": 99,
+      "usable": true,
+      "consumable": true,
+      "effects": [
+        {
+          "type": "stamina",
+          "value": 60,
+          "duration": 0
+        }
+      ],
+      "attributes": {
+        "recovery": 60
+      }
+    },
+    "toy_001": {
+      "id": "toy_001",
+      "name": "可爱小熊玩偶",
+      "category": "special",
+      "basePrice": 39,
+      "sellPrice": 19,
+      "description": "柔软舒适的小熊玩偶，适合3岁以上儿童",
+      "icon": "🧸",
+      "stackable": true,
+      "maxStack": 20,
+      "usable": false,
+      "consumable": false
+    },
+    "toy_002": {
+      "id": "toy_002",
+      "name": "积木套装",
+      "category": "special",
+      "basePrice": 99,
+      "sellPrice": 49,
+      "description": "100片彩色积木，培养创造力",
+      "icon": "🧸",
+      "stackable": true,
+      "maxStack": 20,
+      "usable": false,
+      "consumable": false
+    },
+    "toy_003": {
+      "id": "toy_003",
+      "name": "遥控赛车",
+      "category": "special",
+      "basePrice": 159,
+      "sellPrice": 79,
+      "description": "高速遥控赛车，续航30分钟",
+      "icon": "🧸",
+      "stackable": true,
+      "maxStack": 20,
+      "usable": false,
+      "consumable": false
+    },
+    "toy_004": {
+      "id": "toy_004",
+      "name": "芭比娃娃",
+      "category": "special",
+      "basePrice": 129,
+      "sellPrice": 64,
+      "description": "时尚芭比娃娃，含3套衣服",
+      "icon": "🧸",
+      "stackable": true,
+      "maxStack": 20,
+      "usable": false,
+      "consumable": false
+    },
+    "toy_005": {
+      "id": "toy_005",
+      "name": "拼图游戏",
+      "category": "special",
+      "basePrice": 49,
+      "sellPrice": 24,
+      "description": "1000片风景拼图，附赠收纳盒",
+      "icon": "🧸",
+      "stackable": true,
+      "maxStack": 20,
+      "usable": false,
+      "consumable": false
+    },
+    "furn_001": {
+      "id": "furn_001",
+      "name": "简约布艺沙发",
+      "category": "furniture",
+      "basePrice": 2000,
+      "sellPrice": 1000,
+      "description": "舒适的三人布艺沙发，适合简约风格",
+      "icon": "🛋️",
+      "stackable": false,
+      "usable": false,
+      "consumable": false,
+      "comfort": 10
+    },
+    "furn_002": {
+      "id": "furn_002",
+      "name": "温馨双人床",
+      "category": "furniture",
+      "basePrice": 3000,
+      "sellPrice": 1500,
+      "description": "柔软舒适的双人床，让你睡个好觉",
+      "icon": "🛋️",
+      "stackable": false,
+      "usable": false,
+      "consumable": false,
+      "comfort": 15
+    },
+    "furn_003": {
+      "id": "furn_003",
+      "name": "实木餐桌",
+      "category": "furniture",
+      "basePrice": 1500,
+      "sellPrice": 750,
+      "description": "原木制作的餐桌，自然环保",
+      "icon": "🛋️",
+      "stackable": false,
+      "usable": false,
+      "consumable": false,
+      "comfort": 8
+    },
+    "furn_004": {
+      "id": "furn_004",
+      "name": "现代展示柜",
+      "category": "furniture",
+      "basePrice": 1800,
+      "sellPrice": 900,
+      "description": "时尚的展示柜，展示你的收藏",
+      "icon": "🛋️",
+      "stackable": false,
+      "usable": false,
+      "consumable": false,
+      "comfort": 6
+    },
+    "furn_005": {
+      "id": "furn_005",
+      "name": "欧式落地灯",
+      "category": "furniture",
+      "basePrice": 1200,
+      "sellPrice": 600,
+      "description": "典雅的欧式落地灯，营造温馨氛围",
+      "icon": "🛋️",
+      "stackable": false,
+      "usable": false,
+      "consumable": false,
+      "comfort": 5
+    },
+    "furn_006": {
+      "id": "furn_006",
+      "name": "奢华地毯",
+      "category": "furniture",
+      "basePrice": 2500,
+      "sellPrice": 1250,
+      "description": "精美的手工地毯，提升房间格调",
+      "icon": "🛋️",
+      "stackable": false,
+      "usable": false,
+      "consumable": false,
+      "comfort": 7
+    },
+    "smart_001": {
+      "id": "smart_001",
+      "name": "智能灯光",
+      "category": "special",
+      "basePrice": 300,
+      "sellPrice": 150,
+      "description": "心情提升10",
+      "icon": "🏠",
+      "stackable": false,
+      "usable": false,
+      "consumable": false
+    },
+    "smart_002": {
+      "id": "smart_002",
+      "name": "温控系统",
+      "category": "special",
+      "basePrice": 500,
+      "sellPrice": 250,
+      "description": "节省电费综30",
+      "icon": "🏠",
+      "stackable": false,
+      "usable": false,
+      "consumable": false
+    },
+    "smart_003": {
+      "id": "smart_003",
+      "name": "智能音响",
+      "category": "special",
+      "basePrice": 400,
+      "sellPrice": 200,
+      "description": "心情提升15",
+      "icon": "🏠",
+      "stackable": false,
+      "usable": false,
+      "consumable": false
+    },
+    "smart_004": {
+      "id": "smart_004",
+      "name": "智能家居安防",
+      "category": "special",
+      "basePrice": 600,
+      "sellPrice": 300,
+      "description": "安全增加UP",
+      "icon": "🏠",
+      "stackable": false,
+      "usable": false,
+      "consumable": false
+    },
+    "space_001": {
+      "id": "space_001",
+      "name": "✨星光护盾",
+      "category": "special",
+      "basePrice": 1000,
+      "sellPrice": 500,
+      "description": "闪耀着梦幻星光的防护罩，能为飞船提供可靠的保护",
+      "icon": "🚀",
+      "stackable": true,
+      "maxStack": 10,
+      "usable": false,
+      "consumable": false
+    },
+    "space_002": {
+      "id": "space_002",
+      "name": "🌈彩虹力场",
+      "category": "special",
+      "basePrice": 2000,
+      "sellPrice": 1000,
+      "description": "七彩光芒的防护力场，让敌人完全无法靠近",
+      "icon": "🚀",
+      "stackable": true,
+      "maxStack": 10,
+      "usable": false,
+      "consumable": false
+    },
+    "space_003": {
+      "id": "space_003",
+      "name": "🌟能量核心",
+      "category": "special",
+      "basePrice": 1500,
+      "sellPrice": 750,
+      "description": "蕴含强大能量的神秘核心，散发着温暖的光芒",
+      "icon": "🚀",
+      "stackable": true,
+      "maxStack": 10,
+      "usable": false,
+      "consumable": false
+    },
+    "space_004": {
+      "id": "space_004",
+      "name": "💫星光发电机",
+      "category": "special",
+      "basePrice": 2500,
+      "sellPrice": 1250,
+      "description": "将星光转化为能量的神奇装置",
+      "icon": "🚀",
+      "stackable": true,
+      "maxStack": 10,
+      "usable": false,
+      "consumable": false
+    },
+    "space_005": {
+      "id": "space_005",
+      "name": "💝治愈药剂",
+      "category": "special",
+      "basePrice": 300,
+      "sellPrice": 150,
+      "description": "散发着甜甜香气的粉色药剂",
+      "icon": "🚀",
+      "stackable": true,
+      "maxStack": 10,
+      "usable": false,
+      "consumable": true
+    },
+    "space_006": {
+      "id": "space_006",
+      "name": "🎀恢复晶球",
+      "category": "special",
+      "basePrice": 500,
+      "sellPrice": 250,
+      "description": "充满治愈能量的可爱晶球",
+      "icon": "🚀",
+      "stackable": true,
+      "maxStack": 10,
+      "usable": false,
+      "consumable": true
+    },
+    "space_007": {
+      "id": "space_007",
+      "name": "✨能量饮料",
+      "category": "special",
+      "basePrice": 200,
+      "sellPrice": 100,
+      "description": "闪闪发光的能量饮料，喝了会感觉特别有精神",
+      "icon": "🚀",
+      "stackable": true,
+      "maxStack": 10,
+      "usable": false,
+      "consumable": true
+    },
+    "space_008": {
+      "id": "space_008",
+      "name": "🎀梦幻壁纸",
+      "category": "special",
+      "basePrice": 500,
+      "sellPrice": 250,
+      "description": "充满少女心的粉色星星壁纸",
+      "icon": "🚀",
+      "stackable": true,
+      "maxStack": 10,
+      "usable": false,
+      "consumable": false
+    },
+    "space_009": {
+      "id": "space_009",
+      "name": "🌟星空投影",
+      "category": "special",
+      "basePrice": 800,
+      "sellPrice": 400,
+      "description": "能投影出美丽星空的浪漫装饰",
+      "icon": "🚀",
+      "stackable": true,
+      "maxStack": 10,
+      "usable": false,
+      "consumable": false
+    },
+    "space_010": {
+      "id": "space_010",
+      "name": "💖蝴蝶椅",
+      "category": "special",
+      "basePrice": 600,
+      "sellPrice": 300,
+      "description": "像蝴蝶翅膀一样的可爱椅子",
+      "icon": "🚀",
+      "stackable": true,
+      "maxStack": 10,
+      "usable": false,
+      "consumable": false
+    },
+    "space_011": {
+      "id": "space_011",
+      "name": "🎁每日特惠礼包",
+      "category": "special",
+      "basePrice": 1000,
+      "sellPrice": 500,
+      "description": "",
+      "icon": "🚀",
+      "stackable": true,
+      "maxStack": 10,
+      "usable": false,
+      "consumable": false
+    },
+    "space_012": {
+      "id": "space_012",
+      "name": "💝豪华装扮礼包",
+      "category": "special",
+      "basePrice": 3000,
+      "sellPrice": 1500,
+      "description": "",
+      "icon": "🚀",
+      "stackable": true,
+      "maxStack": 10,
+      "usable": false,
+      "consumable": false
+    }
+  }
+}

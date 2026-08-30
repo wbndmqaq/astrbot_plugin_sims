@@ -1,0 +1,156 @@
+workCooldown: 300
+maxDailyWork: 10
+expPerWork:
+  min: 10
+  max: 30
+salaryMultiplier: 1.0
+promotionBonus: 500
+collab:
+  inviteTtl: 600
+  pairHours: 12
+  partnerShare: 0.2
+  genericBonus: 0.05
+  takeoverTtl: 900
+synergies:
+  - careers: [doctor, chef]
+    name: 营养膳食调理
+    bonus: 0.2
+    desc: 医生定制营养方案，厨师烹饪健康餐品，互补加成显著
+  - careers: [police, firefighter]
+    name: 应急救援联动
+    bonus: 0.2
+    desc: 警消联合出勤，守护小镇安全
+  - careers: [farmer, chef]
+    name: 食材直供
+    bonus: 0.15
+    desc: 农场新鲜食材直达后厨
+  - careers: [fisherman, chef]
+    name: 鲜活直达
+    bonus: 0.15
+    desc: 当日渔获直供餐桌
+  - careers: [doctor, police]
+    name: 法医协作
+    bonus: 0.15
+    desc: 医学鉴定助力案件侦破
+  - careers: [doctor, firefighter]
+    name: 救援医疗
+    bonus: 0.15
+    desc: 救援现场医疗保障随行
+  - careers: [doctor, farmer]
+    name: 草药种植
+    bonus: 0.1
+    desc: 合作培育药用作物
+  - careers: [fisherman, police]
+    name: 水域巡查
+    bonus: 0.1
+    desc: 联合维护水域治安
+  - careers: [firefighter, farmer]
+    name: 防火护林
+    bonus: 0.1
+    desc: 农田林区火险联防
+  - careers: [fisherman, farmer]
+    name: 渔农共生
+    bonus: 0.1
+    desc: 鱼肥养田，田养鱼塘
+  - careers: [police, chef]
+    name: 深夜食堂
+    bonus: 0.1
+    desc: 为值守警员提供暖心餐食
+  - careers: [firefighter, chef]
+    name: 后勤补给
+    bonus: 0.1
+    desc: 为救援一线提供能量补给
+chains:
+  - id: safety
+    name: 小镇安全防线
+    desc: 警消医三方联动，构筑小镇安全屏障
+    nodes:
+      - career: police
+        name: 街区巡逻
+        desc: 警察完成一次全面的街区安全巡逻
+        reward:
+          money: 300
+          exp: 50
+      - career: firefighter
+        name: 隐患排查
+        desc: 消防员排查重点区域火灾隐患
+        reward:
+          money: 350
+          exp: 60
+      - career: doctor
+        name: 应急医疗保障
+        desc: 医生为应急队伍提供医疗保障
+        reward:
+          money: 400
+          exp: 70
+    finalReward:
+      money: 1500
+      exp: 150
+      items:
+        - name: 安全卫士勋章
+          type: medal
+          count: 1
+  - id: food_festival
+    name: 小镇美食节
+    desc: 从田间湖畔到餐桌，全产业链协作的美食盛会
+    nodes:
+      - career: farmer
+        name: 时蔬供应
+        desc: 农民供应新鲜时令蔬菜
+        reward:
+          money: 250
+          exp: 40
+      - career: fisherman
+        name: 渔获供应
+        desc: 渔夫供应当日新鲜渔获
+        reward:
+          money: 300
+          exp: 50
+      - career: chef
+        name: 主厨掌勺
+        desc: 厨师烹制美食节招牌菜品
+        reward:
+          money: 450
+          exp: 80
+      - career: doctor
+        name: 食品安全把关
+        desc: 医生进行食品安全与营养检测
+        reward:
+          money: 400
+          exp: 70
+    finalReward:
+      money: 2000
+      exp: 200
+      items:
+        - name: 美食节纪念章
+          type: medal
+          count: 1
+  - id: eco_town
+    name: 生态小镇计划
+    desc: 农渔警协作守护小镇绿水青山
+    nodes:
+      - career: farmer
+        name: 生态种植
+        desc: 农民开展无公害生态种植
+        reward:
+          money: 300
+          exp: 50
+      - career: fisherman
+        name: 净水养殖
+        desc: 渔夫推行生态净水养殖
+        reward:
+          money: 300
+          exp: 50
+      - career: police
+        name: 环保巡查
+        desc: 警察开展环境保护专项巡查
+        reward:
+          money: 350
+          exp: 60
+    finalReward:
+      money: 1800
+      exp: 180
+      items:
+        - name: 生态卫士徽章
+          type: medal
+          count: 1

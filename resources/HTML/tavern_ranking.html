@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>酒馆排行榜</title>
+    <style>
+        @font-face { font-family: miaomiao; src: url(./也字工厂喵喵体.ttf); }
+        body {
+            font-family: miaomiao, 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            margin: 0;
+            padding: 20px;
+            color: #7a3b5c;
+            position: relative;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(255,133,183,0.3);
+            position: relative;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .header h1 {
+            color: #e75490;
+            font-size: 28px;
+            margin: 0;
+        }
+        .subtitle {
+            color: #8a4a68;
+            font-size: 15px;
+            margin-top: 8px;
+        }
+        .section-title {
+            font-size: 20px;
+            color: #e75490;
+            margin: 24px 0 12px;
+            border-left: 4px solid #ff6fae;
+            padding-left: 10px;
+        }
+        .rank-item {
+            display: flex;
+            align-items: center;
+            background: #fff0f7;
+            border: 1px solid #ffd3e6;
+            border-radius: 14px;
+            padding: 12px 16px;
+            margin-bottom: 10px;
+        }
+        .rank-badge {
+            width: 36px;
+            height: 36px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            margin-right: 14px;
+            background: #ffe3ee;
+            color: #d63384;
+            flex-shrink: 0;
+        }
+        .rank-badge.top {
+            background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+            color: #fff;
+        }
+        .rank-info {
+            flex: 1;
+        }
+        .rank-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #d63384;
+        }
+        .rank-owner {
+            font-size: 13px;
+            color: #8a4a68;
+            margin-top: 2px;
+        }
+        .rank-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d63384;
+            margin-left: 12px;
+        }
+        .my-rank {
+            background: #fff0f7;
+            border: 1px solid #ffd3e6;
+            border-radius: 14px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .detail-item span:first-child {
+            color: #8a4a68;
+        }
+        .detail-item span:last-child {
+            font-weight: bold;
+            color: #d63384;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #8a4a68;
+            font-size: 14px;
+        }
+        .deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .deco-heart {
+            width: 26px;
+            height: 24px;
+            background: #ffb7d5;
+            clip-path: path('M12 22 C4.5 15 0 10.5 0 6 C0 2.2 2.7 0 6 0 C8.8 0 11 1.8 12 4.2 C13 1.8 15.2 0 18 0 C21.3 0 24 2.2 24 6 C24 10.5 19.5 15 12 22 Z');
+            opacity: 0.5;
+            animation: floatUp 6s ease-in-out infinite;
+        }
+        .deco-star {
+            width: 24px;
+            height: 24px;
+            background: #ffd98e;
+            clip-path: polygon(50% 0%,63% 35%,100% 38%,71% 60%,82% 100%,50% 76%,18% 100%,29% 60%,0% 38%,37% 35%);
+            opacity: 0.55;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(0.9); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <div class="deco deco-heart" style="top: 24px; left: 20px;"></div>
+    <div class="deco deco-heart" style="top: 66px; left: 46px; animation-delay: 0.8s;"></div>
+    <div class="deco deco-star" style="top: 30px; left: 78px;"></div>
+    <div class="deco deco-star" style="top: 82px; left: 16px; animation-delay: 1.4s;"></div>
+    <div class="deco deco-heart" style="top: 24px; right: 20px; animation-delay: 0.5s;"></div>
+    <div class="deco deco-heart" style="top: 66px; right: 46px; animation-delay: 1.3s;"></div>
+    <div class="deco deco-star" style="top: 30px; right: 78px; animation-delay: 0.6s;"></div>
+    <div class="deco deco-star" style="top: 82px; right: 16px; animation-delay: 2s;"></div>
+    <div class="deco deco-heart" style="bottom: 24px; left: 20px; animation-delay: 1s;"></div>
+    <div class="deco deco-heart" style="bottom: 66px; left: 46px; animation-delay: 1.8s;"></div>
+    <div class="deco deco-star" style="bottom: 30px; left: 78px; animation-delay: 0.9s;"></div>
+    <div class="deco deco-star" style="bottom: 82px; left: 16px; animation-delay: 2.2s;"></div>
+    <div class="deco deco-heart" style="bottom: 24px; right: 20px; animation-delay: 0.3s;"></div>
+    <div class="deco deco-heart" style="bottom: 66px; right: 46px; animation-delay: 1.6s;"></div>
+    <div class="deco deco-star" style="bottom: 30px; right: 78px; animation-delay: 1.1s;"></div>
+    <div class="deco deco-star" style="bottom: 82px; right: 16px; animation-delay: 2.5s;"></div>
+    <div class="container">
+        <div class="header">
+            <h1>酒馆排行榜</h1>
+            <div class="subtitle">全服共 {{totalTaverns}} 家酒馆参与角逐</div>
+        </div>
+
+        {{if userRankings}}
+        <div class="my-rank">
+            <div class="detail-item">
+                <span>我的等级排名：</span>
+                <span>第 {{userRankings.byLevel}} 名</span>
+            </div>
+            <div class="detail-item">
+                <span>我的人气排名：</span>
+                <span>第 {{userRankings.byPopularity}} 名</span>
+            </div>
+            <div class="detail-item">
+                <span>我的收入排名：</span>
+                <span>第 {{userRankings.byIncome}} 名</span>
+            </div>
+        </div>
+        {{/if}}
+
+        <div class="section-title">等级排行</div>
+        {{each rankings.byLevel item $index}}
+        <div class="rank-item">
+            {{if $index < 3}}
+            <div class="rank-badge top">{{$index + 1}}</div>
+            {{else}}
+            <div class="rank-badge">{{$index + 1}}</div>
+            {{/if}}
+            <div class="rank-info">
+                <div class="rank-name">{{item.tavernName}}</div>
+                <div class="rank-owner">店主：{{item.playerName}}（ID：{{item.userId}}）</div>
+            </div>
+            <div class="rank-value">{{item.level}}级</div>
+        </div>
+        {{/each}}
+
+        <div class="section-title">人气排行</div>
+        {{each rankings.byPopularity item $index}}
+        <div class="rank-item">
+            {{if $index < 3}}
+            <div class="rank-badge top">{{$index + 1}}</div>
+            {{else}}
+            <div class="rank-badge">{{$index + 1}}</div>
+            {{/if}}
+            <div class="rank-info">
+                <div class="rank-name">{{item.tavernName}}</div>
+                <div class="rank-owner">店主：{{item.playerName}}（ID：{{item.userId}}）</div>
+            </div>
+            <div class="rank-value">{{item.popularity}}点</div>
+        </div>
+        {{/each}}
+
+        <div class="section-title">收入排行</div>
+        {{each rankings.byIncome item $index}}
+        <div class="rank-item">
+            {{if $index < 3}}
+            <div class="rank-badge top">{{$index + 1}}</div>
+            {{else}}
+            <div class="rank-badge">{{$index + 1}}</div>
+            {{/if}}
+            <div class="rank-info">
+                <div class="rank-name">{{item.tavernName}}</div>
+                <div class="rank-owner">店主：{{item.playerName}}（ID：{{item.userId}}）</div>
+            </div>
+            <div class="rank-value">{{item.totalIncome}}元</div>
+        </div>
+        {{/each}}
+
+        <div class="footer">
+            发送 #参观酒馆 [玩家ID] 参观上榜酒馆，学习高排名酒馆的经营之道
+        </div>
+    </div>
+</body>
+</html>

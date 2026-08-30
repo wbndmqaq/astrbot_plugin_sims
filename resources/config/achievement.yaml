@@ -1,0 +1,238 @@
+categories:
+  - id: daily
+    name: 日常操作
+  - id: event
+    name: 特殊事件
+  - id: collab
+    name: 跨职业协作
+  - id: growth
+    name: 成长突破
+list:
+  - id: work_10
+    name: 初入职场
+    category: daily
+    desc: 累计完成10次工作
+    badge: 职场新星
+    condition:
+      stat: totalWork
+      value: 10
+    reward:
+      money: 200
+  - id: work_50
+    name: 职场达人
+    category: daily
+    desc: 累计完成50次工作
+    badge: 勤劳小蜜蜂
+    condition:
+      stat: totalWork
+      value: 50
+    reward:
+      money: 800
+  - id: work_200
+    name: 工作狂人
+    category: daily
+    desc: 累计完成200次工作
+    badge: 小镇劳模
+    condition:
+      stat: totalWork
+      value: 200
+    reward:
+      money: 3000
+  - id: signin_7
+    name: 周常居民
+    category: daily
+    desc: 连续签到7天
+    badge: 准时打卡
+    condition:
+      stat: signin
+      value: 7
+    reward:
+      money: 500
+  - id: signin_30
+    name: 小镇常客
+    category: daily
+    desc: 连续签到30天
+    badge: 风雨无阻
+    condition:
+      stat: signin
+      value: 30
+    reward:
+      money: 2000
+  - id: rich_10000
+    name: 小有积蓄
+    category: daily
+    desc: 持有金币达到10000
+    badge: 攒钱小能手
+    condition:
+      stat: money
+      value: 10000
+    reward:
+      money: 300
+  - id: rich_100000
+    name: 小镇富豪
+    category: daily
+    desc: 持有金币达到100000
+    badge: 金光闪闪
+    condition:
+      stat: money
+      value: 100000
+    reward:
+      money: 1500
+  - id: backpack_20
+    name: 收藏家
+    category: daily
+    desc: 背包物品达到20件
+    badge: 百宝箱
+    condition:
+      stat: backpackCount
+      value: 20
+    reward:
+      money: 400
+  - id: lottery_first
+    name: 初试手气
+    category: event
+    desc: 完成第一次抽奖
+    badge: 幸运启程
+    condition:
+      stat: lotteryCount
+      value: 1
+    reward:
+      money: 100
+  - id: lottery_rare
+    name: 好运连连
+    category: event
+    desc: 抽中一次稀有及以上奖励
+    badge: 锦鲤附体
+    condition:
+      stat: lotteryRare
+      value: 1
+    reward:
+      money: 500
+  - id: lottery_legendary
+    name: 天选之人
+    category: event
+    desc: 抽中一次传说奖励
+    badge: 欧皇降临
+    condition:
+      stat: lotteryLegendary
+      value: 1
+    reward:
+      money: 2000
+  - id: takeover_first
+    name: 仗义援手
+    category: event
+    desc: 完成一次联动节点承接
+    badge: 可靠队友
+    condition:
+      stat: takeoverDone
+      value: 1
+    reward:
+      money: 300
+  - id: guide_finish
+    name: 毕业礼成
+    category: event
+    desc: 完成全部新手引导
+    badge: 小镇毕业生
+    condition:
+      stat: guideDone
+      value: 1
+    reward:
+      money: 1000
+      items:
+        - name: 抽奖券
+          type: lottery_ticket
+          count: 1
+  - id: collab_1
+    name: 初次联手
+    category: collab
+    desc: 完成第一次职业协作组队
+    badge: 默契起点
+    condition:
+      stat: collabCount
+      value: 1
+    reward:
+      money: 200
+  - id: collab_10
+    name: 协作大师
+    category: collab
+    desc: 累计完成10次职业协作
+    badge: 黄金搭档
+    condition:
+      stat: collabCount
+      value: 10
+    reward:
+      money: 1000
+  - id: chain_1
+    name: 联动新星
+    category: collab
+    desc: 完成1条跨职业联动任务链
+    badge: 联动先锋
+    condition:
+      stat: chainDone
+      value: 1
+    reward:
+      money: 500
+  - id: chain_3
+    name: 联动专家
+    category: collab
+    desc: 完成3条跨职业联动任务链
+    badge: 小镇纽带
+    condition:
+      stat: chainDone
+      value: 3
+    reward:
+      money: 1500
+  - id: takeover_5
+    name: 可靠伙伴
+    category: collab
+    desc: 累计承接5次联动节点
+    badge: 使命必达
+    condition:
+      stat: takeoverDone
+      value: 5
+    reward:
+      money: 800
+  - id: level_5
+    name: 崭露头角
+    category: growth
+    desc: 人物等级达到5级
+    badge: 新星升起
+    condition:
+      stat: level
+      value: 5
+    reward:
+      money: 300
+  - id: level_10
+    name: 小镇精英
+    category: growth
+    desc: 人物等级达到10级
+    badge: 精英认证
+    condition:
+      stat: level
+      value: 10
+    reward:
+      money: 800
+  - id: career_2
+    name: 职级晋升
+    category: growth
+    desc: 职业等级达到2级
+    badge: 稳步上升
+    condition:
+      stat: careerLevel
+      value: 2
+    reward:
+      money: 300
+  - id: career_5
+    name: 行业翘楚
+    category: growth
+    desc: 职业等级达到5级
+    badge: 业界标杆
+    condition:
+      stat: careerLevel
+      value: 5
+    reward:
+      money: 1000
+      items:
+        - name: 大型体力药水
+          type: stamina_potion
+          count: 1

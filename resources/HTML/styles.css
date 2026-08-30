@@ -1,0 +1,98 @@
+body {
+    font-family: 'Quicksand', sans-serif; /* 现代可爱的字体 */
+    background-image: url('https://t.alcy.cc/ycy'); /* 随机可爱卡通女性向背景图 */
+    background-size: cover; /* 背景覆盖整个页面 */
+    background-attachment: fixed; /* 固定背景 */
+    color: #4b0082; /* 深紫色 */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    background: rgba(255, 228, 225, 0.9); /* 半透明白色背景 */
+    border-radius: 20px; /* 圆角 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    text-align: center; /* 段落居中 */
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 10px 0 5px 0;
+    color: rgba(255, 228, 225, 0.9); /* 粉红色 */
+    text-shadow: 2px 2px 4px rgb(0, 0, 0); /* 文字阴影 */
+}
+
+header p {
+    font-size: 1.2em;
+    color: #555; /* 浅灰色文字 */
+}
+
+.movie-list {
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.movie-item {
+    background: rgba(255, 228, 225, 0.9); /* 半透明的粉色背景 */
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s; /* 放大效果 */
+}
+
+.movie-item:hover {
+    transform: scale(1.02); /* 放大效果 */
+}
+
+.movie-title {
+    font-size: 1.5em;
+    color: #ff1493; /* 酷色粉红色 */
+    transition: color 0.3s; /* 文字颜色过渡效果 */
+}
+
+.movie-item:hover .movie-title {
+    color: #ff75a0; /* 悬停时变色 */
+}
+
+.load-button, .button-group button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #fff0f6; /* 浅粉色 */
+    color: #ff4c40;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin: 10px 0;
+    transition: background-color 0.3s, transform 0.3s; /* 按钮特效 */
+}
+
+.load-button:hover, .button-group button:hover {
+    background-color: rgba(255, 20, 147, 0.8); /* 深粉色 */
+    transform: translateY(-3px); /* 按钮上移效果 */
+}
+
+.output {
+    font-size: 1.6em;
+    background: #ead7e0(255, 240, 245, 0.9); /* 浅粉色背景 */
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    white-space: pre-wrap; /* 保持换行 */
+    border: 1px solid #ff69b4; /* 粉红色边框 */
+    transition: border-color 0.3s; /* 边框颜色过渡 */
+}
+
+.output:hover {
+    border-color: #ecd5ee; /* 悬停时变色 */
+}
+
+h2 {
+    margin-top: 20px;
+    color: #e91e63; /* 可爱的颜色 */
+}

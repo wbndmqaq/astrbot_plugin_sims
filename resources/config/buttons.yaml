@@ -1,0 +1,507 @@
+default:
+  - - text: 每日签到
+      input: '#模拟人生签到'
+    - text: 我的信息
+      input: '#模拟人生信息'
+    - text: 新手引导
+      input: '#新手引导'
+    - text: 职业列表
+      input: '#模拟人生职业列表'
+  - - text: 我的农场
+      input: '#我的农场'
+    - text: 开始钓鱼
+      input: '#开始钓鱼'
+    - text: 电影院
+      input: '#电影院信息'
+    - text: 酒馆
+      input: '#酒馆系统'
+  - - text: 网吧
+      input: '#网吧信息'
+    - text: 商店
+      input: '#商店列表'
+    - text: 房产
+      input: '#房产市场'
+    - text: 股市
+      input: '#股市'
+  - - text: 我的成就
+      input: '#我的成就'
+    - text: 抽奖
+      input: '#抽奖'
+    - text: 功能菜单
+      input: '#模拟人生菜单'
+    - text: 帮助
+      input: '#模拟人生帮助'
+modules:
+  - name: player
+    match: '^#(开始模拟人生|设置性别|模拟人生改名|模拟人生签到|模拟人生信息|模拟人生查看头像馆|设置模拟人生头像|模拟人生修改签名|体力药水)'
+    rows:
+      - - text: 开始游戏
+          input: '#开始模拟人生'
+        - text: 每日签到
+          input: '#模拟人生签到'
+        - text: 我的信息
+          input: '#模拟人生信息'
+        - text: 新手引导
+          input: '#新手引导'
+      - - text: 设置性别
+          input: '#设置性别'
+        - text: 改名
+          input: '#模拟人生改名'
+        - text: 修改签名
+          input: '#模拟人生修改签名'
+        - text: 引导进度
+          input: '#引导进度'
+      - - text: 头像馆
+          input: '#模拟人生查看头像馆'
+        - text: 设置头像
+          input: '#设置模拟人生头像'
+        - text: 购买体力药水
+          input: '#购买体力药水'
+        - text: 食用体力药水
+          input: '#食用体力药水'
+      - - text: 体力药水
+          input: '#查看体力药水'
+        - text: 我的背包
+          input: '#背包'
+        - text: 抽奖
+          input: '#抽奖'
+        - text: 帮助
+          input: '#模拟人生帮助'
+  - name: guide
+    match: '^#(新手引导|引导下一步|引导进度|跳过引导)'
+    rows:
+      - - text: 开始引导
+          input: '#新手引导'
+        - text: 下一步
+          input: '#引导下一步'
+        - text: 引导进度
+          input: '#引导进度'
+        - text: 跳过引导
+          input: '#跳过引导'
+      - - text: 开始游戏
+          input: '#开始模拟人生'
+        - text: 每日签到
+          input: '#模拟人生签到'
+        - text: 我的信息
+          input: '#模拟人生信息'
+        - text: 设置性别
+          input: '#设置性别'
+      - - text: 职业列表
+          input: '#模拟人生职业列表'
+        - text: 创建农场
+          input: '#创建农场'
+        - text: 开始钓鱼
+          input: '#开始钓鱼'
+        - text: 商店
+          input: '#商店列表'
+      - - text: 房产市场
+          input: '#房产市场'
+        - text: 股市
+          input: '#股市'
+        - text: 抽奖
+          input: '#抽奖'
+        - text: 帮助
+          input: '#模拟人生帮助'
+  - name: careers
+    match: '^#(模拟人生职业列表|选择职业|职业信息|开始工作|职业升级|学习技能|职业技能|辞职|治疗病人|诊断|烹饪|研发菜品|灭火|救援|巡逻|破案|发起协作|响应协作|职业协作|解除协作|联动任务|完成联动节点|联动委托|承接联动节点)'
+    rows:
+      - - text: 职业列表
+          input: '#模拟人生职业列表'
+        - text: 选择职业
+          input: '#选择职业'
+        - text: 职业信息
+          input: '#职业信息'
+        - text: 开始工作
+          input: '#开始工作'
+        - text: 辞职
+          input: '#辞职'
+      - - text: 职业升级
+          input: '#职业升级'
+        - text: 学习技能
+          input: '#学习技能'
+        - text: 职业技能
+          input: '#职业技能'
+        - text: 发起协作
+          input: '#发起协作'
+        - text: 响应协作
+          input: '#响应协作'
+      - - text: 职业协作
+          input: '#职业协作'
+        - text: 解除协作
+          input: '#解除协作'
+        - text: 联动任务
+          input: '#联动任务'
+        - text: 完成联动节点
+          input: '#完成联动节点'
+        - text: 联动委托
+          input: '#联动委托'
+      - - text: 承接联动节点
+          input: '#承接联动节点'
+        - text: 治疗病人
+          input: '#治疗病人'
+        - text: 诊断
+          input: '#诊断'
+        - text: 烹饪
+          input: '#烹饪'
+        - text: 研发菜品
+          input: '#研发菜品'
+      - - text: 灭火
+          input: '#灭火'
+        - text: 救援
+          input: '#救援'
+        - text: 巡逻
+          input: '#巡逻'
+        - text: 破案
+          input: '#破案'
+        - text: 帮助
+          input: '#模拟人生帮助'
+  - name: fishing
+    match: '^#(开始钓鱼|收杆|升级鱼竿|升级鱼饵|查看鱼篓|出售鱼获|钓鱼排行|钓鱼商店|购买装备|钓鱼攻略)'
+    rows:
+      - - text: 开始钓鱼
+          input: '#开始钓鱼'
+        - text: 收杆
+          input: '#收杆'
+        - text: 查看鱼篓
+          input: '#查看鱼篓'
+        - text: 出售鱼获
+          input: '#出售鱼获'
+      - - text: 钓鱼商店
+          input: '#钓鱼商店'
+        - text: 购买装备
+          input: '#购买装备'
+        - text: 升级鱼竿
+          input: '#升级鱼竿'
+        - text: 升级鱼饵
+          input: '#升级鱼饵'
+      - - text: 钓鱼排行
+          input: '#钓鱼排行'
+        - text: 钓鱼攻略
+          input: '#钓鱼攻略'
+        - text: 我的背包
+          input: '#背包'
+        - text: 商店
+          input: '#商店列表'
+      - - text: 每日签到
+          input: '#模拟人生签到'
+        - text: 我的信息
+          input: '#模拟人生信息'
+        - text: 抽奖
+          input: '#抽奖'
+        - text: 帮助
+          input: '#模拟人生帮助'
+  - name: tavern
+    match: '^#(酒馆系统|创建酒馆|酒馆信息|酒馆菜单|酒馆市场|购买酒馆物资|添加饮品|移除饮品|营业酒馆|升级酒馆|酒馆员工|雇佣员工|解雇员工|酒馆排行|参观酒馆)'
+    rows:
+      - - text: 酒馆系统
+          input: '#酒馆系统'
+        - text: 创建酒馆
+          input: '#创建酒馆'
+        - text: 酒馆信息
+          input: '#酒馆信息'
+        - text: 营业酒馆
+          input: '#营业酒馆'
+      - - text: 酒馆菜单
+          input: '#酒馆菜单'
+        - text: 添加饮品
+          input: '#添加饮品'
+        - text: 移除饮品
+          input: '#移除饮品'
+        - text: 酒馆市场
+          input: '#酒馆市场'
+      - - text: 购买物资
+          input: '#购买酒馆物资'
+        - text: 升级酒馆
+          input: '#升级酒馆'
+        - text: 酒馆员工
+          input: '#酒馆员工'
+        - text: 雇佣员工
+          input: '#雇佣员工'
+      - - text: 解雇员工
+          input: '#解雇员工'
+        - text: 参观酒馆
+          input: '#参观酒馆'
+        - text: 酒馆排行
+          input: '#酒馆排行'
+        - text: 帮助
+          input: '#模拟人生帮助'
+  - name: farm
+    match: '^#(创建农场|我的农场|购买农田|升级农田|农场商店|购买种子|购买农具|种植|浇水|施肥|收获|农场日志|农场季节|农场攻略)'
+    rows:
+      - - text: 创建农场
+          input: '#创建农场'
+        - text: 我的农场
+          input: '#我的农场'
+        - text: 农场攻略
+          input: '#农场攻略'
+        - text: 农场季节
+          input: '#农场季节'
+      - - text: 购买农田
+          input: '#购买农田'
+        - text: 升级农田
+          input: '#升级农田'
+        - text: 农场商店
+          input: '#农场商店'
+        - text: 购买种子
+          input: '#购买种子'
+      - - text: 购买农具
+          input: '#购买农具'
+        - text: 种植
+          input: '#种植'
+        - text: 浇水
+          input: '#浇水'
+        - text: 施肥
+          input: '#施肥'
+      - - text: 收获
+          input: '#收获'
+        - text: 农场日志
+          input: '#农场日志'
+        - text: 我的背包
+          input: '#背包'
+        - text: 帮助
+          input: '#模拟人生帮助'
+  - name: cinema
+    match: '^#(购买电影院|电影院信息|购买影厅|升级影厅|购买电影|排片|购买设施|雇佣员工|培训员工|电影院攻略|电影院排行榜)'
+    rows:
+      - - text: 购买电影院
+          input: '#购买电影院'
+        - text: 电影院信息
+          input: '#电影院信息'
+        - text: 购买影厅
+          input: '#购买影厅'
+        - text: 升级影厅
+          input: '#升级影厅'
+      - - text: 购买电影
+          input: '#购买电影'
+        - text: 排片
+          input: '#排片'
+        - text: 购买设施
+          input: '#购买设施'
+        - text: 雇佣员工
+          input: '#雇佣员工'
+      - - text: 培训员工
+          input: '#培训员工'
+        - text: 电影院攻略
+          input: '#电影院攻略'
+        - text: 电影院排行榜
+          input: '#电影院排行榜'
+        - text: 我的信息
+          input: '#模拟人生信息'
+      - - text: 酒馆
+          input: '#酒馆系统'
+        - text: 网吧
+          input: '#网吧信息'
+        - text: 抽奖
+          input: '#抽奖'
+        - text: 帮助
+          input: '#模拟人生帮助'
+  - name: netbar
+    match: '^#(创建网吧|网吧信息|网吧升级|购买设备|进货|库存查询|开设包间|雇佣员工|解雇员工)'
+    rows:
+      - - text: 创建网吧
+          input: '#创建网吧'
+        - text: 网吧信息
+          input: '#网吧信息'
+        - text: 网吧升级
+          input: '#网吧升级'
+        - text: 开设包间
+          input: '#开设包间'
+      - - text: 购买设备
+          input: '#购买设备'
+        - text: 进货
+          input: '#进货'
+        - text: 库存查询
+          input: '#库存查询'
+        - text: 雇佣员工
+          input: '#雇佣员工'
+      - - text: 解雇员工
+          input: '#解雇员工'
+        - text: 酒馆
+          input: '#酒馆系统'
+        - text: 电影院
+          input: '#电影院信息'
+        - text: 我的信息
+          input: '#模拟人生信息'
+      - - text: 每日签到
+          input: '#模拟人生签到'
+        - text: 商店
+          input: '#商店列表'
+        - text: 抽奖
+          input: '#抽奖'
+        - text: 帮助
+          input: '#模拟人生帮助'
+  - name: stock
+    match: '^#(股市|买入股票|卖出股票|我的股票|股票攻略)'
+    rows:
+      - - text: 股市行情
+          input: '#股市'
+        - text: 买入股票
+          input: '#买入股票'
+        - text: 卖出股票
+          input: '#卖出股票'
+        - text: 我的股票
+          input: '#我的股票'
+      - - text: 股票攻略
+          input: '#股票攻略'
+        - text: 我的信息
+          input: '#模拟人生信息'
+        - text: 每日签到
+          input: '#模拟人生签到'
+        - text: 抽奖
+          input: '#抽奖'
+      - - text: 房产市场
+          input: '#房产市场'
+        - text: 商店
+          input: '#商店列表'
+        - text: 我的背包
+          input: '#背包'
+        - text: 开始工作
+          input: '#开始工作'
+      - - text: 我的成就
+          input: '#我的成就'
+        - text: 新手引导
+          input: '#新手引导'
+        - text: 功能菜单
+          input: '#模拟人生菜单'
+        - text: 帮助
+          input: '#模拟人生帮助'
+  - name: estate
+    match: '^#(房产市场|购买房产|出售房产|房产信息|装修房产|出租房产)'
+    rows:
+      - - text: 房产市场
+          input: '#房产市场'
+        - text: 购买房产
+          input: '#购买房产'
+        - text: 出售房产
+          input: '#出售房产'
+        - text: 房产信息
+          input: '#房产信息'
+      - - text: 装修房产
+          input: '#装修房产'
+        - text: 出租房产
+          input: '#出租房产'
+        - text: 我的信息
+          input: '#模拟人生信息'
+        - text: 每日签到
+          input: '#模拟人生签到'
+      - - text: 股市
+          input: '#股市'
+        - text: 商店
+          input: '#商店列表'
+        - text: 抽奖
+          input: '#抽奖'
+        - text: 我的成就
+          input: '#我的成就'
+      - - text: 我的背包
+          input: '#背包'
+        - text: 职业列表
+          input: '#模拟人生职业列表'
+        - text: 开始工作
+          input: '#开始工作'
+        - text: 帮助
+          input: '#模拟人生帮助'
+  - name: achievement
+    match: '^#(我的成就|成就列表|领取成就奖励)'
+    rows:
+      - - text: 我的成就
+          input: '#我的成就'
+        - text: 成就列表
+          input: '#成就列表'
+        - text: 领取成就奖励
+          input: '#领取成就奖励'
+        - text: 帮助
+          input: '#模拟人生帮助'
+      - - text: 每日签到
+          input: '#模拟人生签到'
+        - text: 开始钓鱼
+          input: '#开始钓鱼'
+        - text: 开始工作
+          input: '#开始工作'
+        - text: 收获
+          input: '#收获'
+      - - text: 抽奖
+          input: '#抽奖'
+        - text: 职业升级
+          input: '#职业升级'
+        - text: 升级酒馆
+          input: '#升级酒馆'
+        - text: 网吧升级
+          input: '#网吧升级'
+      - - text: 我的信息
+          input: '#模拟人生信息'
+        - text: 新手引导
+          input: '#新手引导'
+        - text: 功能菜单
+          input: '#模拟人生菜单'
+        - text: 商店
+          input: '#商店列表'
+  - name: lottery
+    match: '^#(抽奖|模拟人生十连抽|奖池预览|抽奖记录|我的保底)'
+    rows:
+      - - text: 单抽
+          input: '#抽奖'
+        - text: 十连抽
+          input: '#模拟人生十连抽'
+        - text: 奖池预览
+          input: '#奖池预览'
+        - text: 我的保底
+          input: '#我的保底'
+      - - text: 抽奖记录
+          input: '#抽奖记录'
+        - text: 每日签到
+          input: '#模拟人生签到'
+        - text: 我的信息
+          input: '#模拟人生信息'
+        - text: 我的背包
+          input: '#背包'
+      - - text: 商店
+          input: '#商店列表'
+        - text: 我的成就
+          input: '#我的成就'
+        - text: 开始钓鱼
+          input: '#开始钓鱼'
+        - text: 股市
+          input: '#股市'
+      - - text: 房产市场
+          input: '#房产市场'
+        - text: 新手引导
+          input: '#新手引导'
+        - text: 功能菜单
+          input: '#模拟人生菜单'
+        - text: 帮助
+          input: '#模拟人生帮助'
+  - name: shops
+    match: '^#(商店列表|进入商店|购买|背包|使用|装备|查看装备|商品搜索)'
+    rows:
+      - - text: 商店列表
+          input: '#商店列表'
+        - text: 进入商店
+          input: '#进入商店'
+        - text: 商品搜索
+          input: '#商品搜索'
+        - text: 购买物品
+          input: '#购买'
+      - - text: 我的背包
+          input: '#背包'
+        - text: 使用物品
+          input: '#使用'
+        - text: 装备物品
+          input: '#装备'
+        - text: 查看装备
+          input: '#查看装备'
+      - - text: 农场商店
+          input: '#农场商店'
+        - text: 钓鱼商店
+          input: '#钓鱼商店'
+        - text: 酒馆市场
+          input: '#酒馆市场'
+        - text: 购买体力药水
+          input: '#购买体力药水'
+      - - text: 每日签到
+          input: '#模拟人生签到'
+        - text: 我的信息
+          input: '#模拟人生信息'
+        - text: 抽奖
+          input: '#抽奖'
+        - text: 帮助
+          input: '#模拟人生帮助'

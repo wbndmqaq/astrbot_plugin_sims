@@ -1,0 +1,135 @@
+{
+    "rods": [
+        {
+            "id": "rod_01",
+            "name": "新手竹竿",
+            "level": 1,
+            "price": 0,
+            "success_rate": 60,
+            "durability": 100,
+            "upgrade_cost": 1000,
+            "description": "适合新手使用的基础鱼竿"
+        },
+        {
+            "id": "rod_02",
+            "name": "进阶木竿",
+            "level": 2,
+            "price": 2000,
+            "success_rate": 70,
+            "durability": 150,
+            "upgrade_cost": 3000,
+            "description": "稍微提升了成功率的木制鱼竿"
+        },
+        {
+            "id": "rod_03",
+            "name": "碳素鱼竿",
+            "level": 3,
+            "price": 5000,
+            "success_rate": 80,
+            "durability": 200,
+            "upgrade_cost": 8000,
+            "description": "专业级别的碳素鱼竿"
+        },
+        {
+            "id": "rod_04",
+            "name": "合金鱼竿",
+            "level": 4,
+            "price": 10000,
+            "success_rate": 90,
+            "durability": 300,
+            "upgrade_cost": 15000,
+            "description": "高级合金打造的优质鱼竿"
+        },
+        {
+            "id": "rod_05",
+            "name": "神龙鱼竿",
+            "level": 5,
+            "price": 20000,
+            "success_rate": 95,
+            "durability": 500,
+            "upgrade_cost": 0,
+            "description": "传说中的神器，可以钓上任何鱼"
+        }
+    ],
+    "baits": [
+        {
+            "id": "bait_01",
+            "name": "面包屑",
+            "level": 1,
+            "price": 10,
+            "attract_rate": 60,
+            "upgrade_cost": 500,
+            "description": "最基础的鱼饵"
+        },
+        {
+            "id": "bait_02",
+            "name": "蚯蚓",
+            "level": 2,
+            "price": 50,
+            "attract_rate": 70,
+            "upgrade_cost": 1000,
+            "description": "比较受鱼类欢迎的天然鱼饵"
+        },
+        {
+            "id": "bait_03",
+            "name": "玉米粒",
+            "level": 3,
+            "price": 100,
+            "attract_rate": 80,
+            "upgrade_cost": 2000,
+            "description": "效果不错的植物性鱼饵"
+        },
+        {
+            "id": "bait_04",
+            "name": "虾仁",
+            "level": 4,
+            "price": 200,
+            "attract_rate": 90,
+            "upgrade_cost": 4000,
+            "description": "高级鱼饵，很受大鱼欢迎"
+        },
+        {
+            "id": "bait_05",
+            "name": "仙灵鱼饵",
+            "level": 5,
+            "price": 500,
+            "attract_rate": 95,
+            "upgrade_cost": 0,
+            "description": "传说中的鱼饵，可以吸引任何鱼类"
+        }
+    ],
+    "baskets": [
+        {
+            "id": "basket_01",
+            "name": "小鱼篓",
+            "capacity": 5,
+            "freshness_bonus": 0,
+            "price": 1000,
+            "description": "可以存放少量鱼类的基础鱼篓"
+        },
+        {
+            "id": "basket_02",
+            "name": "中型鱼篓",
+            "capacity": 10,
+            "freshness_bonus": 1800,
+            "price": 3000,
+            "description": "容量适中的鱼篓，稍微延长保鲜时间"
+        },
+        {
+            "id": "basket_03",
+            "name": "大号鱼篓",
+            "capacity": 20,
+            "freshness_bonus": 3600,
+            "price": 8000,
+            "description": "大容量鱼篓，明显延长保鲜时间"
+        },
+        {
+            "id": "basket_04",
+            "name": "保鲜鱼篓",
+            "capacity": 30,
+            "freshness_bonus": 7200,
+            "price": 15000,
+            "description": "带有保鲜功能的高级鱼篓"
+        }
+    ]
+}

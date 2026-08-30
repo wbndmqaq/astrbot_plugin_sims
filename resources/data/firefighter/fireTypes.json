@@ -1,0 +1,166 @@
+{
+  "普通火灾": {
+    "id": "fire_normal",
+    "name": "普通火灾",
+    "description": "一般的建筑或物品起火，难度较低",
+    "difficulty": 1,
+    "danger": 1,
+    "waterRequired": 500,
+    "timeLimit": 300,
+    "xpReward": 50,
+    "moneyReward": 100,
+    "equipment": [
+      "基础消防服",
+      "消防水带",
+      "防毒面具"
+    ],
+    "skills": [
+      "基础灭火",
+      "火灾侦察"
+    ],
+    "minRank": "消防员",
+    "casualties": {
+      "min": 0,
+      "max": 2
+    },
+    "possibleCauses": [
+      "电器短路",
+      "明火引燃",
+      "烟头",
+      "厨房油锅"
+    ]
+  },
+  "工厂火灾": {
+    "id": "fire_factory",
+    "name": "工厂火灾",
+    "description": "工厂起火，可能有化学物质，难度中等",
+    "difficulty": 3,
+    "danger": 4,
+    "waterRequired": 1500,
+    "timeLimit": 600,
+    "xpReward": 150,
+    "moneyReward": 300,
+    "equipment": [
+      "防化服",
+      "空气呼吸器",
+      "热成像仪",
+      "消防水炮"
+    ],
+    "skills": [
+      "化学火灾扑救",
+      "火场搜救",
+      "高温环境适应"
+    ],
+    "minRank": "消防班长",
+    "casualties": {
+      "min": 1,
+      "max": 8
+    },
+    "possibleCauses": [
+      "化学品泄漏",
+      "机械摩擦",
+      "电气故障",
+      "易燃品储存不当"
+    ]
+  },
+  "高层建筑火灾": {
+    "id": "fire_highrise",
+    "name": "高层建筑火灾",
+    "description": "高层建筑起火，疏散困难，环境复杂",
+    "difficulty": 4,
+    "danger": 4,
+    "waterRequired": 2000,
+    "timeLimit": 900,
+    "xpReward": 200,
+    "moneyReward": 400,
+    "equipment": [
+      "高层灭火装备",
+      "登高器械",
+      "便携式水泵",
+      "消防绳索"
+    ],
+    "skills": [
+      "高空救援",
+      "垂直疏散",
+      "楼层火灾扑救"
+    ],
+    "minRank": "消防班长",
+    "casualties": {
+      "min": 2,
+      "max": 15
+    },
+    "possibleCauses": [
+      "电气线路老化",
+      "易燃装修材料",
+      "明火引燃",
+      "纵火"
+    ]
+  },
+  "森林火灾": {
+    "id": "fire_forest",
+    "name": "森林火灾",
+    "description": "森林地区大面积起火，影响范围广，扑救难度大",
+    "difficulty": 5,
+    "danger": 5,
+    "waterRequired": 5000,
+    "timeLimit": 1800,
+    "xpReward": 300,
+    "moneyReward": 600,
+    "equipment": [
+      "森林消防装备",
+      "风力灭火机",
+      "大型水炮",
+      "森林消防车"
+    ],
+    "skills": [
+      "野外生存",
+      "自然环境火灾扑救",
+      "火场指挥"
+    ],
+    "minRank": "消防队长",
+    "casualties": {
+      "min": 0,
+      "max": 5
+    },
+    "possibleCauses": [
+      "雷击",
+      "烧荒失火",
+      "野炊",
+      "香烟烟头"
+    ]
+  },
+  "危险品仓库火灾": {
+    "id": "fire_hazardous",
+    "name": "危险品仓库火灾",
+    "description": "存放危险化学品仓库起火，爆炸风险高，极度危险",
+    "difficulty": 5,
+    "danger": 5,
+    "waterRequired": 3000,
+    "timeLimit": 1200,
+    "xpReward": 350,
+    "moneyReward": 700,
+    "equipment": [
+      "全套防化服",
+      "高级空气呼吸器",
+      "化学泡沫灭火器",
+      "防爆仪器"
+    ],
+    "skills": [
+      "危险品处理",
+      "化学火灾扑救",
+      "指挥协调",
+      "火场侦察"
+    ],
+    "minRank": "消防队长",
+    "casualties": {
+      "min": 2,
+      "max": 20
+    },
+    "possibleCauses": [
+      "化学反应",
+      "存储不当",
+      "温度过高",
+      "易燃品混放"
+    ]
+  }
+}

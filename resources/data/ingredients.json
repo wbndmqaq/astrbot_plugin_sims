@@ -1,0 +1,258 @@
+{
+    "ingredients": [
+        {
+            "id": "tomato",
+            "name": "番茄",
+            "category": "蔬菜",
+            "price": 2,
+            "unit": "个",
+            "freshness": 5,
+            "description": "新鲜红润的番茄"
+        },
+        {
+            "id": "egg",
+            "name": "鸡蛋",
+            "category": "主料",
+            "price": 1.5,
+            "unit": "个",
+            "freshness": 7,
+            "description": "农场新鲜鸡蛋"
+        },
+        {
+            "id": "chicken",
+            "name": "鸡肉",
+            "category": "肉类",
+            "price": 15,
+            "unit": "斤",
+            "freshness": 3,
+            "description": "新鲜去骨鸡肉"
+        },
+        {
+            "id": "peanut",
+            "name": "花生",
+            "category": "干货",
+            "price": 8,
+            "unit": "斤",
+            "freshness": 30,
+            "description": "优质花生"
+        },
+        {
+            "id": "strawberry",
+            "name": "草莓",
+            "category": "水果",
+            "price": 15,
+            "unit": "盒",
+            "freshness": 4,
+            "description": "甜美多汁的草莓"
+        },
+        {
+            "id": "cream",
+            "name": "淡奶油",
+            "category": "乳制品",
+            "price": 20,
+            "unit": "盒",
+            "freshness": 7,
+            "description": "优质淡奶油"
+        },
+        {
+            "id": "green_onion",
+            "name": "葱花",
+            "category": "调味料",
+            "price": 1,
+            "unit": "束",
+            "freshness": 3,
+            "description": "新鲜香葱切碎"
+        },
+        {
+            "id": "cucumber",
+            "name": "黄瓜",
+            "category": "蔬菜",
+            "price": 2,
+            "unit": "根",
+            "freshness": 4,
+            "description": "脆嫩多汁的黄瓜"
+        },
+        {
+            "id": "sauce_set",
+            "name": "调味料",
+            "category": "调味料",
+            "price": 10,
+            "unit": "份",
+            "freshness": 30,
+            "description": "烹饪必备调味料组合"
+        },
+        {
+            "id": "gelatin",
+            "name": "吉利丁",
+            "category": "烘焙原料",
+            "price": 15,
+            "unit": "包",
+            "freshness": 180,
+            "description": "用于慕斯等甜点的固化剂"
+        },
+        {
+            "id": "sugar",
+            "name": "糖",
+            "category": "调味料",
+            "price": 5,
+            "unit": "包",
+            "freshness": 365,
+            "description": "细砂糖"
+        },
+        {
+            "id": "rice",
+            "name": "大米",
+            "category": "主料",
+            "price": 10,
+            "unit": "斤",
+            "freshness": 180,
+            "description": "优质东北大米"
+        },
+        {
+            "id": "beef",
+            "name": "牛肉",
+            "category": "肉类",
+            "price": 30,
+            "unit": "斤",
+            "freshness": 3,
+            "description": "鲜嫩牛肉"
+        },
+        {
+            "id": "pork",
+            "name": "猪肉",
+            "category": "肉类",
+            "price": 20,
+            "unit": "斤",
+            "freshness": 3,
+            "description": "新鲜猪肉"
+        },
+        {
+            "id": "fish",
+            "name": "鱼",
+            "category": "海鲜",
+            "price": 25,
+            "unit": "条",
+            "freshness": 2,
+            "description": "新鲜活鱼"
+        },
+        {
+            "id": "shrimp",
+            "name": "虾",
+            "category": "海鲜",
+            "price": 35,
+            "unit": "斤",
+            "freshness": 2,
+            "description": "鲜活大虾"
+        },
+        {
+            "id": "potato",
+            "name": "土豆",
+            "category": "蔬菜",
+            "price": 3,
+            "unit": "个",
+            "freshness": 14,
+            "description": "新鲜土豆"
+        },
+        {
+            "id": "carrot",
+            "name": "胡萝卜",
+            "category": "蔬菜",
+            "price": 2.5,
+            "unit": "根",
+            "freshness": 10,
+            "description": "新鲜胡萝卜"
+        },
+        {
+            "id": "onion",
+            "name": "洋葱",
+            "category": "蔬菜",
+            "price": 3,
+            "unit": "个",
+            "freshness": 14,
+            "description": "新鲜洋葱"
+        },
+        {
+            "id": "garlic",
+            "name": "大蒜",
+            "category": "调味料",
+            "price": 5,
+            "unit": "头",
+            "freshness": 21,
+            "description": "大蒜头"
+        },
+        {
+            "id": "ginger",
+            "name": "生姜",
+            "category": "调味料",
+            "price": 3,
+            "unit": "块",
+            "freshness": 14,
+            "description": "新鲜姜块"
+        },
+        {
+            "id": "flour",
+            "name": "面粉",
+            "category": "主料",
+            "price": 8,
+            "unit": "斤",
+            "freshness": 90,
+            "description": "高筋面粉"
+        },
+        {
+            "id": "tofu",
+            "name": "豆腐",
+            "category": "主料",
+            "price": 4,
+            "unit": "块",
+            "freshness": 3,
+            "description": "嫩滑豆腐"
+        },
+        {
+            "id": "mushroom",
+            "name": "蘑菇",
+            "category": "蔬菜",
+            "price": 12,
+            "unit": "盒",
+            "freshness": 5,
+            "description": "新鲜蘑菇"
+        },
+        {
+            "id": "apple",
+            "name": "苹果",
+            "category": "水果",
+            "price": 5,
+            "unit": "个",
+            "freshness": 10,
+            "description": "红润鲜甜的苹果"
+        },
+        {
+            "id": "pepper",
+            "name": "青椒",
+            "category": "蔬菜",
+            "price": 3,
+            "unit": "个",
+            "freshness": 7,
+            "description": "脆嫩青椒"
+        },
+        {
+            "id": "chili",
+            "name": "辣椒",
+            "category": "调味料",
+            "price": 3,
+            "unit": "个",
+            "freshness": 7,
+            "description": "鲜红辣椒"
+        }
+    ],
+    "categories": [
+        "主料",
+        "肉类",
+        "蔬菜",
+        "水果",
+        "干货",
+        "调味料",
+        "乳制品",
+        "海鲜",
+        "烘焙原料"
+    ]
+}

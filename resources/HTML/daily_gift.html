@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: miaomiao;
+            src: url(./也字工厂喵喵体.ttf);
+        }
+        .deco {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.5;
+            z-index: 0;
+        }
+        .deco-heart {
+            width: 24px;
+            height: 22px;
+            background: #ffb7d5;
+            clip-path: polygon(50% 100%, 0 35%, 25% 0, 50% 20%, 75% 0, 100% 35%);
+            animation: floatUp 3.5s ease-in-out infinite;
+        }
+        .deco-star {
+            width: 26px;
+            height: 26px;
+            background: #ffd98e;
+            clip-path: polygon(50% 0%,63% 35%,100% 38%,71% 60%,82% 100%,50% 76%,18% 100%,29% 60%,0% 38%,37% 35%);
+            animation: twinkle 2s ease-in-out infinite;
+        }
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.15); }
+        }
+        body {
+            font-family: miaomiao, sans-serif;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            color: #7a3b5c;
+        }
+        .gift-container {
+            background: rgba(255,255,255,0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(255,133,183,0.3);
+            z-index: 1;
+        }
+        .gift-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 143, 191, 0.08), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+        .title {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #e75490;
+            font-family: miaomiao, sans-serif;
+            position: relative;
+            animation: neonGlow 2s infinite;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #b07a95;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .reward-section {
+            background: #fff0f7;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+            border: 1px solid #ffd3e6;
+        }
+        .reward-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            margin: 10px 0;
+            background: #fff8fb;
+            border-radius: 15px;
+            border: 1px solid #ffd3e6;
+            position: relative;
+            overflow: hidden;
+        }
+        .reward-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 143, 191, 0.15), transparent);
+            animation: scanline 2s infinite;
+        }
+        .reward-name {
+            font-size: 20px;
+            color: #d63384;
+            display: flex;
+            align-items: center;
+        }
+        .reward-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #b07a95;
+            text-shadow: 0 0 10px rgba(255, 143, 191, 0.35);
+        }
+        .streak-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff0f7;
+            border-radius: 15px;
+            position: relative;
+            border: 1px solid #ffd3e6;
+        }
+        .streak-number {
+            font-size: 36px;
+            color: #e75490;
+            margin: 10px 0;
+            text-shadow: 0 0 15px rgba(255, 143, 191, 0.4);
+        }
+        .total-reward {
+            font-size: 28px;
+            color: #d63384;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .cute-decoration {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.6;
+            animation: float 3s infinite ease-in-out;
+            color: #ff8fbf;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #d63384;
+            opacity: 0.8;
+        }
+        @keyframes neonGlow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(255,143,191,0.5),
+                             0 0 20px rgba(255,143,191,0.4),
+                             0 0 30px rgba(255,143,191,0.3);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255,143,191,0.7),
+                             0 0 40px rgba(255,143,191,0.5),
+                             0 0 60px rgba(255,143,191,0.4);
+            }
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        @keyframes scanline {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .hologram-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(255,143,191,0.06) 0%,
+                transparent 1px,
+                transparent 2px,
+                rgba(255,143,191,0.06) 3px
+            );
+            pointer-events: none;
+            animation: hologram 10s infinite linear;
+        }
+        @keyframes hologram {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); }
+        }
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+    <div class="deco deco-heart" style="top: 40px; left: 6%;"></div>
+    <div class="deco deco-heart" style="top: 130px; right: 8%;"></div>
+    <div class="deco deco-star" style="top: 220px; left: 10%;"></div>
+    <div class="deco deco-heart" style="bottom: 90px; right: 10%;"></div>
+    <div class="deco deco-star" style="bottom: 170px; left: 8%;"></div>
+    <div class="gift-container">
+        <div class="hologram-effect"></div>
+        <div class="cute-decoration" style="top: 20px; left: 20px;">✧</div>
+        <div class="cute-decoration" style="top: 20px; right: 20px; animation-delay: 1s;">⚡</div>
+        <div class="cute-decoration" style="bottom: 20px; left: 20px; animation-delay: 1.5s;">✦</div>
+        <div class="cute-decoration" style="bottom: 20px; right: 20px; animation-delay: 0.5s;">⭐</div>
+        
+        <div class="title">DAILY REWARDS</div>
+        <div class="subtitle">{{un}} 的签到奖励已到账</div>
+
+        <div class="reward-section">
+            <div class="reward-item">
+                <div class="reward-name">⚡ 基础金币</div>
+                <div class="reward-value">+{{br}}</div>
+            </div>
+            <div class="reward-item">
+                <div class="reward-name">🔥 连签加成</div>
+                <div class="reward-value">+{{cb}}</div>
+            </div>
+            <div class="reward-item">
+                <div class="reward-name">💎 随机奖励</div>
+                <div class="reward-value">+{{rb}}</div>
+            </div>
+            <div class="reward-item">
+                <div class="reward-name">✧ 体力恢复</div>
+                <div class="reward-value">+{{sb}}</div>
+            </div>
+            <div class="reward-item">
+                <div class="reward-name">✦ 心情提升</div>
+                <div class="reward-value">+{{hb}}</div>
+            </div>
+            <div class="reward-item">
+                <div class="reward-name">🍞 饱食恢复</div>
+                <div class="reward-value">+{{hgb}}</div>
+            </div>
+            <div class="reward-item">
+                <div class="reward-name">💧 水分恢复</div>
+                <div class="reward-value">+{{tb}}</div>
+            </div>
+        </div>
+
+        <div class="total-reward">
+            本次共获得 {{tmr}} 金币
+        </div>
+
+        <div class="streak-info">
+            <div>连续签到</div>
+            <div class="streak-number">{{cd}} 天</div>
+            <div style="color: #b07a95;">下个里程碑：{{cd % 7 === 0 ? cd + 7 : cd - cd % 7 + 7}} 天</div>
+        </div>
+
+        <div class="footer">
+            ⚡ SIMS-PLUGIN v2.0 ⚡
+        </div>
+    </div>
+</body>
+</html>

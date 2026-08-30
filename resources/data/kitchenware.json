@@ -1,0 +1,209 @@
+{
+    "kitchenware": [
+        {
+            "id": "knife_basic",
+            "name": "基础厨刀",
+            "category": "刀具",
+            "price": 100,
+            "description": "基础的厨房刀具，使用起来比较顺手",
+            "effects": {
+                "successRate": 5,
+                "timeReduction": 0,
+                "qualityBonus": 0
+            },
+            "unlockLevel": 1
+        },
+        {
+            "id": "knife_pro",
+            "name": "专业厨刀",
+            "category": "刀具",
+            "price": 500,
+            "description": "专业厨师使用的锋利刀具，切菜效率更高",
+            "effects": {
+                "successRate": 10,
+                "timeReduction": 2,
+                "qualityBonus": 5
+            },
+            "unlockLevel": 3
+        },
+        {
+            "id": "knife_master",
+            "name": "大师厨刀",
+            "category": "刀具",
+            "price": 2000,
+            "description": "顶级厨师使用的顶级刀具，锋利无比",
+            "effects": {
+                "successRate": 20,
+                "timeReduction": 5,
+                "qualityBonus": 10
+            },
+            "unlockLevel": 7
+        },
+        {
+            "id": "pot_basic",
+            "name": "基础炒锅",
+            "category": "锅具",
+            "price": 150,
+            "description": "基础的家用炒锅，适合日常烹饪",
+            "effects": {
+                "successRate": 3,
+                "timeReduction": 0,
+                "qualityBonus": 0
+            },
+            "unlockLevel": 1
+        },
+        {
+            "id": "pot_pro",
+            "name": "专业炒锅",
+            "category": "锅具",
+            "price": 600,
+            "description": "专业厨师使用的炒锅，导热均匀",
+            "effects": {
+                "successRate": 8,
+                "timeReduction": 3,
+                "qualityBonus": 6
+            },
+            "unlockLevel": 4
+        },
+        {
+            "id": "pot_master",
+            "name": "大师炒锅",
+            "category": "锅具",
+            "price": 2500,
+            "description": "顶级厨师使用的手工锻造炒锅，完美受热",
+            "effects": {
+                "successRate": 15,
+                "timeReduction": 5,
+                "qualityBonus": 12
+            },
+            "unlockLevel": 8
+        },
+        {
+            "id": "steamer_basic",
+            "name": "基础蒸锅",
+            "category": "锅具",
+            "price": 180,
+            "description": "基础的家用蒸锅，适合制作蒸菜",
+            "effects": {
+                "successRate": 5,
+                "timeReduction": 0,
+                "qualityBonus": 3,
+                "steamBonus": 10
+            },
+            "unlockLevel": 2
+        },
+        {
+            "id": "steamer_pro",
+            "name": "专业蒸锅",
+            "category": "锅具",
+            "price": 700,
+            "description": "专业厨师使用的多层蒸锅，效率更高",
+            "effects": {
+                "successRate": 10,
+                "timeReduction": 4,
+                "qualityBonus": 8,
+                "steamBonus": 20
+            },
+            "unlockLevel": 5
+        },
+        {
+            "id": "oven_basic",
+            "name": "基础烤箱",
+            "category": "烘焙工具",
+            "price": 500,
+            "description": "基础家用烤箱，适合制作简单的烘焙食品",
+            "effects": {
+                "successRate": 5,
+                "timeReduction": 0,
+                "qualityBonus": 5,
+                "bakeBonus": 15
+            },
+            "unlockLevel": 3
+        },
+        {
+            "id": "oven_pro",
+            "name": "专业烤箱",
+            "category": "烘焙工具",
+            "price": 1500,
+            "description": "专业厨师使用的烤箱，温控精准",
+            "effects": {
+                "successRate": 12,
+                "timeReduction": 5,
+                "qualityBonus": 10,
+                "bakeBonus": 25
+            },
+            "unlockLevel": 6
+        },
+        {
+            "id": "mixer_basic",
+            "name": "基础搅拌器",
+            "category": "小工具",
+            "price": 120,
+            "description": "基础的手动搅拌器，帮助混合食材",
+            "effects": {
+                "successRate": 3,
+                "timeReduction": 1,
+                "qualityBonus": 2
+            },
+            "unlockLevel": 1
+        },
+        {
+            "id": "mixer_pro",
+            "name": "电动搅拌器",
+            "category": "小工具",
+            "price": 400,
+            "description": "电动搅拌器，效率更高",
+            "effects": {
+                "successRate": 7,
+                "timeReduction": 3,
+                "qualityBonus": 5
+            },
+            "unlockLevel": 4
+        },
+        {
+            "id": "spatula_basic",
+            "name": "基础锅铲",
+            "category": "小工具",
+            "price": 50,
+            "description": "基础厨房用铲，适合日常翻炒",
+            "effects": {
+                "successRate": 2,
+                "timeReduction": 0,
+                "qualityBonus": 0
+            },
+            "unlockLevel": 1
+        },
+        {
+            "id": "spatula_pro",
+            "name": "专业锅铲",
+            "category": "小工具",
+            "price": 200,
+            "description": "专业厨师使用的锅铲，质地轻便耐用",
+            "effects": {
+                "successRate": 5,
+                "timeReduction": 1,
+                "qualityBonus": 3
+            },
+            "unlockLevel": 2
+        },
+        {
+            "id": "chopsticks_pro",
+            "name": "专业烹饪筷",
+            "category": "小工具",
+            "price": 150,
+            "description": "专业厨师使用的长筷，便于掌控火候",
+            "effects": {
+                "successRate": 6,
+                "timeReduction": 2,
+                "qualityBonus": 4
+            },
+            "unlockLevel": 3
+        }
+    ],
+    "categories": [
+        "刀具",
+        "锅具",
+        "烘焙工具",
+        "小工具"
+    ]
+} 

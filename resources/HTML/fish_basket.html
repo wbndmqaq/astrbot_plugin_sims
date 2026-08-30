@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="shortcut icon" href="#"/>
+    <style>
+        @font-face {
+            font-family: miaomiao;
+            src: url(./也字工厂喵喵体.ttf);
+        }
+        body {
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #7a3b5c;
+            position: relative;
+        }
+        .deco {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .deco-heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #ffb7d5;
+            clip-path: polygon(50% 100%, 0 35%, 25% 0, 50% 20%, 75% 0, 100% 35%);
+            animation: floatUp 3.5s ease-in-out infinite;
+        }
+        .deco-star {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: #ffd98e;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: twinkle 2s infinite;
+        }
+        .dh1 { top: 8%; left: 5%; }
+        .dh2 { top: 16%; right: 8%; width: 22px; height: 22px; animation-delay: 0.8s; }
+        .dh3 { top: 42%; left: 3%; width: 18px; height: 18px; animation-delay: 1.6s; }
+        .ds1 { top: 6%; left: 42%; animation-delay: 0.5s; }
+        .ds2 { top: 30%; right: 4%; width: 18px; height: 18px; animation-delay: 1.2s; }
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+            position: relative;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .title {
+            font-size: 28px;
+            color: #e75490;
+            text-shadow: 0 0 10px rgba(255, 143, 191, 0.4);
+            margin: 0;
+            padding: 10px 0;
+            font-family: miaomiao, 'Arial', sans-serif;
+        }
+        .fish-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 10px;
+        }
+        .fish-card {
+            background: white;
+            border: 2px solid #ffc3da;
+            border-radius: 15px;
+            padding: 15px;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .fish-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.35);
+        }
+        .fish-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ff8fbf;
+        }
+        .fish-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #d63384;
+        }
+        .fish-info {
+            font-size: 14px;
+            color: #8a4a68;
+            margin: 5px 0;
+        }
+        .freshness-bar {
+            width: 100%;
+            height: 6px;
+            background: #ffe3ee;
+            border-radius: 3px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        .freshness-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #52c48a, #8be0b5);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        .basket-info {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #fff0f6;
+            border-radius: 10px;
+            color: #d63384;
+        }
+        .cute-fish {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 40px;
+            transform: rotate(45deg);
+            opacity: 0.5;
+        }
+        .empty-message {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: #b07a95;
+        }
+        @keyframes swim {
+            0% { transform: translateX(-100%) rotate(0deg); }
+            100% { transform: translateX(100%) rotate(10deg); }
+        }
+        .swimming-fish {
+            position: absolute;
+            font-size: 24px;
+            color: rgba(255, 111, 174, 0.25);
+            animation: swim 15s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="deco">
+        <div class="deco-heart dh1"></div>
+        <div class="deco-heart dh2"></div>
+        <div class="deco-heart dh3"></div>
+        <div class="deco-star ds1"></div>
+        <div class="deco-star ds2"></div>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">🎣 我的鱼篓</h1>
+            <div class="swimming-fish">🐠</div>
+            <div class="swimming-fish" style="top: 60px; animation-delay: -5s">🐟</div>
+            <div class="swimming-fish" style="top: 120px; animation-delay: -10s">🐡</div>
+        </div>
+        
+        {{if basket.length === 0}}
+        <div class="empty-message">
+            鱼篓空空如也~ 快去钓鱼吧！ 🎣
+        </div>
+        {{else}}
+        <div class="basket-info">
+            当前已捕获: {{basket.length}} 条鱼
+        </div>
+        <div class="fish-grid">
+            {{each basket fish}}
+            <div class="fish-card">
+                <div class="cute-fish">🐠</div>
+                <div class="fish-name">
+                    {{fishData.fishes.find(f => f.id === fish.id).name}}
+                </div>
+                <div class="fish-info">
+                    重量: {{fish.weight}}kg
+                </div>
+                <div class="fish-info">
+                    {{set fishInfo = fishData.fishes.find(f => f.id === fish.id)}}
+                    {{set freshness = fish.freshness || 100}}
+                    新鲜度: {{freshness.toFixed(1)}}%
+                </div>
+                <div class="freshness-bar">
+                    <div class="freshness-fill" style="width: {{freshness}}%"></div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{/if}}
+    </div>
+</body>
+</html>

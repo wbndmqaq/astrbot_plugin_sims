@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>电影院攻略</title>
+    <style>
+        @font-face { font-family: miaomiao; src: url(./也字工厂喵喵体.ttf); }
+        body {
+            font-family: miaomiao, 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            margin: 0;
+            padding: 20px;
+            color: #7a3b5c;
+            position: relative;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(255,133,183,0.3);
+            position: relative;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #e75490;
+            font-size: 28px;
+            margin: 0;
+        }
+        .greeting {
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            color: #7a3b5c;
+        }
+        .section {
+            margin-bottom: 24px;
+            background: #fff8fb;
+            border: 1px solid #ffd3e6;
+            border-radius: 14px;
+            padding: 20px;
+        }
+        .section-title {
+            font-size: 20px;
+            color: #d63384;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffd3e6;
+        }
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 10px 12px;
+            background: white;
+            border: 1px solid #ffd3e6;
+            margin-bottom: 10px;
+            border-radius: 12px;
+        }
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+        .step-badge {
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        .step-text {
+            flex: 1;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #7a3b5c;
+        }
+        .step-text b {
+            color: #d63384;
+        }
+        .cmd-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 12px;
+            background: white;
+            border: 1px solid #ffd3e6;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            font-size: 15px;
+        }
+        .cmd-item:last-child {
+            margin-bottom: 0;
+        }
+        .cmd-name {
+            font-weight: bold;
+            color: #d63384;
+            flex-shrink: 0;
+            margin-right: 12px;
+        }
+        .cmd-desc {
+            color: #8a4a68;
+            font-size: 14px;
+            text-align: right;
+        }
+        .tip-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            background: white;
+            border: 1px solid #ffd3e6;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            font-size: 15px;
+            color: #7a3b5c;
+        }
+        .tip-item:last-child {
+            margin-bottom: 0;
+        }
+        .tip-badge {
+            width: 26px;
+            height: 26px;
+            border-radius: 999px;
+            background: #fff0f7;
+            border: 1px solid #ffd3e6;
+            color: #d63384;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 13px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #8a4a68;
+            font-size: 14px;
+        }
+        .deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .deco-heart {
+            width: 26px;
+            height: 24px;
+            background: #ffb7d5;
+            clip-path: path('M12 22 C4.5 15 0 10.5 0 6 C0 2.2 2.7 0 6 0 C8.8 0 11 1.8 12 4.2 C13 1.8 15.2 0 18 0 C21.3 0 24 2.2 24 6 C24 10.5 19.5 15 12 22 Z');
+            opacity: 0.5;
+            animation: floatUp 6s ease-in-out infinite;
+        }
+        .deco-star {
+            width: 24px;
+            height: 24px;
+            background: #ffd98e;
+            clip-path: polygon(50% 0%,63% 35%,100% 38%,71% 60%,82% 100%,50% 76%,18% 100%,29% 60%,0% 38%,37% 35%);
+            opacity: 0.55;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(0.9); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <div class="deco deco-heart" style="top: 24px; left: 20px;"></div>
+    <div class="deco deco-star" style="top: 70px; right: 24px;"></div>
+    <div class="deco deco-heart" style="top: 130px; right: 48px; animation-delay: 1.2s;"></div>
+    <div class="deco deco-star" style="top: 190px; left: 44px; animation-delay: 0.6s;"></div>
+    <div class="container">
+        <div class="header">
+            <h1>电影院攻略</h1>
+        </div>
+        <div class="greeting">
+            <span style="color: #e75490; font-weight: bold;">{{name}}</span>，
+            {{if hasCinema}}
+            你的电影院正在经营中，快来看看还有哪些进阶玩法吧！
+            {{else}}
+            你还没有自己的电影院，快跟着下面的指引开启经营之旅吧！
+            {{/if}}
+        </div>
+
+        <div class="section">
+            <div class="section-title">新手起步</div>
+            <div class="step-item">
+                <div class="step-badge">1</div>
+                <div class="step-text"><b>#开始模拟人生</b> 注册成为玩家，拥有启动资金</div>
+            </div>
+            <div class="step-item">
+                <div class="step-badge">2</div>
+                <div class="step-text"><b>#购买电影院</b> 购买一家电影院，正式开启经营生涯</div>
+            </div>
+            <div class="step-item">
+                <div class="step-badge">3</div>
+                <div class="step-text"><b>#电影院信息</b> 随时查看电影院的经营状况</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">影厅建设与升级</div>
+            <div class="step-item">
+                <div class="step-badge">1</div>
+                <div class="step-text"><b>#购买影厅 [类型]</b> 购买新影厅，可选 small、medium、large、vip</div>
+            </div>
+            <div class="step-item">
+                <div class="step-badge">2</div>
+                <div class="step-text"><b>#升级影厅 [名称]</b> 升级指定影厅的等级，提升容量与收益</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">电影版权与排片</div>
+            <div class="step-item">
+                <div class="step-badge">1</div>
+                <div class="step-text"><b>#购买电影 [名称]</b> 购买电影版权，片源越丰富观众越多</div>
+            </div>
+            <div class="step-item">
+                <div class="step-badge">2</div>
+                <div class="step-text"><b>#排片 [影厅] [电影] [时间]</b> 为影厅安排放映场次，观众观影带来收入</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">设施与员工</div>
+            <div class="step-item">
+                <div class="step-badge">1</div>
+                <div class="step-text"><b>#购买设施 [类型]</b> 购买 snackBar、drinkBar、restaurant、giftShop 等设施，提高收入倍率</div>
+            </div>
+            <div class="step-item">
+                <div class="step-badge">2</div>
+                <div class="step-text"><b>#雇佣员工 [类型]</b> 雇佣 ticketSeller、usher、cleaner、manager 等员工协助经营</div>
+            </div>
+            <div class="step-item">
+                <div class="step-badge">3</div>
+                <div class="step-text"><b>#培训员工 [名称]</b> 培训指定员工，提升等级与工作效率</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">指令一览</div>
+            {{each commands}}
+            <div class="cmd-item">
+                <span class="cmd-name">{{$value.command}}</span>
+                <span class="cmd-desc">{{$value.description}}</span>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="section">
+            <div class="section-title">经营小贴士</div>
+            {{each tips}}
+            <div class="tip-item">
+                <div class="tip-badge">{{$index + 1}}</div>
+                <span>{{$value}}</span>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="footer">
+            使用 #电影院排行榜 看看谁的影院最厉害
+        </div>
+    </div>
+</body>
+</html>

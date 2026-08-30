@@ -1,0 +1,32 @@
+{
+    "requirements": {
+        "affectionLevel": 100,
+        "minDatingDays": 7,
+        "minMoney": 50000
+    },
+    "ceremony": {
+        "basic": {
+            "name": "简单婚礼",
+            "price": 10000,
+            "happiness": 10,
+            "description": "简单温馨的小型婚礼"
+        },
+        "standard": {
+            "name": "标准婚礼",
+            "price": 30000,
+            "happiness": 20,
+            "description": "温馨浪漫的中型婚礼"
+        },
+        "luxury": {
+            "name": "豪华婚礼",
+            "price": 100000,
+            "happiness": 30,
+            "description": "奢华盛大的婚礼典礼"
+        }
+    },
+    "benefits": {
+        "dailyHappiness": 5,
+        "incomeBonus": 1.2,
+        "specialEvents": ["结婚纪念日", "浪漫约会", "共同旅行"]
+    }
+}

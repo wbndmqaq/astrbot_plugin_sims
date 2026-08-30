@@ -1,0 +1,321 @@
+{
+    "recipes": [
+        {
+            "id": "soup_01",
+            "name": "番茄蛋汤",
+            "category": "汤类",
+            "difficulty": 1,
+            "time": 15,
+            "exp": 10,
+            "unlockLevel": 1,
+            "ingredients": [
+                {"id": "tomato", "name": "番茄", "amount": 2},
+                {"id": "egg", "name": "鸡蛋", "amount": 2},
+                {"id": "green_onion", "name": "葱花", "amount": 1}
+            ],
+            "steps": [
+                "将番茄切块",
+                "打散鸡蛋",
+                "锅中加水烧开",
+                "加入番茄块煮至软化",
+                "慢慢倒入蛋液",
+                "撒上葱花即可"
+            ],
+            "description": "开胃暖心的经典汤品",
+            "successRate": 90,
+            "basePrice": 15,
+            "nutrition": {
+                "hunger": 15,
+                "mood": 10,
+                "energy": 12
+            }
+        },
+        {
+            "id": "dish_01",
+            "name": "宫保鸡丁",
+            "category": "炒菜",
+            "difficulty": 3,
+            "time": 25,
+            "exp": 30,
+            "unlockLevel": 3,
+            "ingredients": [
+                {"id": "chicken", "name": "鸡肉", "amount": 300},
+                {"id": "peanut", "name": "花生", "amount": 100},
+                {"id": "cucumber", "name": "黄瓜", "amount": 1},
+                {"id": "sauce_set", "name": "调味料", "amount": 1}
+            ],
+            "steps": [
+                "鸡肉切丁腌制",
+                "花生炒熟",
+                "爆香配料",
+                "大火翻炒鸡丁",
+                "加入调味料",
+                "最后加入花生"
+            ],
+            "description": "经典川菜，香辣可口",
+            "successRate": 70,
+            "basePrice": 45,
+            "nutrition": {
+                "hunger": 35,
+                "mood": 25,
+                "energy": 30
+            }
+        },
+        {
+            "id": "dessert_01",
+            "name": "草莓慕斯",
+            "category": "甜点",
+            "difficulty": 4,
+            "time": 40,
+            "exp": 50,
+            "unlockLevel": 5,
+            "ingredients": [
+                {"id": "strawberry", "name": "草莓", "amount": 250},
+                {"id": "cream", "name": "淡奶油", "amount": 200},
+                {"id": "gelatin", "name": "吉利丁", "amount": 1},
+                {"id": "sugar", "name": "糖", "amount": 50}
+            ],
+            "steps": [
+                "草莓打成果泥",
+                "吉利丁泡发",
+                "打发淡奶油",
+                "混合所有材料",
+                "倒入模具",
+                "冷藏定型"
+            ],
+            "description": "清爽美味的法式甜点",
+            "successRate": 60,
+            "basePrice": 35,
+            "nutrition": {
+                "hunger": 20,
+                "mood": 30,
+                "energy": 15
+            }
+        },
+        {
+            "id": "staple_01",
+            "name": "蛋炒饭",
+            "category": "主食",
+            "difficulty": 2,
+            "time": 15,
+            "exp": 20,
+            "unlockLevel": 2,
+            "ingredients": [
+                {"id": "rice", "name": "大米", "amount": 1},
+                {"id": "egg", "name": "鸡蛋", "amount": 2},
+                {"id": "green_onion", "name": "葱花", "amount": 1},
+                {"id": "carrot", "name": "胡萝卜", "amount": 1}
+            ],
+            "steps": [
+                "米饭提前煮好并冷却",
+                "胡萝卜切丁",
+                "鸡蛋打散",
+                "热锅倒油，倒入蛋液炒散",
+                "加入米饭和胡萝卜丁翻炒",
+                "撒上葱花调味即可"
+            ],
+            "description": "家常美味，简单快手",
+            "successRate": 85,
+            "basePrice": 20,
+            "nutrition": {
+                "hunger": 40,
+                "mood": 15,
+                "energy": 35
+            }
+        },
+        {
+            "id": "soup_02",
+            "name": "紫菜蛋花汤",
+            "category": "汤类",
+            "difficulty": 1,
+            "time": 10,
+            "exp": 10,
+            "unlockLevel": 1,
+            "ingredients": [
+                {"id": "egg", "name": "鸡蛋", "amount": 1},
+                {"id": "green_onion", "name": "葱花", "amount": 1},
+                {"id": "sauce_set", "name": "调味料", "amount": 1}
+            ],
+            "steps": [
+                "鸡蛋打散",
+                "锅中加水烧开",
+                "加入调味料调味",
+                "倒入蛋液",
+                "撒上葱花即可"
+            ],
+            "description": "清淡可口的家常汤品",
+            "successRate": 95,
+            "basePrice": 10,
+            "nutrition": {
+                "hunger": 10,
+                "mood": 8,
+                "energy": 10
+            }
+        },
+        {
+            "id": "dish_02",
+            "name": "鱼香肉丝",
+            "category": "炒菜",
+            "difficulty": 3,
+            "time": 25,
+            "exp": 30,
+            "unlockLevel": 3,
+            "ingredients": [
+                {"id": "pork", "name": "猪肉", "amount": 200},
+                {"id": "carrot", "name": "胡萝卜", "amount": 1},
+                {"id": "pepper", "name": "青椒", "amount": 2},
+                {"id": "sauce_set", "name": "调味料", "amount": 1},
+                {"id": "garlic", "name": "大蒜", "amount": 1}
+            ],
+            "steps": [
+                "猪肉切丝腌制",
+                "胡萝卜、青椒切丝",
+                "大蒜切末",
+                "热锅倒油，放入蒜末爆香",
+                "下入肉丝翻炒至变色",
+                "加入青椒和胡萝卜丝继续翻炒",
+                "加入调味料炒匀即可"
+            ],
+            "description": "经典川菜，香辣开胃",
+            "successRate": 75,
+            "basePrice": 40,
+            "nutrition": {
+                "hunger": 35,
+                "mood": 25,
+                "energy": 30
+            }
+        },
+        {
+            "id": "dish_03",
+            "name": "红烧豆腐",
+            "category": "炖菜",
+            "difficulty": 2,
+            "time": 20,
+            "exp": 25,
+            "unlockLevel": 2,
+            "ingredients": [
+                {"id": "tofu", "name": "豆腐", "amount": 1},
+                {"id": "green_onion", "name": "葱花", "amount": 1},
+                {"id": "sauce_set", "name": "调味料", "amount": 1},
+                {"id": "ginger", "name": "生姜", "amount": 1}
+            ],
+            "steps": [
+                "豆腐切块",
+                "姜切丝",
+                "热锅倒油，放入姜丝爆香",
+                "放入豆腐块煎至表面金黄",
+                "加入适量水和调味料",
+                "小火炖煮入味",
+                "撒上葱花即可"
+            ],
+            "description": "鲜香嫩滑的家常菜",
+            "successRate": 80,
+            "basePrice": 25,
+            "nutrition": {
+                "hunger": 25,
+                "mood": 15,
+                "energy": 20
+            }
+        },
+        {
+            "id": "dish_04",
+            "name": "清蒸鱼",
+            "category": "蒸菜",
+            "difficulty": 4,
+            "time": 30,
+            "exp": 40,
+            "unlockLevel": 4,
+            "ingredients": [
+                {"id": "fish", "name": "鱼", "amount": 1},
+                {"id": "green_onion", "name": "葱花", "amount": 1},
+                {"id": "ginger", "name": "生姜", "amount": 1},
+                {"id": "sauce_set", "name": "调味料", "amount": 1}
+            ],
+            "steps": [
+                "鱼洗净，两面划几刀",
+                "姜切丝，葱切段",
+                "鱼腹内放入部分姜丝和葱段",
+                "蒸锅水烧开，放入鱼",
+                "中火蒸8-10分钟",
+                "淋上调味汁",
+                "撒上葱花即可"
+            ],
+            "description": "鲜嫩可口的经典蒸菜",
+            "successRate": 70,
+            "basePrice": 50,
+            "nutrition": {
+                "hunger": 30,
+                "mood": 25,
+                "energy": 35
+            }
+        },
+        {
+            "id": "staple_02",
+            "name": "扬州炒饭",
+            "category": "主食",
+            "difficulty": 3,
+            "time": 20,
+            "exp": 30,
+            "unlockLevel": 3,
+            "ingredients": [
+                {"id": "rice", "name": "大米", "amount": 1},
+                {"id": "egg", "name": "鸡蛋", "amount": 2},
+                {"id": "shrimp", "name": "虾", "amount": 100},
+                {"id": "carrot", "name": "胡萝卜", "amount": 1},
+                {"id": "peas", "name": "豌豆", "amount": 50},
+                {"id": "green_onion", "name": "葱花", "amount": 1}
+            ],
+            "steps": [
+                "米饭提前煮好并冷却",
+                "虾去皮切丁",
+                "胡萝卜切丁",
+                "鸡蛋打散",
+                "热锅倒油，倒入蛋液炒散",
+                "加入虾丁翻炒",
+                "加入米饭、胡萝卜丁和豌豆翻炒",
+                "撒上葱花调味即可"
+            ],
+            "description": "色香味俱全的传统炒饭",
+            "successRate": 75,
+            "basePrice": 35,
+            "nutrition": {
+                "hunger": 45,
+                "mood": 20,
+                "energy": 40
+            }
+        },
+        {
+            "id": "dessert_02",
+            "name": "苹果派",
+            "category": "甜点",
+            "difficulty": 5,
+            "time": 60,
+            "exp": 60,
+            "unlockLevel": 6,
+            "ingredients": [
+                {"id": "flour", "name": "面粉", "amount": 300},
+                {"id": "apple", "name": "苹果", "amount": 3},
+                {"id": "sugar", "name": "糖", "amount": 100},
+                {"id": "cream", "name": "淡奶油", "amount": 50}
+            ],
+            "steps": [
+                "面粉、黄油制作派皮",
+                "派皮放入冰箱冷藏1小时",
+                "苹果切丁拌糖",
+                "派皮擀平放入烤盘",
+                "加入苹果馅",
+                "上盖派皮封口",
+                "在表面刷蛋液",
+                "烤箱180度烤40分钟"
+            ],
+            "description": "香甜可口的经典西式甜点",
+            "successRate": 60,
+            "basePrice": 40,
+            "nutrition": {
+                "hunger": 25,
+                "mood": 35,
+                "energy": 20
+            }
+        }
+    ]
+}

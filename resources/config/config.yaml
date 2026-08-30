@@ -1,0 +1,5 @@
+infrastructure_simulation:
+  enabled: false
+  water_rate_per_degree: 2
+  electricity_rate_per_degree: 3
+  gas_rate_per_degree: 1.5

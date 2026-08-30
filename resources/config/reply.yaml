@@ -1,0 +1,10 @@
+mode: auto
+title: 模拟人生
+scale: 1
+keyboardId: ''
+hint: true
+textButtons: true
+inlineCmd: true
+inlineBudget: 1600
+inlineMax: 9
+titleMax: 15

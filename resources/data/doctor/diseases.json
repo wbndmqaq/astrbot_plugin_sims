@@ -1,0 +1,362 @@
+[
+    {
+        "id": 1,
+        "name": "感冒",
+        "type": "传染病",
+        "symptoms": ["咳嗽", "流鼻涕", "喉咙痛", "轻度发热"],
+        "severity": 2,
+        "contagious": true,
+        "mortality_rate": 0.01,
+        "treatment": {
+            "medicines": [1, 3, 17, 19],
+            "surgery": null,
+            "rest_days": 3,
+            "special_care": "多喝水，保持休息"
+        },
+        "recovery_time": "3-7天",
+        "diagnostic_difficulty": 1,
+        "department": "全科"
+    },
+    {
+        "id": 2,
+        "name": "肺炎",
+        "type": "呼吸系统疾病",
+        "symptoms": ["高烧", "咳嗽", "胸痛", "呼吸困难", "疲劳"],
+        "severity": 7,
+        "contagious": true,
+        "mortality_rate": 5.0,
+        "treatment": {
+            "medicines": [4, 5, 17],
+            "surgery": null,
+            "rest_days": 14,
+            "special_care": "可能需要住院治疗，氧疗支持"
+        },
+        "recovery_time": "2-4周",
+        "diagnostic_difficulty": 3,
+        "department": "呼吸科"
+    },
+    {
+        "id": 3,
+        "name": "阑尾炎",
+        "type": "消化系统疾病",
+        "symptoms": ["右下腹疼痛", "恶心", "呕吐", "发热", "食欲不振"],
+        "severity": 8,
+        "contagious": false,
+        "mortality_rate": 3.0,
+        "treatment": {
+            "medicines": [4, 5],
+            "surgery": 1,
+            "rest_days": 10,
+            "special_care": "手术后需要抗生素治疗"
+        },
+        "recovery_time": "2-3周",
+        "diagnostic_difficulty": 4,
+        "department": "普通外科"
+    },
+    {
+        "id": 4,
+        "name": "冠心病",
+        "type": "心血管疾病",
+        "symptoms": ["胸痛", "呼吸急促", "心悸", "疲劳", "头晕"],
+        "severity": 9,
+        "contagious": false,
+        "mortality_rate": 15.0,
+        "treatment": {
+            "medicines": [9, 11, 16],
+            "surgery": 3,
+            "rest_days": 30,
+            "special_care": "控制饮食，低脂低盐，定期监测心功能"
+        },
+        "recovery_time": "长期管理",
+        "diagnostic_difficulty": 6,
+        "department": "心脏内科"
+    },
+    {
+        "id": 5,
+        "name": "糖尿病",
+        "type": "内分泌疾病",
+        "symptoms": ["多尿", "多饮", "多食", "体重减轻", "疲劳"],
+        "severity": 7,
+        "contagious": false,
+        "mortality_rate": 5.0,
+        "treatment": {
+            "medicines": [8],
+            "surgery": null,
+            "rest_days": 0,
+            "special_care": "控制饮食，规律检测血糖，定期复查"
+        },
+        "recovery_time": "终身管理",
+        "diagnostic_difficulty": 3,
+        "department": "内分泌科"
+    },
+    {
+        "id": 6,
+        "name": "骨折",
+        "type": "创伤性疾病",
+        "symptoms": ["疼痛", "肿胀", "变形", "活动受限"],
+        "severity": 6,
+        "contagious": false,
+        "mortality_rate": 1.0,
+        "treatment": {
+            "medicines": [2],
+            "surgery": 16,
+            "rest_days": 30,
+            "special_care": "固定受伤部位，逐步康复训练"
+        },
+        "recovery_time": "6-12周",
+        "diagnostic_difficulty": 2,
+        "department": "骨科"
+    },
+    {
+        "id": 7,
+        "name": "脑梗塞",
+        "type": "神经系统疾病",
+        "symptoms": ["突发偏瘫", "言语不清", "口角歪斜", "意识障碍"],
+        "severity": 10,
+        "contagious": false,
+        "mortality_rate": 20.0,
+        "treatment": {
+            "medicines": [12, 16],
+            "surgery": null,
+            "rest_days": 60,
+            "special_care": "急诊治疗，溶栓或取栓，后期康复训练"
+        },
+        "recovery_time": "3-6个月",
+        "diagnostic_difficulty": 7,
+        "department": "神经内科"
+    },
+    {
+        "id": 8,
+        "name": "胆囊炎",
+        "type": "消化系统疾病",
+        "symptoms": ["右上腹疼痛", "恶心", "呕吐", "发热", "黄疸"],
+        "severity": 7,
+        "contagious": false,
+        "mortality_rate": 2.0,
+        "treatment": {
+            "medicines": [4, 5],
+            "surgery": 2,
+            "rest_days": 14,
+            "special_care": "手术后低脂饮食"
+        },
+        "recovery_time": "2-4周",
+        "diagnostic_difficulty": 4,
+        "department": "普通外科"
+    },
+    {
+        "id": 9,
+        "name": "哮喘",
+        "type": "呼吸系统疾病",
+        "symptoms": ["呼吸困难", "胸闷", "咳嗽", "喘息"],
+        "severity": 6,
+        "contagious": false,
+        "mortality_rate": 2.0,
+        "treatment": {
+            "medicines": [15],
+            "surgery": null,
+            "rest_days": 5,
+            "special_care": "避免接触过敏原，备用急救药物"
+        },
+        "recovery_time": "控制管理",
+        "diagnostic_difficulty": 3,
+        "department": "呼吸科"
+    },
+    {
+        "id": 10,
+        "name": "白内障",
+        "type": "眼科疾病",
+        "symptoms": ["视力模糊", "眩光", "视物变形", "视力下降"],
+        "severity": 4,
+        "contagious": false,
+        "mortality_rate": 0.1,
+        "treatment": {
+            "medicines": null,
+            "surgery": 8,
+            "rest_days": 7,
+            "special_care": "术后避免揉眼，按时点眼药水"
+        },
+        "recovery_time": "1-2个月",
+        "diagnostic_difficulty": 2,
+        "department": "眼科"
+    },
+    {
+        "id": 11,
+        "name": "抑郁症",
+        "type": "精神疾病",
+        "symptoms": ["情绪低落", "兴趣减退", "睡眠障碍", "疲乏", "自责"],
+        "severity": 6,
+        "contagious": false,
+        "mortality_rate": 4.0,
+        "treatment": {
+            "medicines": [13],
+            "surgery": null,
+            "rest_days": 30,
+            "special_care": "心理治疗，规律作息，社会支持"
+        },
+        "recovery_time": "3-6个月",
+        "diagnostic_difficulty": 5,
+        "department": "精神科"
+    },
+    {
+        "id": 12,
+        "name": "流感",
+        "type": "传染病",
+        "symptoms": ["高热", "全身酸痛", "头痛", "咳嗽", "喉咙痛"],
+        "severity": 5,
+        "contagious": true,
+        "mortality_rate": 2.0,
+        "treatment": {
+            "medicines": [7, 17, 19],
+            "surgery": null,
+            "rest_days": 7,
+            "special_care": "隔离，多休息，多饮水"
+        },
+        "recovery_time": "1-2周",
+        "diagnostic_difficulty": 2,
+        "department": "感染科"
+    },
+    {
+        "id": 13,
+        "name": "前列腺增生",
+        "type": "泌尿系统疾病",
+        "symptoms": ["尿频", "排尿困难", "尿不尽感", "夜尿增多"],
+        "severity": 5,
+        "contagious": false,
+        "mortality_rate": 0.5,
+        "treatment": {
+            "medicines": null,
+            "surgery": 14,
+            "rest_days": 14,
+            "special_care": "术后留置导尿管，预防感染"
+        },
+        "recovery_time": "2-4周",
+        "diagnostic_difficulty": 3,
+        "department": "泌尿外科"
+    },
+    {
+        "id": 14,
+        "name": "胃溃疡",
+        "type": "消化系统疾病",
+        "symptoms": ["上腹疼痛", "烧心", "反酸", "消化不良"],
+        "severity": 5,
+        "contagious": false,
+        "mortality_rate": 1.0,
+        "treatment": {
+            "medicines": [4],
+            "surgery": null,
+            "rest_days": 10,
+            "special_care": "规律饮食，避免辛辣刺激食物"
+        },
+        "recovery_time": "4-8周",
+        "diagnostic_difficulty": 3,
+        "department": "消化内科"
+    },
+    {
+        "id": 15,
+        "name": "甲状腺功能减退",
+        "type": "内分泌疾病",
+        "symptoms": ["疲劳", "怕冷", "体重增加", "皮肤干燥", "脱发"],
+        "severity": 4,
+        "contagious": false,
+        "mortality_rate": 0.5,
+        "treatment": {
+            "medicines": [14],
+            "surgery": null,
+            "rest_days": 0,
+            "special_care": "定期检查甲状腺功能，按时服药"
+        },
+        "recovery_time": "终身管理",
+        "diagnostic_difficulty": 4,
+        "department": "内分泌科"
+    },
+    {
+        "id": 16,
+        "name": "膝关节损伤",
+        "type": "运动系统疾病",
+        "symptoms": ["膝关节疼痛", "肿胀", "活动受限", "不稳定感"],
+        "severity": 4,
+        "contagious": false,
+        "mortality_rate": 0.1,
+        "treatment": {
+            "medicines": [2],
+            "surgery": 9,
+            "rest_days": 30,
+            "special_care": "术后康复训练，逐步增加负重"
+        },
+        "recovery_time": "2-3个月",
+        "diagnostic_difficulty": 3,
+        "department": "骨科"
+    },
+    {
+        "id": 17,
+        "name": "肾结石",
+        "type": "泌尿系统疾病",
+        "symptoms": ["腰部绞痛", "血尿", "恶心", "呕吐", "排尿异常"],
+        "severity": 6,
+        "contagious": false,
+        "mortality_rate": 0.5,
+        "treatment": {
+            "medicines": [2, 3],
+            "surgery": null,
+            "rest_days": 7,
+            "special_care": "多饮水，少食高嘌呤食物"
+        },
+        "recovery_time": "2-4周",
+        "diagnostic_difficulty": 3,
+        "department": "泌尿外科"
+    },
+    {
+        "id": 18,
+        "name": "乳腺肿瘤",
+        "type": "肿瘤",
+        "symptoms": ["乳房肿块", "乳头溢液", "乳房疼痛", "皮肤改变"],
+        "severity": 8,
+        "contagious": false,
+        "mortality_rate": 10.0,
+        "treatment": {
+            "medicines": null,
+            "surgery": 19,
+            "rest_days": 30,
+            "special_care": "术后化疗或放疗，定期复查"
+        },
+        "recovery_time": "6个月-数年",
+        "diagnostic_difficulty": 5,
+        "department": "乳腺外科"
+    },
+    {
+        "id": 19,
+        "name": "高血压",
+        "type": "心血管疾病",
+        "symptoms": ["头痛", "头晕", "心悸", "耳鸣", "视物模糊"],
+        "severity": 6,
+        "contagious": false,
+        "mortality_rate": 3.0,
+        "treatment": {
+            "medicines": [9],
+            "surgery": null,
+            "rest_days": 0,
+            "special_care": "低盐饮食，规律运动，戒烟限酒"
+        },
+        "recovery_time": "终身管理",
+        "diagnostic_difficulty": 2,
+        "department": "心血管内科"
+    },
+    {
+        "id": 20,
+        "name": "脑肿瘤",
+        "type": "肿瘤",
+        "symptoms": ["头痛", "呕吐", "视力障碍", "癫痫发作", "肢体无力"],
+        "severity": 10,
+        "contagious": false,
+        "mortality_rate": 30.0,
+        "treatment": {
+            "medicines": null,
+            "surgery": 7,
+            "rest_days": 60,
+            "special_care": "术后可能需要放疗、化疗，密切随访"
+        },
+        "recovery_time": "6个月-数年",
+        "diagnostic_difficulty": 8,
+        "department": "神经外科"
+    }
+] 

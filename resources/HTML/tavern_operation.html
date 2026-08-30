@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒馆营业</title>
+    <style>
+        @font-face { font-family: miaomiao; src: url(./也字工厂喵喵体.ttf); }
+        body {
+            font-family: miaomiao, 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            background-attachment: fixed;
+            color: #7a3b5c;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #e75490;
+            margin: 0;
+            padding: 10px;
+            text-shadow: 2px 2px 4px rgba(255, 183, 213, 0.5);
+        }
+
+        .header .subtitle {
+            font-size: 18px;
+            color: #8a4a68;
+            margin-top: 5px;
+        }
+
+        .divider {
+            border-bottom: 2px solid #ffd3e6;
+            margin: 20px 0;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: #e75490;
+            margin-bottom: 10px;
+            border-left: 4px solid #ff6fae;
+            padding-left: 10px;
+        }
+
+        .operation-result {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+        }
+
+        .operation-result::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 183, 213, 0.25), transparent 60%);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .operation-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .operation-title {
+            font-size: 24px;
+            color: #e75490;
+            margin-bottom: 10px;
+        }
+
+        .operation-date {
+            font-size: 14px;
+            color: #8a4a68;
+        }
+
+        .income-display {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .income-amount {
+            font-size: 48px;
+            font-weight: bold;
+            color: #e75490;
+            text-shadow: 2px 2px 4px rgba(255, 183, 213, 0.5);
+        }
+
+        .income-label {
+            font-size: 16px;
+            color: #8a4a68;
+            margin-top: 5px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: #fff8fb;
+            border: 1px solid #ffd3e6;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-value.positive {
+            color: #66bb6a;
+        }
+
+        .stat-value.negative {
+            color: #e57373;
+        }
+
+        .stat-value.neutral {
+            color: #e75490;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #8a4a68;
+        }
+
+        .customers-section {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .customers-title {
+            font-size: 18px;
+            color: #e75490;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ffd3e6;
+            padding-bottom: 5px;
+        }
+
+        .customers-summary {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .customer-count {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .count-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e75490;
+        }
+
+        .count-label {
+            font-size: 12px;
+            color: #8a4a68;
+        }
+
+        .customer-list {
+            max-height: 150px;
+            overflow-y: auto;
+            border: 1px solid #ffd3e6;
+            border-radius: 12px;
+            padding: 10px;
+        }
+
+        .customer-item {
+            padding: 8px;
+            border-bottom: 1px solid #ffe3ee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .customer-item:last-child {
+            border-bottom: none;
+        }
+
+        .customer-name {
+            color: #d63384;
+        }
+
+        .customer-spent {
+            color: #66bb6a;
+            font-weight: bold;
+        }
+
+        .events-section {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+        }
+
+        .events-title {
+            font-size: 18px;
+            color: #e75490;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ffd3e6;
+            padding-bottom: 5px;
+        }
+
+        .event-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .event-item {
+            background: #fff8fb;
+            border: 1px solid #ffd3e6;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .event-title {
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        .event-time {
+            font-size: 12px;
+            color: #8a4a68;
+        }
+
+        .event-desc {
+            color: #7a3b5c;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .event-effect {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .effect-icon {
+            margin-right: 5px;
+        }
+
+        .effect-positive {
+            color: #66bb6a;
+        }
+
+        .effect-negative {
+            color: #e57373;
+        }
+
+        .no-events {
+            text-align: center;
+            padding: 20px;
+            color: #8a4a68;
+            font-style: italic;
+        }
+
+        .tips-section {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+        .tips-title {
+            font-size: 18px;
+            color: #e75490;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .tips-content {
+            font-size: 14px;
+            color: #7a3b5c;
+            text-align: center;
+        }
+
+        .highlight {
+            color: #e75490;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #8a4a68;
+        }
+
+        .deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .deco.heart {
+            clip-path: path('M12 22 C4.5 15 0 10.5 0 6 C0 2.2 2.7 0 6 0 C8.8 0 11 1.8 12 4.2 C13 1.8 15.2 0 18 0 C21.3 0 24 2.2 24 6 C24 10.5 19.5 15 12 22 Z');
+            background: #ffb7d5;
+            animation: floatUp 6s ease-in-out infinite;
+        }
+
+        .deco.star {
+            clip-path: polygon(50% 0%,63% 35%,100% 38%,71% 60%,82% 100%,50% 76%,18% 100%,29% 60%,0% 38%,37% 35%);
+            background: #ffd98e;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.15); }
+        }
+    </style>
+</head>
+<body>
+    <div class="deco heart" style="top: 40px; left: 6%; width: 32px; height: 29px; opacity: 0.5;"></div>
+    <div class="deco star" style="top: 140px; right: 7%; width: 26px; height: 26px; opacity: 0.5;"></div>
+    <div class="deco heart" style="top: 55%; left: 3%; width: 22px; height: 20px; opacity: 0.4;"></div>
+    <div class="deco star" style="bottom: 120px; right: 4%; width: 22px; height: 22px; opacity: 0.45;"></div>
+    <div class="deco heart" style="bottom: 40px; left: 12%; width: 26px; height: 23px; opacity: 0.5;"></div>
+    <div class="container">
+        <div class="header">
+            <h1>{{tavern.name}} 营业情况</h1>
+            <div class="subtitle">今日营业结果报告</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="operation-result">
+                <div class="operation-header">
+                    <div class="operation-title">营业总结</div>
+                    <div class="operation-date">{{operationDate}}</div>
+                </div>
+
+                <div class="income-display">
+                    <div class="income-amount">{{todayIncome}}元</div>
+                    <div class="income-label">今日总收入</div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value positive">+{{profit}}元</div>
+                        <div class="stat-label">利润</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value neutral">{{customerCount}}人</div>
+                        <div class="stat-label">顾客数</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value neutral">{{occupancyRate}}%</div>
+                        <div class="stat-label">上座率</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value {{satisfactionChange >= 0 ? 'positive' : 'negative'}}">{{satisfactionChange >= 0 ? '+' : ''}}{{satisfactionChange}}</div>
+                        <div class="stat-label">满意度变化</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value {{popularityChange >= 0 ? 'positive' : 'negative'}}">{{popularityChange >= 0 ? '+' : ''}}{{popularityChange}}</div>
+                        <div class="stat-label">人气变化</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">顾客详情</div>
+            <div class="customers-section">
+                <div class="customers-title">今日到访顾客</div>
+                <div class="customers-summary">
+                    <div class="customer-count">
+                        <div class="count-number">{{regularCustomers}}</div>
+                        <div class="count-label">普通顾客</div>
+                    </div>
+                    <div class="customer-count">
+                        <div class="count-number">{{vipCustomers}}</div>
+                        <div class="count-label">VIP顾客</div>
+                    </div>
+                    <div class="customer-count">
+                        <div class="count-number">{{newCustomers}}</div>
+                        <div class="count-label">新顾客</div>
+                    </div>
+                    <div class="customer-count">
+                        <div class="count-number">{{returningCustomers}}</div>
+                        <div class="count-label">回头客</div>
+                    </div>
+                </div>
+
+                {{if customers && customers.length > 0}}
+                <div class="customer-list">
+                    {{each customers customer}}
+                    <div class="customer-item">
+                        <div class="customer-name">{{customer.name}}</div>
+                        <div class="customer-spent">{{customer.spent}}元</div>
+                    </div>
+                    {{/each}}
+                </div>
+                {{else}}
+                <div class="no-events">今天没有顾客到访</div>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">今日事件</div>
+            <div class="events-section">
+                <div class="events-title">营业期间发生的事件</div>
+
+                {{if events && events.length > 0}}
+                <ul class="event-list">
+                    {{each events event}}
+                    <li class="event-item">
+                        <div class="event-header">
+                            <div class="event-title">{{event.title}}</div>
+                            <div class="event-time">{{event.time}}</div>
+                        </div>
+                        <div class="event-desc">{{event.description}}</div>
+                        <div class="event-effect">
+                            <span class="effect-icon">
+                                {{if event.effectType === 'positive'}}✅{{/if}}
+                                {{if event.effectType === 'negative'}}❌{{/if}}
+                                {{if event.effectType === 'neutral'}}ℹ️{{/if}}
+                            </span>
+                            <span class="effect-{{event.effectType}}">{{event.effect}}</span>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{else}}
+                <div class="no-events">今天营业平稳，没有特殊事件发生</div>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="tips-section">
+                <div class="tips-title">经营小贴士</div>
+                <div class="tips-content">
+                    {{if tips && tips.length > 0}}
+                        {{each tips tip}}
+                        <p>💡 {{tip}}</p>
+                        {{/each}}
+                    {{else}}
+                        <p>💡 提高<span class="highlight">酒馆清洁度</span>和<span class="highlight">氛围</span>可以吸引更多顾客</p>
+                        <p>💡 定期更新菜单，添加<span class="highlight">特色饮品</span>可以提高顾客满意度</p>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            模拟人生插件 - 酒馆系统 v1.0
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>抽奖中心</title>
+<style>
+    @font-face {
+        font-family: miaomiao;
+        src: url(./也字工厂喵喵体.ttf);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        width: 900px;
+        font-family: miaomiao, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+        padding: 34px 28px;
+        position: relative;
+        overflow: hidden;
+    }
+    .deco { position: absolute; pointer-events: none; }
+    .heart {
+        width: 24px; height: 22px;
+        background: #ffb7d5;
+        clip-path: path('M12 22 C4.5 15 0 10.5 0 6 C0 2.2 2.7 0 6 0 C8.8 0 11 1.8 12 4.2 C13 1.8 15.2 0 18 0 C21.3 0 24 2.2 24 6 C24 10.5 19.5 15 12 22 Z');
+        opacity: .5;
+        animation: floatUp 5s ease-in-out infinite;
+    }
+    .star {
+        width: 16px; height: 16px;
+        background: #ffd98e;
+        clip-path: polygon(50% 0%, 63% 35%, 100% 38%, 71% 60%, 82% 100%, 50% 76%, 18% 100%, 29% 60%, 0% 38%, 37% 35%);
+        animation: twinkle 2.4s ease-in-out infinite;
+    }
+    @keyframes floatUp {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-12px); }
+    }
+    @keyframes twinkle {
+        0%, 100% { opacity: .3; transform: scale(.85); }
+        50% { opacity: .95; transform: scale(1.2) rotate(20deg); }
+    }
+    .panel {
+        position: relative;
+        background: rgba(255, 255, 255, .96);
+        border-radius: 26px;
+        border: 3px solid #ffc3da;
+        box-shadow: 0 12px 36px rgba(255, 133, 183, .3);
+        padding: 26px 30px;
+    }
+    .head { display: flex; justify-content: space-between; align-items: center; }
+    h1 {
+        font-size: 38px;
+        color: #e75490;
+        letter-spacing: 3px;
+    }
+    .sub {
+        font-size: 20px;
+        color: #d63384;
+        background: #fff0f7;
+        border: 2px solid #ffb7d5;
+        border-radius: 999px;
+        padding: 6px 20px;
+    }
+    .result-grid {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+    }
+    .item {
+        border-radius: 16px;
+        border: 2px solid #ffd3e6;
+        background: #fff8fb;
+        padding: 14px 8px;
+        text-align: center;
+        animation: flipIn .5s cubic-bezier(.2, 1.4, .4, 1) both;
+    }
+    @keyframes flipIn {
+        0% { transform: rotateY(90deg) scale(.8); opacity: 0; }
+        100% { transform: rotateY(0) scale(1); opacity: 1; }
+    }
+    .item-name { font-size: 18px; color: #7a3b5c; line-height: 1.4; }
+    .item-rarity {
+        display: inline-block;
+        margin-top: 8px;
+        font-size: 15px;
+        border-radius: 999px;
+        padding: 2px 12px;
+        color: #fff;
+    }
+    .r1 { border-color: #e8c9d8; }
+    .r1 .item-rarity { background: #b089a0; }
+    .r2 { border-color: #9ec1ff; background: #f3f8ff; }
+    .r2 .item-rarity { background: #5b8def; }
+    .r3 { border-color: #cfa9f5; background: #faf4ff; box-shadow: 0 0 14px rgba(178, 117, 240, .35); }
+    .r3 .item-rarity { background: #9b59d0; }
+    .r4 {
+        border-color: #ffd98e;
+        background: linear-gradient(135deg, #fffaf0, #fff3d6);
+        box-shadow: 0 0 18px rgba(255, 193, 77, .55);
+        animation: flipIn .5s cubic-bezier(.2, 1.4, .4, 1) both, legendGlow 1.8s ease-in-out infinite .5s;
+    }
+    .r4 .item-rarity { background: linear-gradient(90deg, #f5a623, #f77f00); }
+    @keyframes legendGlow {
+        0%, 100% { box-shadow: 0 0 12px rgba(255,193,77,.45); }
+        50% { box-shadow: 0 0 26px rgba(255,193,77,.85); }
+    }
+    .limited-tag {
+        display: inline-block;
+        margin-top: 6px;
+        font-size: 13px;
+        color: #fff;
+        background: linear-gradient(90deg, #ff6fae, #ff9ec6);
+        border-radius: 999px;
+        padding: 1px 10px;
+    }
+    .pity-line {
+        margin-top: 16px;
+        font-size: 18px;
+        color: #b0527c;
+        text-align: center;
+    }
+    .pool-card {
+        margin-top: 18px;
+        border-radius: 20px;
+        border: 2px solid #ffc3da;
+        background: #fff8fb;
+        padding: 16px 20px;
+    }
+    .pool-head { display: flex; justify-content: space-between; align-items: center; }
+    .pool-name { font-size: 26px; color: #e75490; }
+    .pool-state {
+        font-size: 16px;
+        border-radius: 999px;
+        padding: 3px 14px;
+        color: #fff;
+        background: #5b8def;
+    }
+    .pool-state.closed { background: #b089a0; }
+    .pool-desc { margin-top: 6px; font-size: 17px; color: #8a4a68; }
+    .pool-cost { margin-top: 6px; font-size: 17px; color: #d63384; }
+    .pool-pity { font-size: 15px; color: #b0527c; margin-top: 4px; }
+    .rarity-group { margin-top: 8px; font-size: 16px; color: #7a3b5c; line-height: 1.7; }
+    .rarity-group b { color: #d63384; }
+    .hints {
+        margin-top: 18px;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+    }
+    .hint {
+        font-size: 17px;
+        color: #d63384;
+        background: #fff;
+        border: 2px solid #ffb7d5;
+        border-radius: 999px;
+        padding: 5px 16px;
+    }
+</style>
+</head>
+<body>
+<span class="deco heart" style="left:20px;top:26px"></span>
+<span class="deco heart" style="right:34px;top:60px;animation-delay:.7s"></span>
+<span class="deco heart" style="left:50px;bottom:36px;animation-delay:1.4s"></span>
+<span class="deco star" style="right:140px;top:30px"></span>
+<span class="deco star" style="left:190px;bottom:70px;animation-delay:1s"></span>
+<div class="panel">
+    <div class="head">
+        <h1>{{title}}</h1>
+        <span class="sub">{{if mode === 'result'}}{{poolName}} {{costText}}{{else}}{{userName}}{{/if}}</span>
+    </div>
+    {{if mode === 'result'}}
+    <div class="result-grid">
+        {{each results as r idx}}
+        <div class="item r{{r.rank}}" style="animation-delay: {{idx * 0.08}}s">
+            <div class="item-name">{{r.name}}</div>
+            <span class="item-rarity">{{r.rarityName}}</span>
+            {{if r.limited}}
+            <br><span class="limited-tag">限定</span>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+    <div class="pity-line">{{pityText}}</div>
+    {{else}}
+    {{each cards as c}}
+    <div class="pool-card">
+        <div class="pool-head">
+            <span class="pool-name">{{c.name}}</span>
+            <span class="pool-state{{if !c.open}} closed{{/if}}">{{c.note}}</span>
+        </div>
+        <div class="pool-desc">{{c.desc}}</div>
+        <div class="pool-cost">单抽 {{c.cost}} 金币，十连 {{c.tenCost}} 金币</div>
+        {{if c.pity}}
+        <div class="pool-pity">保底：{{if c.pity.rare}}{{c.pity.rare}}抽必出稀有 {{/if}}{{if c.pity.epic}}{{c.pity.epic}}抽必出史诗 {{/if}}{{if c.pity.legendary}}{{c.pity.legendary}}抽必出传说{{/if}}</div>
+        {{/if}}
+        {{each c.groups as g}}
+        <div class="rarity-group"><b>{{g.rarityName}}</b> {{g.names}}</div>
+        {{/each}}
+    </div>
+    {{/each}}
+    {{/if}}
+    <div class="hints">
+        {{each hints as h}}
+        <span class="hint">{{h}}</span>
+        {{/each}}
+    </div>
+</div>
+</body>
+</html>

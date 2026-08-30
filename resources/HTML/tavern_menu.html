@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒馆菜单</title>
+    <style>
+        @font-face { font-family: miaomiao; src: url(./也字工厂喵喵体.ttf); }
+        body {
+            font-family: miaomiao, 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            background-attachment: fixed;
+            color: #7a3b5c;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #e75490;
+            margin: 0;
+            padding: 10px;
+            text-shadow: 2px 2px 4px rgba(255, 183, 213, 0.5);
+        }
+
+        .header .subtitle {
+            font-size: 18px;
+            color: #8a4a68;
+            margin-top: 5px;
+        }
+
+        .divider {
+            border-bottom: 2px solid #ffd3e6;
+            margin: 20px 0;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: #e75490;
+            margin-bottom: 10px;
+            border-left: 4px solid #ff6fae;
+            padding-left: 10px;
+        }
+
+        .menu-section {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .menu-category {
+            margin-bottom: 25px;
+        }
+
+        .category-title {
+            font-size: 20px;
+            color: #e75490;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ffd3e6;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .category-icon {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .menu-item {
+            background: #fff8fb;
+            border: 1px solid #ffd3e6;
+            border-radius: 12px;
+            padding: 15px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(255, 133, 183, 0.4);
+            background: #fff0f7;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .item-name {
+            font-weight: bold;
+            font-size: 18px;
+            color: #d63384;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: #e75490;
+            background: rgba(255, 143, 191, 0.2);
+            padding: 2px 10px;
+            border-radius: 999px;
+        }
+
+        .item-desc {
+            color: #7a3b5c;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .item-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 12px;
+            color: #8a4a68;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .meta-icon {
+            margin-right: 5px;
+        }
+
+        .item-supply {
+            margin-top: 8px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .supply-label {
+            color: #8a4a68;
+        }
+
+        .supply-value {
+            font-weight: bold;
+        }
+
+        .supply-value.high {
+            color: #66bb6a;
+        }
+
+        .supply-value.medium {
+            color: #ffb74d;
+        }
+
+        .supply-value.low {
+            color: #e57373;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+            color: #fff;
+            font-size: 10px;
+            padding: 2px 10px;
+            border-radius: 999px;
+            transform: rotate(5deg);
+        }
+
+        .add-item-form {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+        }
+
+        .form-title {
+            font-size: 18px;
+            color: #e75490;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .form-description {
+            color: #7a3b5c;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .command-format {
+            background: #fff0f7;
+            border: 1px solid #ffd3e6;
+            padding: 10px;
+            border-radius: 12px;
+            font-family: monospace;
+            text-align: center;
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+
+        .example {
+            font-size: 12px;
+            color: #8a4a68;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #8a4a68;
+        }
+
+        .deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .deco.heart {
+            clip-path: path('M12 22 C4.5 15 0 10.5 0 6 C0 2.2 2.7 0 6 0 C8.8 0 11 1.8 12 4.2 C13 1.8 15.2 0 18 0 C21.3 0 24 2.2 24 6 C24 10.5 19.5 15 12 22 Z');
+            background: #ffb7d5;
+            animation: floatUp 6s ease-in-out infinite;
+        }
+
+        .deco.star {
+            clip-path: polygon(50% 0%,63% 35%,100% 38%,71% 60%,82% 100%,50% 76%,18% 100%,29% 60%,0% 38%,37% 35%);
+            background: #ffd98e;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.15); }
+        }
+    </style>
+</head>
+<body>
+    <div class="deco heart" style="top: 40px; left: 6%; width: 32px; height: 29px; opacity: 0.5;"></div>
+    <div class="deco star" style="top: 140px; right: 7%; width: 26px; height: 26px; opacity: 0.5;"></div>
+    <div class="deco heart" style="top: 55%; left: 3%; width: 22px; height: 20px; opacity: 0.4;"></div>
+    <div class="deco star" style="bottom: 120px; right: 4%; width: 22px; height: 22px; opacity: 0.45;"></div>
+    <div class="deco heart" style="bottom: 40px; left: 12%; width: 26px; height: 23px; opacity: 0.5;"></div>
+    <div class="container">
+        <div class="header">
+            <h1>{{tavern.name}} 菜单</h1>
+            <div class="subtitle">提供优质饮品和美食</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="menu-section">
+                {{if menu.drinks && menu.drinks.length > 0}}
+                <div class="menu-category">
+                    <div class="category-title">
+                        <span class="category-icon">🍺</span>
+                        饮品
+                    </div>
+                    <div class="menu-items">
+                        {{each menu.drinks drink}}
+                        <div class="menu-item">
+                            {{if drink.featured}}
+                            <div class="featured-badge">特色</div>
+                            {{/if}}
+                            <div class="item-header">
+                                <div class="item-name">{{drink.name}}</div>
+                                <div class="item-price">{{drink.price}}元</div>
+                            </div>
+                            <div class="item-desc">{{drink.description}}</div>
+                            <div class="item-meta">
+                                <div class="meta-item">
+                                    <span class="meta-icon">📦</span>
+                                    <span>原料: {{drink.supplyType}}</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-icon">❤️</span>
+                                    <span>满意度: +{{drink.satisfactionBonus}}</span>
+                                </div>
+                            </div>
+                            <div class="item-supply">
+                                <span class="supply-label">库存状态:</span>
+                                <span class="supply-value {{drink.supplyStatus}}">
+                                    {{drink.supplyStatus === 'high' ? '充足' : drink.supplyStatus === 'medium' ? '一般' : '不足'}}
+                                </span>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+
+                {{if menu.foods && menu.foods.length > 0}}
+                <div class="menu-category">
+                    <div class="category-title">
+                        <span class="category-icon">🍽️</span>
+                        美食
+                    </div>
+                    <div class="menu-items">
+                        {{each menu.foods food}}
+                        <div class="menu-item">
+                            {{if food.featured}}
+                            <div class="featured-badge">特色</div>
+                            {{/if}}
+                            <div class="item-header">
+                                <div class="item-name">{{food.name}}</div>
+                                <div class="item-price">{{food.price}}元</div>
+                            </div>
+                            <div class="item-desc">{{food.description}}</div>
+                            <div class="item-meta">
+                                <div class="meta-item">
+                                    <span class="meta-icon">📦</span>
+                                    <span>原料: {{food.supplyType}}</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-icon">❤️</span>
+                                    <span>满意度: +{{food.satisfactionBonus}}</span>
+                                </div>
+                            </div>
+                            <div class="item-supply">
+                                <span class="supply-label">库存状态:</span>
+                                <span class="supply-value {{food.supplyStatus}}">
+                                    {{food.supplyStatus === 'high' ? '充足' : food.supplyStatus === 'medium' ? '一般' : '不足'}}
+                                </span>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{/if}}
+
+                {{if (!menu.drinks || menu.drinks.length === 0) && (!menu.foods || menu.foods.length === 0)}}
+                <div style="text-align: center; padding: 20px; color: #8a4a68;">
+                    <p>你的菜单还是空的！</p>
+                    <p>使用下面的命令添加饮品或美食</p>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">添加新菜品</div>
+            <div class="add-item-form">
+                <div class="form-title">丰富你的菜单</div>
+                <div class="form-description">
+                    添加新饮品或美食，提高顾客满意度和收益
+                </div>
+                <div class="command-format">
+                    #添加饮品 [名称] [价格] [原料类型] [描述]
+                </div>
+                <div class="command-format">
+                    #添加美食 [名称] [价格] [原料类型] [描述]
+                </div>
+                <div class="example">
+                    例如: #添加饮品 特色啤酒 25 beer 自家酿制的顶级啤酒，口感醇厚
+                </div>
+                <div class="example">
+                    例如: #添加美食 招牌汉堡 35 food 秘制酱料配自制面包，鲜美多汁
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            模拟人生插件 - 酒馆系统 v1.0
+        </div>
+    </div>
+</body>
+</html>

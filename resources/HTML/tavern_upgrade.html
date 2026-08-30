@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒馆升级</title>
+    <style>
+        @font-face { font-family: miaomiao; src: url(./也字工厂喵喵体.ttf); }
+        body {
+            font-family: miaomiao, 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            background-attachment: fixed;
+            color: #7a3b5c;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #e75490;
+            margin: 0;
+            padding: 10px;
+            text-shadow: 2px 2px 4px rgba(255, 183, 213, 0.5);
+        }
+
+        .header .subtitle {
+            font-size: 18px;
+            color: #8a4a68;
+            margin-top: 5px;
+        }
+
+        .divider {
+            border-bottom: 2px solid #ffd3e6;
+            margin: 20px 0;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: #e75490;
+            margin-bottom: 10px;
+            border-left: 4px solid #ff6fae;
+            padding-left: 10px;
+        }
+
+        .current-level-section {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+        }
+
+        .current-level-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 183, 213, 0.25), transparent 60%);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .level-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .level-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .level-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #e75490;
+            margin-right: 20px;
+        }
+
+        .level-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tavern-name {
+            font-size: 24px;
+            color: #d63384;
+            margin-bottom: 5px;
+        }
+
+        .level-title {
+            font-size: 16px;
+            color: #8a4a68;
+        }
+
+        .level-progress {
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #8a4a68;
+            margin-bottom: 5px;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background-color: #ffe3ee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+            width: 0%;
+        }
+
+        .upgrade-benefits {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .benefits-title {
+            font-size: 18px;
+            color: #e75490;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ffd3e6;
+            padding-bottom: 5px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .benefit-card {
+            background: #fff8fb;
+            border: 1px solid #ffd3e6;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 24px;
+            color: #e75490;
+            margin-bottom: 10px;
+        }
+
+        .benefit-name {
+            font-weight: bold;
+            color: #d63384;
+            margin-bottom: 5px;
+        }
+
+        .benefit-desc {
+            font-size: 12px;
+            color: #7a3b5c;
+        }
+
+        .upgrade-path {
+            margin-bottom: 30px;
+        }
+
+        .path-title {
+            font-size: 18px;
+            color: #e75490;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ffd3e6;
+            padding-bottom: 5px;
+        }
+
+        .level-path {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .level-path::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #ffd3e6;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .path-progress {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .level-node {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #fff0f7;
+            border: 2px solid #ffd3e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #8a4a68;
+            position: relative;
+            z-index: 3;
+        }
+
+        .level-node.completed {
+            background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+            border: none;
+            color: #fff;
+        }
+
+        .level-node.current {
+            background: #fff;
+            border: 2px solid #ff6fae;
+            color: #e75490;
+            box-shadow: 0 0 15px rgba(255, 111, 174, 0.6);
+        }
+
+        .level-node.locked {
+            background: #ffe3ee;
+            color: #c99ab5;
+        }
+
+        .upgrade-info {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+        }
+
+        .upgrade-info-title {
+            font-size: 18px;
+            color: #e75490;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .upgrade-cost {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cost-label {
+            font-size: 16px;
+            color: #8a4a68;
+            margin-right: 10px;
+        }
+
+        .cost-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e57373;
+        }
+
+        .upgrade-command {
+            background: #fff0f7;
+            border: 1px solid #ffd3e6;
+            padding: 15px;
+            border-radius: 12px;
+            font-family: monospace;
+            text-align: center;
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+
+        .upgrade-note {
+            text-align: center;
+            font-size: 14px;
+            color: #8a4a68;
+            font-style: italic;
+        }
+
+        .max-level-message {
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+            color: #e75490;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #8a4a68;
+        }
+
+        .deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .deco.heart {
+            clip-path: path('M12 22 C4.5 15 0 10.5 0 6 C0 2.2 2.7 0 6 0 C8.8 0 11 1.8 12 4.2 C13 1.8 15.2 0 18 0 C21.3 0 24 2.2 24 6 C24 10.5 19.5 15 12 22 Z');
+            background: #ffb7d5;
+            animation: floatUp 6s ease-in-out infinite;
+        }
+
+        .deco.star {
+            clip-path: polygon(50% 0%,63% 35%,100% 38%,71% 60%,82% 100%,50% 76%,18% 100%,29% 60%,0% 38%,37% 35%);
+            background: #ffd98e;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.15); }
+        }
+    </style>
+</head>
+<body>
+    <div class="deco heart" style="top: 40px; left: 6%; width: 32px; height: 29px; opacity: 0.5;"></div>
+    <div class="deco star" style="top: 140px; right: 7%; width: 26px; height: 26px; opacity: 0.5;"></div>
+    <div class="deco heart" style="top: 55%; left: 3%; width: 22px; height: 20px; opacity: 0.4;"></div>
+    <div class="deco star" style="bottom: 120px; right: 4%; width: 22px; height: 22px; opacity: 0.45;"></div>
+    <div class="deco heart" style="bottom: 40px; left: 12%; width: 26px; height: 23px; opacity: 0.5;"></div>
+    <div class="container">
+        <div class="header">
+            <h1>酒馆升级</h1>
+            <div class="subtitle">提升酒馆等级，解锁更多功能</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="section-title">当前状态</div>
+            <div class="current-level-section">
+                <div class="level-display">
+                    <div class="level-info">
+                        <div class="level-number">{{tavern.level}}</div>
+                        <div class="level-details">
+                            <div class="tavern-name">{{tavern.name}}</div>
+                            <div class="level-title">{{tavern.levelTitle}}</div>
+                        </div>
+                    </div>
+
+                    {{if !isMaxLevel}}
+                    <div class="level-progress">
+                        <div class="progress-label">
+                            <span>升级进度</span>
+                            <span>{{tavern.levelProgress}}%</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: {{tavern.levelProgress}}%;"></div>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+
+        {{if !isMaxLevel}}
+        <div class="section">
+            <div class="section-title">下一等级收益</div>
+            <div class="upgrade-benefits">
+                <div class="benefits-title">升级到 {{tavern.level + 1}} 级带来的好处</div>
+                <div class="benefits-grid">
+                    {{each nextLevelBenefits benefit}}
+                    <div class="benefit-card">
+                        <div class="benefit-icon">{{benefit.icon}}</div>
+                        <div class="benefit-name">{{benefit.name}}</div>
+                        <div class="benefit-desc">{{benefit.description}}</div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">升级路径</div>
+            <div class="upgrade-path">
+                <div class="path-title">酒馆成长之路</div>
+                <div class="level-path">
+                    <div class="path-progress" style="width: {{(tavern.level - 1) * 20}}%;"></div>
+                    {{each levelPath level}}
+                    <div class="level-node {{level.status}}">{{level.number}}</div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">升级酒馆</div>
+            <div class="upgrade-info">
+                <div class="upgrade-info-title">准备好升级你的酒馆了吗？</div>
+                <div class="upgrade-cost">
+                    <span class="cost-label">升级费用:</span>
+                    <span class="cost-value">{{upgradeCost}}元</span>
+                </div>
+                <div class="upgrade-command">
+                    #升级酒馆
+                </div>
+                <div class="upgrade-note">
+                    升级后，你的酒馆容量、员工上限和功能都将提升！
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="max-level-message">
+            恭喜！你的酒馆已达到最高等级！🎉
+        </div>
+        {{/if}}
+
+        <div class="footer">
+            模拟人生插件 - 酒馆系统 v1.0
+        </div>
+    </div>
+</body>
+</html>

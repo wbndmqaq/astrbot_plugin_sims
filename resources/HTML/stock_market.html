@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: miaomiao;
+            src: url(./也字工厂喵喵体.ttf);
+        }
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .deco-heart {
+            width: 34px;
+            height: 34px;
+            background: #ffb7d5;
+            clip-path: polygon(50% 100%, 0 35%, 25% 0, 50% 20%, 75% 0, 100% 35%);
+            animation: floatUp 3.5s ease-in-out infinite;
+        }
+        .deco-star {
+            width: 26px;
+            height: 26px;
+            background: #ffd98e;
+            clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: floatUp 4s ease-in-out infinite, twinkle 2s infinite;
+        }
+        body {
+            font-family: miaomiao, 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            min-height: 100vh;
+            color: #7a3b5c;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 18px;
+            border: 2px solid #ffc3da;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ffc3da;
+            padding-bottom: 15px;
+        }
+        .header h1 {
+            margin: 0;
+            color: #e75490;
+            font-family: miaomiao, sans-serif;
+            text-shadow: 0 0 10px rgba(255, 143, 191, 0.5);
+        }
+        .stock-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .stock-card {
+            background: rgba(255, 240, 246, 0.9);
+            border-radius: 18px;
+            padding: 15px;
+            transition: transform 0.3s ease;
+            border: 2px solid #ffc3da;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+        }
+        .stock-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 133, 183, 0.4);
+        }
+        .stock-name {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #d63384;
+            font-family: miaomiao, sans-serif;
+        }
+        .stock-id {
+            color: #b07a95;
+            font-size: 0.9em;
+        }
+        .stock-price {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #e75490;
+        }
+        .stock-volatility {
+            color: #ff6fae;
+            font-size: 0.9em;
+        }
+        .up {
+            color: #e05a7a;
+        }
+        .down {
+            color: #52c48a;
+        }
+        .cute-icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #b07a95;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="deco deco-heart" style="top: 24px; left: 20px;"></div>
+    <div class="deco deco-star" style="top: 70px; right: 24px;"></div>
+    <div class="deco deco-heart" style="top: 130px; right: 48px; animation-delay: 1.2s;"></div>
+    <div class="deco deco-star" style="top: 190px; left: 44px; animation-delay: 0.6s;"></div>
+    <div class="container">
+        <div class="header">
+            <h1>🌟 模拟股市行情 🌟</h1>
+        </div>
+        <div class="stock-grid">
+            {{each stocks stock}}
+            <div class="stock-card">
+                <div class="stock-name">
+                    <span class="cute-icon">🎯</span>{{stock.name}}
+                </div>
+                <div class="stock-id">{{stock.id}}</div>
+                <div class="stock-price">
+                    <span class="cute-icon">💰</span>{{stock.price}}元
+                </div>
+                <div class="stock-volatility">
+                    <span class="cute-icon">📊</span>波动率: {{stock.volatility * 100}}%
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="footer">
+            <p>💫 每5分钟更新一次 | 使用 #买入股票/卖出股票 进行交易 💫</p>
+        </div>
+    </div>
+</body>
+</html>

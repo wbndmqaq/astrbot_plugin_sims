@@ -1,0 +1,151 @@
+{
+  "schema": "events_v1",
+  "version": "1.0.0",
+  "description": "统一事件定义系统",
+  "eventCategories": {
+    "weather": { "name": "天气事件", "probability": 0.3 },
+    "career": { "name": "职业事件", "probability": 0.2 },
+    "social": { "name": "社交事件", "probability": 0.15 },
+    "random": { "name": "随机事件", "probability": 0.1 },
+    "special": { "name": "特殊事件", "probability": 0.05 }
+  },
+  "events": {
+    "sunny": {
+      "id": "sunny",
+      "name": "晴天",
+      "category": "weather",
+      "description": "阳光明媚的一天，心情愉快",
+      "probability": 0.4,
+      "effects": [{ "type": "mood", "value": 5 }],
+      "duration": 86400
+    },
+    "rainy": {
+      "id": "rainy",
+      "name": "雨天",
+      "category": "weather",
+      "description": "下雨天，出行不便",
+      "probability": 0.25,
+      "effects": [{ "type": "mood", "value": -3 }],
+      "duration": 43200
+    },
+    "storm": {
+      "id": "storm",
+      "name": "暴风雨",
+      "category": "weather",
+      "description": "暴风雨天气，注意安全",
+      "probability": 0.05,
+      "effects": [{ "type": "mood", "value": -10 }, { "type": "health", "value": -5 }],
+      "duration": 21600
+    },
+    "promotion_chance": {
+      "id": "promotion_chance",
+      "name": "晋升机会",
+      "category": "career",
+      "description": "工作表现出色，获得晋升机会",
+      "probability": 0.1,
+      "conditions": { "careerLevel": ">=1" },
+      "effects": [{ "type": "career_exp", "value": 100 }]
+    },
+    "work_accident": {
+      "id": "work_accident",
+      "name": "工作事故",
+      "category": "career",
+      "description": "工作中发生意外",
+      "probability": 0.05,
+      "effects": [{ "type": "health", "value": -20 }, { "type": "money", "value": -100 }]
+    },
+    "new_friend": {
+      "id": "new_friend",
+      "name": "新朋友",
+      "category": "social",
+      "description": "结识了新朋友",
+      "probability": 0.15,
+      "effects": [{ "type": "happiness", "value": 10 }]
+    },
+    "argument": {
+      "id": "argument",
+      "name": "争吵",
+      "category": "social",
+      "description": "与他人发生争吵",
+      "probability": 0.08,
+      "effects": [{ "type": "mood", "value": -15 }]
+    },
+    "found_money": {
+      "id": "found_money",
+      "name": "捡到钱",
+      "category": "random",
+      "description": "意外捡到一些钱",
+      "probability": 0.05,
+      "effects": [{ "type": "money", "value": "random:10-500" }]
+    },
+    "lost_item": {
+      "id": "lost_item",
+      "name": "丢失物品",
+      "category": "random",
+      "description": "不小心丢失了物品",
+      "probability": 0.03,
+      "effects": [{ "type": "inventory_remove", "value": "random" }]
+    },
+    "lucky_day": {
+      "id": "lucky_day",
+      "name": "幸运日",
+      "category": "special",
+      "description": "今天是你的幸运日",
+      "probability": 0.01,
+      "effects": [{ "type": "luck", "value": 20, "duration": 86400 }]
+    },
+    "unlucky_day": {
+      "id": "unlucky_day",
+      "name": "倒霉日",
+      "category": "special",
+      "description": "今天诸事不顺",
+      "probability": 0.01,
+      "effects": [{ "type": "luck", "value": -20, "duration": 86400 }]
+    }
+  },
+  "dailyEvents": {
+    "login_bonus": {
+      "id": "login_bonus",
+      "name": "每日登录奖励",
+      "description": "每日登录游戏获得奖励",
+      "rewards": [{ "type": "money", "value": 100 }],
+      "streakBonus": [{ "type": "money", "value": 50 }]
+    },
+    "daily_quest": {
+      "id": "daily_quest",
+      "name": "每日任务",
+      "description": "完成每日任务获得奖励",
+      "rewards": [{ "type": "money", "value": 200 }, { "type": "exp", "value": 50 }]
+    }
+  },
+  "seasonalEvents": {
+    "spring": {
+      "id": "spring",
+      "name": "春节",
+      "description": "春节期间获得额外奖励",
+      "duration": 604800,
+      "rewards": [{ "type": "money", "value": 1000 }]
+    },
+    "summer": {
+      "id": "summer",
+      "name": "夏日祭",
+      "description": "夏日祭期间特殊活动",
+      "duration": 604800,
+      "rewards": [{ "type": "mood", "value": 20 }]
+    },
+    "autumn": {
+      "id": "autumn",
+      "name": "中秋节",
+      "description": "中秋佳节团圆时",
+      "duration": 604800,
+      "rewards": [{ "type": "happiness", "value": 30 }]
+    },
+    "winter": {
+      "id": "winter",
+      "name": "圣诞节",
+      "description": "圣诞快乐，获得礼物",
+      "duration": 604800,
+      "rewards": [{ "type": "money", "value": 500 }, { "type": "item", "value": "gift_box" }]
+    }
+  }
+}

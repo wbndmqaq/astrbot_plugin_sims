@@ -1,0 +1,109 @@
+body {
+  height: 1024px;
+  font-size: auto;
+  transform: scale(1);
+  width: 1024px;
+  background: url("../common/theme/bg-01.jpg");
+}
+@font-face {
+  font-family: "naya";
+  src: url("HYShiGuangTiW_0.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+.logo-container {
+  text-align: center;
+  margin: 10px auto 20px;
+}
+.logo-img {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.container {
+  background: url(../common/theme/main-01.png) top left no-repeat;
+  background-size: 100% auto;
+  width: 830px;
+}
+.head-box {
+  margin: 60px 0 0 0;
+  padding-bottom: 0;
+  text-align: center;
+}
+.head-box .title {
+  font-size: 70px;
+  text-align: center;
+}
+.head-box .label {
+  font-size: 20px;
+  text-align: center;
+}
+.cont-box {
+  border-radius: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+.help-group {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 15px 10px 20px;
+}
+.help-table {
+  text-align: center;
+  border-collapse: collapse;
+  margin: 0;
+  border-radius: 0 0 10px 10px;
+  display: table;
+  overflow: hidden;
+  width: 100%;
+  color: #fff;
+}
+.help-table .tr {
+  display: table-row;
+}
+.help-table .td,
+.help-table .th {
+  font-size: 14px;
+  display: table-cell;
+  box-shadow: 0 0 1px 0 #888 inset;
+  padding: 12px 0 12px 50px;
+  line-height: 24px;
+  position: relative;
+  text-align: left;
+}
+.help-table .tr:last-child .td {
+  padding-bottom: 12px;
+}
+.help-table .th {
+  background: rgba(34, 41, 51, 0.1);
+}
+.help-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  background: url("icon.png") 0 0 no-repeat;
+  background-size: 500px auto;
+  border-radius: 5px;
+  left: 6px;
+  top: 12px;
+  transform: scale(0.85);
+}
+.help-title {
+	font-family: "naya";
+  display: block;
+  color: #d3bc8e;
+  font-size: 18px;
+  line-height: 24px;
+}
+.help-desc {
+	padding-top:5px;
+	font-family: "naya";
+  display: block;
+  font-size: 15px;
+  line-height: 18px;
+}

@@ -1,0 +1,21 @@
+stocks:
+  - id: AAPL
+    name: 苹果科技
+    price: 150
+    volatility: 0.05
+  - id: GOOG
+    name: 谷歌科技
+    price: 2800
+    volatility: 0.04
+  - id: TSLA
+    name: 特斯拉
+    price: 900
+    volatility: 0.08
+  - id: BABA
+    name: 阿里巴巴
+    price: 120
+    volatility: 0.06
+  - id: TENC
+    name: 腾讯控股
+    price: 400
+    volatility: 0.05

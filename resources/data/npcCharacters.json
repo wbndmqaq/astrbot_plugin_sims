@@ -1,0 +1,43 @@
+{
+    "characters": [
+        {
+            "id": "npc_01",
+            "name": "小月",
+            "gender": "女",
+            "age": 22,
+            "personality": "温柔",
+            "hobby": ["烹饪", "园艺", "阅读"],
+            "description": "温柔可爱的女孩，喜欢烹饪和园艺",
+            "likes": ["美食", "花朵", "小动物"],
+            "dislikes": ["吵闹", "脏乱"],
+            "initialAffection": 0,
+            "avatar": "npc_01.jpg"
+        },
+        {
+            "id": "npc_02",
+            "name": "阳阳",
+            "gender": "男",
+            "age": 24,
+            "personality": "阳光",
+            "hobby": ["运动", "摄影", "旅行"],
+            "description": "阳光开朗的男生，热爱运动和摄影",
+            "likes": ["运动", "摄影", "户外活动"],
+            "dislikes": ["懒散", "不守时"],
+            "initialAffection": 0,
+            "avatar": "npc_02.jpg"
+        },
+        {
+            "id": "npc_03",
+            "name": "雨晴",
+            "gender": "女",
+            "age": 23,
+            "personality": "文艺",
+            "hobby": ["绘画", "音乐", "写作"],
+            "description": "文艺清新的女孩，擅长艺术创作",
+            "likes": ["艺术", "安静", "咖啡"],
+            "dislikes": ["粗俗", "虚伪"],
+            "initialAffection": 0,
+            "avatar": "npc_03.jpg"
+        }
+    ]
+}

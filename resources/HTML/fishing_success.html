@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: miaomiao;
+            src: url(./也字工厂喵喵体.ttf);
+        }
+        body {
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            min-height: 100vh;
+            color: #7a3b5c;
+            position: relative;
+        }
+        .deco {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .deco-heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #ffb7d5;
+            clip-path: polygon(50% 100%, 0 35%, 25% 0, 50% 20%, 75% 0, 100% 35%);
+            animation: floatUp 3.5s ease-in-out infinite;
+        }
+        .deco-star {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: #ffd98e;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: twinkle 2s infinite;
+        }
+        .dh1 { top: 8%; left: 5%; }
+        .dh2 { top: 16%; right: 8%; width: 22px; height: 22px; animation-delay: 0.8s; }
+        .dh3 { top: 42%; left: 3%; width: 18px; height: 18px; animation-delay: 1.6s; }
+        .ds1 { top: 6%; left: 42%; animation-delay: 0.5s; }
+        .ds2 { top: 30%; right: 4%; width: 18px; height: 18px; animation-delay: 1.2s; }
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+            text-align: center;
+            position: relative;
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #e75490;
+            margin: 0;
+            font-size: 2em;
+            font-family: miaomiao, 'Arial', sans-serif;
+        }
+        .fish-info {
+            background: white;
+            border-radius: 14px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #ffc3da;
+        }
+        .fish-name {
+            font-size: 1.8em;
+            color: #d63384;
+            margin: 10px 0;
+            font-family: miaomiao, 'Arial', sans-serif;
+        }
+        .fish-rarity {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+            color: #fff;
+            margin: 10px 0;
+            box-shadow: 0 4px 12px rgba(255, 111, 174, 0.4);
+        }
+        .fish-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-item {
+            background: #fff0f6;
+            padding: 10px;
+            border-radius: 10px;
+            color: #8a4a68;
+        }
+        .fish-description {
+            font-style: italic;
+            color: #b07a95;
+            margin: 15px 0;
+        }
+        .footer {
+            margin-top: 20px;
+            color: #b07a95;
+            font-size: 0.9em;
+        }
+        .cute-icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        .fish-image {
+            font-size: 4em;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="deco">
+        <div class="deco-heart dh1"></div>
+        <div class="deco-heart dh2"></div>
+        <div class="deco-heart dh3"></div>
+        <div class="deco-star ds1"></div>
+        <div class="deco-star ds2"></div>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>🎣 钓鱼成功！ 🎣</h1>
+        </div>
+        <div class="fish-info">
+            <div class="fish-image">🐟</div>
+            <div class="fish-name">
+                <span class="cute-icon">✨</span>{{fish.name}}
+            </div>
+            <div class="fish-rarity">{{fish.rarity}}</div>
+            <div class="fish-stats">
+                <div class="stat-item">
+                    <span class="cute-icon">⚖️</span>重量：{{weight}}kg
+                </div>
+                <div class="stat-item">
+                    <span class="cute-icon">💰</span>基础价值：{{fish.basePrice}}金币
+                </div>
+                <div class="stat-item">
+                    <span class="cute-icon">📈</span>经验：+{{fish.exp}}
+                </div>
+                <div class="stat-item">
+                    <span class="cute-icon">⏰</span>保鲜时间：{{fish.freshness/3600}}小时
+                </div>
+            </div>
+            <div class="fish-description">
+                <span class="cute-icon">📝</span>{{fish.description}}
+            </div>
+        </div>
+        <div class="footer">
+            <p>💫 记得及时查看鱼篓，避免鱼获变质！ 💫</p>
+        </div>
+    </div>
+</body>
+</html>

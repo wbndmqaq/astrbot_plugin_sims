@@ -1,0 +1,138 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "name": "暴雨",
+      "type": "weather",
+      "effect": {
+        "water": 20,
+        "growth": -1
+      },
+      "description": "暴雨冲刷了你的农田，所有作物水分充足，但生长受到轻微影响",
+      "probability": 10,
+      "duration": 1,
+      "icon": "heavy_rain.png"
+    },
+    {
+      "id": 2,
+      "name": "干旱",
+      "type": "weather",
+      "effect": {
+        "water": -30,
+        "growth": -2
+      },
+      "description": "持续的干旱使你的作物缺水，需要更多浇水",
+      "probability": 8,
+      "duration": 2,
+      "icon": "drought.png"
+    },
+    {
+      "id": 3,
+      "name": "虫灾",
+      "type": "pest",
+      "effect": {
+        "health": -20,
+        "yield": -30
+      },
+      "description": "害虫侵袭了你的农田，作物产量和健康度降低",
+      "probability": 12,
+      "duration": 2,
+      "remedy": "pesticide",
+      "icon": "pest.png"
+    },
+    {
+      "id": 4,
+      "name": "阳光普照",
+      "type": "weather",
+      "effect": {
+        "growth": 2,
+        "health": 10
+      },
+      "description": "阳光充足，作物生长加速，健康度提升",
+      "probability": 15,
+      "duration": 1,
+      "icon": "sunshine.png"
+    },
+    {
+      "id": 5,
+      "name": "肥沃土壤",
+      "type": "soil",
+      "effect": {
+        "fertility": 20,
+        "yield": 20
+      },
+      "description": "土壤肥力提升，作物生长更好，产量增加",
+      "probability": 10,
+      "duration": 3,
+      "icon": "fertile_soil.png"
+    },
+    {
+      "id": 6,
+      "name": "台风",
+      "type": "disaster",
+      "effect": {
+        "health": -50,
+        "growth": -3,
+        "yield": -40
+      },
+      "description": "台风袭击，农作物严重受损",
+      "probability": 5,
+      "duration": 1,
+      "icon": "typhoon.png"
+    },
+    {
+      "id": 7,
+      "name": "丰收预兆",
+      "type": "blessing",
+      "effect": {
+        "yield": 50,
+        "quality": 30
+      },
+      "description": "神秘的丰收预兆，本季作物产量大增",
+      "probability": 5,
+      "duration": 2,
+      "icon": "harvest_sign.png"
+    },
+    {
+      "id": 8,
+      "name": "土壤贫瘠",
+      "type": "soil",
+      "effect": {
+        "fertility": -20,
+        "growth": -1
+      },
+      "description": "土壤养分不足，需要施肥改善",
+      "probability": 12,
+      "duration": 2,
+      "remedy": "fertilize",
+      "icon": "poor_soil.png"
+    },
+    {
+      "id": 9,
+      "name": "杂草丛生",
+      "type": "weed",
+      "effect": {
+        "growth": -1,
+        "yield": -10
+      },
+      "description": "杂草与作物争夺养分，影响生长",
+      "probability": 15,
+      "duration": 2,
+      "remedy": "weed",
+      "icon": "weeds.png"
+    },
+    {
+      "id": 10,
+      "name": "农业专家指导",
+      "type": "blessing",
+      "effect": {
+        "experience": 50,
+        "quality": 20
+      },
+      "description": "专家到访指导，获得宝贵经验",
+      "probability": 7,
+      "duration": 1,
+      "icon": "expert.png"
+    }
+  ]
+} 

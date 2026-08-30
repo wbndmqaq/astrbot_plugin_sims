@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>模拟人生 - 设置中心</title>
+  <link rel="stylesheet" type="text/css" href="{{pluResPath}}HTML/styles.css" />
+  <link rel="stylesheet" type="text/css" href="{{pluResPath}}HTML/114514.css" />
+  <style>
+    @font-face { font-family: miaomiao; src: url(./也字工厂喵喵体.ttf); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+      font-family: miaomiao, "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+      color: #7a3b5c;
+      position: relative;
+    }
+    .container {
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 24px;
+      background: rgba(255,255,255,0.95);
+      border: 2px solid #ffc3da;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(255,133,183,0.3);
+      position: relative;
+    }
+    .header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid #ffd3e6;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+    .title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #e75490;
+      letter-spacing: .5px;
+    }
+    .subtitle {
+      font-size: 12px;
+      color: #8a4a68;
+    }
+    .section {
+      margin-top: 16px;
+    }
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #d63384;
+    }
+    .card {
+      background: #fff8fb;
+      border: 1px solid #ffd3e6;
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .config-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 10px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .config-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      background: #fff;
+      border: 1px solid #ffd3e6;
+      border-radius: 10px;
+      color: #7a3b5c;
+      box-shadow: 0 4px 10px rgba(255,133,183,0.15);
+    }
+    .config-item .dot {
+      width: 8px;
+      height: 8px;
+      background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(255,143,191,0.25);
+    }
+    .empty {
+      padding: 18px;
+      text-align: center;
+      color: #8a4a68;
+      border: 1px dashed #ffc3da;
+      border-radius: 12px;
+      background: #fff8fb;
+    }
+    .tips {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #8a4a68;
+      line-height: 1.6;
+    }
+    .deco {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .deco-heart {
+      width: 26px;
+      height: 24px;
+      background: #ffb7d5;
+      clip-path: path('M12 22 C4.5 15 0 10.5 0 6 C0 2.2 2.7 0 6 0 C8.8 0 11 1.8 12 4.2 C13 1.8 15.2 0 18 0 C21.3 0 24 2.2 24 6 C24 10.5 19.5 15 12 22 Z');
+      opacity: 0.5;
+      animation: floatUp 6s ease-in-out infinite;
+    }
+    .deco-star {
+      width: 24px;
+      height: 24px;
+      background: #ffd98e;
+      clip-path: polygon(50% 0%,63% 35%,100% 38%,71% 60%,82% 100%,50% 76%,18% 100%,29% 60%,0% 38%,37% 35%);
+      opacity: 0.55;
+      animation: twinkle 3s ease-in-out infinite;
+    }
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 0.6; transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+  <div class="deco deco-heart" style="top: 24px; left: 20px;"></div>
+  <div class="deco deco-star" style="top: 70px; right: 24px;"></div>
+  <div class="deco deco-heart" style="top: 130px; right: 48px; animation-delay: 1.2s;"></div>
+  <div class="deco deco-star" style="top: 190px; left: 44px; animation-delay: 0.6s;"></div>
+  <div class="container">
+    <div class="header">
+      <div class="title">模拟人生 · 设置中心</div>
+      <div class="subtitle">渲染时间：{{data.time}}</div>
+    </div>
+
+    <div class="section">
+      <h2>可用配置文件</h2>
+      <div class="card">
+        {{if configFiles && configFiles.length}}
+          <ul class="config-list">
+            {{each configFiles file}}
+              <li class="config-item">
+                <span class="dot"></span>
+                <span>{{file}}</span>
+              </li>
+            {{/each}}
+          </ul>
+        {{else}}
+          <div class="empty">未在 plugins/sims-plugin/config/ 下发现配置文件</div>
+        {{/if}}
+        <div class="tips">
+          提示：此界面仅用于查看当前可用配置文件列表。若需查看或修改具体配置，请使用相应指令或在服务器上编辑对应 YAML 文件。
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

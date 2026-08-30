@@ -1,0 +1,142 @@
+{
+    "caseTypes": {
+        "盗窃案": {
+            "baseExp": 50,
+            "baseReward": 1000,
+            "difficulties": {
+                "简单": { "expMultiplier": 1, "rewardMultiplier": 1 },
+                "普通": { "expMultiplier": 1.5, "rewardMultiplier": 1.5 },
+                "困难": { "expMultiplier": 2, "rewardMultiplier": 2 },
+                "极难": { "expMultiplier": 3, "rewardMultiplier": 3 }
+            },
+            "requiredSkills": ["investigation", "communication"],
+            "description": "处理各类财物被盗案件，需要细心搜查线索和询问证人。"
+        },
+        "抢劫案": {
+            "baseExp": 100,
+            "baseReward": 2000,
+            "difficulties": {
+                "简单": { "expMultiplier": 1, "rewardMultiplier": 1 },
+                "普通": { "expMultiplier": 1.5, "rewardMultiplier": 1.5 },
+                "困难": { "expMultiplier": 2, "rewardMultiplier": 2 },
+                "极难": { "expMultiplier": 3, "rewardMultiplier": 3 }
+            },
+            "requiredSkills": ["combat", "investigation"],
+            "description": "处理暴力抢劫事件，需要勇气和战斗能力。"
+        },
+        "交通事故": {
+            "baseExp": 30,
+            "baseReward": 800,
+            "difficulties": {
+                "简单": { "expMultiplier": 1, "rewardMultiplier": 1 },
+                "普通": { "expMultiplier": 1.5, "rewardMultiplier": 1.5 },
+                "困难": { "expMultiplier": 2, "rewardMultiplier": 2 },
+                "极难": { "expMultiplier": 3, "rewardMultiplier": 3 }
+            },
+            "requiredSkills": ["investigation", "communication"],
+            "description": "处理交通事故现场，需要耐心调解和专业判断。"
+        },
+        "治安纠纷": {
+            "baseExp": 20,
+            "baseReward": 500,
+            "difficulties": {
+                "简单": { "expMultiplier": 1, "rewardMultiplier": 1 },
+                "普通": { "expMultiplier": 1.5, "rewardMultiplier": 1.5 },
+                "困难": { "expMultiplier": 2, "rewardMultiplier": 2 },
+                "极难": { "expMultiplier": 3, "rewardMultiplier": 3 }
+            },
+            "requiredSkills": ["communication", "leadership"],
+            "description": "处理邻里纠纷等治安问题，需要良好的沟通能力。"
+        },
+        "诈骗案": {
+            "baseExp": 80,
+            "baseReward": 1500,
+            "difficulties": {
+                "简单": { "expMultiplier": 1, "rewardMultiplier": 1 },
+                "普通": { "expMultiplier": 1.5, "rewardMultiplier": 1.5 },
+                "困难": { "expMultiplier": 2, "rewardMultiplier": 2 },
+                "极难": { "expMultiplier": 3, "rewardMultiplier": 3 }
+            },
+            "requiredSkills": ["investigation", "communication"],
+            "description": "调查各类诈骗案件，需要缜密的逻辑思维。"
+        },
+        "打架斗殴": {
+            "baseExp": 40,
+            "baseReward": 1000,
+            "difficulties": {
+                "简单": { "expMultiplier": 1, "rewardMultiplier": 1 },
+                "普通": { "expMultiplier": 1.5, "rewardMultiplier": 1.5 },
+                "困难": { "expMultiplier": 2, "rewardMultiplier": 2 },
+                "极难": { "expMultiplier": 3, "rewardMultiplier": 3 }
+            },
+            "requiredSkills": ["combat", "communication"],
+            "description": "处理打架斗殴事件，需要控制局面的能力。"
+        },
+        "破坏公物": {
+            "baseExp": 30,
+            "baseReward": 700,
+            "difficulties": {
+                "简单": { "expMultiplier": 1, "rewardMultiplier": 1 },
+                "普通": { "expMultiplier": 1.5, "rewardMultiplier": 1.5 },
+                "困难": { "expMultiplier": 2, "rewardMultiplier": 2 },
+                "极难": { "expMultiplier": 3, "rewardMultiplier": 3 }
+            },
+            "requiredSkills": ["investigation", "communication"],
+            "description": "调查公物损坏事件，需要收集证据和询问目击者。"
+        },
+        "寻衅滋事": {
+            "baseExp": 35,
+            "baseReward": 800,
+            "difficulties": {
+                "简单": { "expMultiplier": 1, "rewardMultiplier": 1 },
+                "普通": { "expMultiplier": 1.5, "rewardMultiplier": 1.5 },
+                "困难": { "expMultiplier": 2, "rewardMultiplier": 2 },
+                "极难": { "expMultiplier": 3, "rewardMultiplier": 3 }
+            },
+            "requiredSkills": ["combat", "communication"],
+            "description": "处理寻衅滋事行为，需要果断制止和有效沟通。"
+        }
+    },
+    "locations": {
+        "商业街": {
+            "crimeRate": 0.7,
+            "difficultyModifier": 1.2,
+            "description": "人流密集，易发生偷盗和诈骗案件。"
+        },
+        "居民区": {
+            "crimeRate": 0.4,
+            "difficultyModifier": 1.0,
+            "description": "主要处理邻里纠纷和噪音扰民。"
+        },
+        "公园": {
+            "crimeRate": 0.3,
+            "difficultyModifier": 0.8,
+            "description": "需要维持公共秩序，处理小偷小摸。"
+        },
+        "地铁站": {
+            "crimeRate": 0.6,
+            "difficultyModifier": 1.1,
+            "description": "人流密集，易发生偷盗和治安案件。"
+        },
+        "商场": {
+            "crimeRate": 0.5,
+            "difficultyModifier": 1.0,
+            "description": "主要处理偷盗和纠纷事件。"
+        },
+        "学校周边": {
+            "crimeRate": 0.4,
+            "difficultyModifier": 0.9,
+            "description": "重点维护校园周边安全。"
+        },
+        "工业园区": {
+            "crimeRate": 0.3,
+            "difficultyModifier": 1.3,
+            "description": "需要处理财产犯罪和安全事故。"
+        },
+        "娱乐场所": {
+            "crimeRate": 0.8,
+            "difficultyModifier": 1.4,
+            "description": "易发生斗殴和治安案件。"
+        }
+    }
+}

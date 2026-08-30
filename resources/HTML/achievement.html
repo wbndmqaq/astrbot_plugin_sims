@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>成就系统</title>
+<style>
+    @font-face {
+        font-family: miaomiao;
+        src: url(./也字工厂喵喵体.ttf);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        width: 900px;
+        font-family: miaomiao, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+        padding: 34px 28px;
+        position: relative;
+        overflow: hidden;
+    }
+    .deco { position: absolute; pointer-events: none; }
+    .heart {
+        width: 24px; height: 22px;
+        background: #ffb7d5;
+        clip-path: path('M12 22 C4.5 15 0 10.5 0 6 C0 2.2 2.7 0 6 0 C8.8 0 11 1.8 12 4.2 C13 1.8 15.2 0 18 0 C21.3 0 24 2.2 24 6 C24 10.5 19.5 15 12 22 Z');
+        opacity: .5;
+        animation: floatUp 5s ease-in-out infinite;
+    }
+    .star {
+        width: 16px; height: 16px;
+        background: #ffd98e;
+        clip-path: polygon(50% 0%, 63% 35%, 100% 38%, 71% 60%, 82% 100%, 50% 76%, 18% 100%, 29% 60%, 0% 38%, 37% 35%);
+        animation: twinkle 2.6s ease-in-out infinite;
+    }
+    @keyframes floatUp {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-12px); }
+    }
+    @keyframes twinkle {
+        0%, 100% { opacity: .3; transform: scale(.85); }
+        50% { opacity: .9; transform: scale(1.15) rotate(20deg); }
+    }
+    .panel {
+        position: relative;
+        background: rgba(255, 255, 255, .96);
+        border-radius: 26px;
+        border: 3px solid #ffc3da;
+        box-shadow: 0 12px 36px rgba(255, 133, 183, .3);
+        padding: 26px 30px;
+    }
+    .head { display: flex; justify-content: space-between; align-items: center; }
+    h1 {
+        font-size: 38px;
+        color: #e75490;
+        letter-spacing: 3px;
+    }
+    .count {
+        font-size: 22px;
+        color: #d63384;
+        background: #fff0f7;
+        border: 2px solid #ffb7d5;
+        border-radius: 999px;
+        padding: 6px 20px;
+    }
+    .group { margin-top: 20px; }
+    .group-name {
+        display: inline-block;
+        font-size: 22px;
+        color: #fff;
+        background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+        border-radius: 999px;
+        padding: 5px 20px;
+        box-shadow: 0 4px 10px rgba(255, 111, 174, .35);
+    }
+    .grid {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    .ach {
+        border-radius: 18px;
+        border: 2px solid #ffd3e6;
+        background: #fff8fb;
+        padding: 12px 16px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+    .ach.on {
+        border-color: #ff8fbf;
+        background: linear-gradient(135deg, #fff0f7, #ffe9f3);
+        box-shadow: 0 6px 16px rgba(255, 143, 191, .3);
+    }
+    .badge {
+        flex: none;
+        width: 74px; height: 74px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 16px;
+        line-height: 1.25;
+        padding: 8px;
+        color: #b0527c;
+        background: #ffe3ef;
+        border: 3px solid #ffd3e6;
+    }
+    .ach.on .badge {
+        color: #fff;
+        background: linear-gradient(135deg, #ff9ec6, #ff6fae);
+        border-color: #ffd3e6;
+        box-shadow: 0 0 14px rgba(255, 111, 174, .55);
+        animation: badgeGlow 2.4s ease-in-out infinite;
+    }
+    @keyframes badgeGlow {
+        0%, 100% { box-shadow: 0 0 10px rgba(255,111,174,.45); }
+        50% { box-shadow: 0 0 22px rgba(255,111,174,.8); }
+    }
+    .info { flex: 1; min-width: 0; }
+    .ach-name { font-size: 21px; color: #d63384; }
+    .ach-desc { font-size: 17px; color: #8a4a68; margin-top: 2px; }
+    .ach-reward { font-size: 15px; color: #b0527c; margin-top: 2px; }
+    .bar {
+        margin-top: 6px;
+        height: 10px;
+        border-radius: 999px;
+        background: #ffe0ec;
+        overflow: hidden;
+    }
+    .bar i {
+        display: block;
+        height: 100%;
+        background: linear-gradient(90deg, #ff9ec6, #ff6fae);
+        border-radius: 999px;
+    }
+    .ach-state {
+        flex: none;
+        font-size: 15px;
+        color: #c66a97;
+        text-align: right;
+    }
+    .ach.on .ach-state { color: #e75490; }
+    .hints {
+        margin-top: 18px;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+    }
+    .hint {
+        font-size: 17px;
+        color: #d63384;
+        background: #fff;
+        border: 2px solid #ffb7d5;
+        border-radius: 999px;
+        padding: 5px 16px;
+    }
+</style>
+</head>
+<body>
+<span class="deco heart" style="left:20px;top:26px"></span>
+<span class="deco heart" style="right:34px;top:60px;animation-delay:.7s"></span>
+<span class="deco heart" style="left:50px;bottom:36px;animation-delay:1.4s"></span>
+<span class="deco star" style="right:140px;top:30px"></span>
+<span class="deco star" style="left:190px;bottom:70px;animation-delay:1s"></span>
+<div class="panel">
+    <div class="head">
+        <h1>{{title}}</h1>
+        <span class="count">{{userName}} {{unlockedCount}}/{{total}}</span>
+    </div>
+    {{each groups as g}}
+    <div class="group">
+        <span class="group-name">{{g.name}}</span>
+        <div class="grid">
+            {{each g.items as a}}
+            <div class="ach{{if a.unlocked}} on{{/if}}">
+                <span class="badge">{{a.badge}}</span>
+                <div class="info">
+                    <div class="ach-name">{{a.name}}</div>
+                    <div class="ach-desc">{{a.desc}}</div>
+                    <div class="ach-reward">奖励 {{a.reward}}</div>
+                    <div class="bar"><i style="width: {{a.pct}}%"></i></div>
+                </div>
+                <span class="ach-state">{{a.progressText}}</span>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    {{/each}}
+    <div class="hints">
+        {{each hints as h}}
+        <span class="hint">{{h}}</span>
+        {{/each}}
+    </div>
+</div>
+</body>
+</html>

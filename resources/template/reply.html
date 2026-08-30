@@ -1,0 +1,108 @@
+{{extend defaultLayout}}
+
+{{block 'css'}}
+<style>
+@font-face {
+    font-family: miaomiao;
+    src: url(../HTML/也字工厂喵喵体.ttf);
+}
+body {
+    background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+    min-height: 100vh;
+    color: #7a3b5c;
+    font-family: miaomiao, sans-serif;
+}
+.reply-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #ffc3da;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+    padding: 24px;
+    margin: 10px;
+}
+.reply-title {
+    color: #e75490;
+    font-family: miaomiao, sans-serif;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 18px;
+    text-shadow: 0 0 10px rgba(255, 143, 191, 0.5);
+}
+.reply-lines {
+    color: #8a4a68;
+    font-size: 16px;
+    line-height: 1.8;
+}
+.reply-line {
+    padding: 6px 10px;
+    border-bottom: 2px solid #ffe3ee;
+}
+.reply-line:last-child {
+    border-bottom: none;
+}
+.reply-hints {
+    margin-top: 16px;
+    text-align: center;
+}
+.reply-hint {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(255, 111, 174, 0.4);
+    padding: 6px 14px;
+    margin: 4px;
+    font-size: 14px;
+}
+.deco {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+}
+.deco-heart {
+    width: 34px;
+    height: 34px;
+    background: #ffb7d5;
+    clip-path: polygon(50% 100%, 0 35%, 25% 0, 50% 20%, 75% 0, 100% 35%);
+    animation: floatUp 3.5s ease-in-out infinite;
+}
+.deco-star {
+    width: 26px;
+    height: 26px;
+    background: #ffd98e;
+    clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: floatUp 4s ease-in-out infinite, twinkle 2s infinite;
+}
+@keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+</style>
+{{/block}}
+
+{{block 'main'}}
+<div class="deco deco-heart" style="top: 24px; left: 20px;"></div>
+<div class="deco deco-star" style="top: 70px; right: 24px;"></div>
+<div class="deco deco-heart" style="top: 130px; right: 48px; animation-delay: 1.2s;"></div>
+<div class="deco deco-star" style="top: 190px; left: 44px; animation-delay: 0.6s;"></div>
+<div class="reply-card">
+    <div class="reply-title">{{title}}</div>
+    <div class="reply-lines">
+        {{each lines line}}
+        <div class="reply-line">{{line}}</div>
+        {{/each}}
+    </div>
+    {{if hints && hints.length}}
+    <div class="reply-hints">
+        {{each hints hint}}
+        <span class="reply-hint">{{hint}}</span>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>
+{{/block}}

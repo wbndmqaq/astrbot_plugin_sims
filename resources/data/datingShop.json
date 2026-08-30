@@ -1,0 +1,86 @@
+{
+    "gifts": [
+        {
+            "id": "gift_01",
+            "name": "玫瑰花束",
+            "type": "鲜花",
+            "price": 999,
+            "affection": 10,
+            "description": "浪漫的红玫瑰花束，表达爱意的最佳选择",
+            "suitable": ["约会", "表白", "纪念日"]
+        },
+        {
+            "id": "gift_02",
+            "name": "手工巧克力",
+            "type": "食物",
+            "price": 588,
+            "affection": 8,
+            "description": "精心制作的手工巧克力，甜蜜可口",
+            "suitable": ["日常", "节日"]
+        },
+        {
+            "id": "gift_03",
+            "name": "定制项链",
+            "type": "饰品",
+            "price": 1999,
+            "affection": 15,
+            "description": "独一无二的定制项链，刻有专属印记",
+            "suitable": ["求婚", "纪念日"]
+        }
+    ],
+    "dates": [
+        {
+            "id": "date_01",
+            "name": "咖啡约会",
+            "location": "星月咖啡厅",
+            "price": 288,
+            "affection": 5,
+            "duration": 2,
+            "description": "在温馨的咖啡厅共度午后时光",
+            "activities": ["品尝咖啡", "甜点分享", "轻松聊天"]
+        },
+        {
+            "id": "date_02",
+            "name": "电影之夜",
+            "location": "星光影院",
+            "price": 388,
+            "affection": 8,
+            "duration": 3,
+            "description": "一起观看浪漫电影，分享感动时刻",
+            "activities": ["观看电影", "共享零食", "电影讨论"]
+        },
+        {
+            "id": "date_03",
+            "name": "游乐园约会",
+            "location": "欢乐世界",
+            "price": 688,
+            "affection": 12,
+            "duration": 6,
+            "description": "在游乐园体验刺激与浪漫",
+            "activities": ["游玩项目", "拍照留念", "共进晚餐"]
+        }
+    ],
+    "rings": [
+        {
+            "id": "ring_01",
+            "name": "简约银戒",
+            "price": 3999,
+            "description": "简约大方的银戒，适合初次求婚",
+            "successRate": 85
+        },
+        {
+            "id": "ring_02",
+            "name": "钻石戒指",
+            "price": 9999,
+            "description": "经典款钻石戒指，永恒的爱情象征",
+            "successRate": 95
+        },
+        {
+            "id": "ring_03",
+            "name": "定制婚戒",
+            "price": 19999,
+            "description": "独特定制的婚戒，刻有两人名字",
+            "successRate": 100
+        }
+    ]
+}

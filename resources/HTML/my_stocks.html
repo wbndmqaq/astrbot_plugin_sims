@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face { font-family: miaomiao; src: url(./也字工厂喵喵体.ttf); }
+        body {
+            font-family: miaomiao, 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            color: #7a3b5c;
+            position: relative;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(255,133,183,0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ffd3e6;
+            padding-bottom: 15px;
+        }
+        .header h1 {
+            margin: 0;
+            color: #e75490;
+            text-shadow: 0 0 10px rgba(255, 143, 191, 0.4);
+        }
+        .portfolio-summary {
+            background: #fff0f7;
+            border: 1px solid #ffd3e6;
+            border-radius: 14px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .holdings-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        .holding-card {
+            background: #fff8fb;
+            border-radius: 14px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            align-items: center;
+            transition: transform 0.3s ease;
+            border: 1px solid #ffd3e6;
+        }
+        .holding-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(255, 133, 183, 0.35);
+        }
+        .stock-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .stock-name {
+            font-size: 1.2em;
+            color: #d63384;
+        }
+        .stock-id {
+            color: #8a4a68;
+            font-size: 0.9em;
+        }
+        .holding-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .price-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            text-align: right;
+        }
+        .profit {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .profit.positive {
+            color: #ff6f9c;
+        }
+        .profit.negative {
+            color: #7fd8be;
+        }
+        .cute-icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #8a4a68;
+            font-size: 0.9em;
+        }
+        .deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .deco-heart {
+            width: 26px;
+            height: 24px;
+            background: #ffb7d5;
+            clip-path: path('M12 22 C4.5 15 0 10.5 0 6 C0 2.2 2.7 0 6 0 C8.8 0 11 1.8 12 4.2 C13 1.8 15.2 0 18 0 C21.3 0 24 2.2 24 6 C24 10.5 19.5 15 12 22 Z');
+            opacity: 0.5;
+            animation: floatUp 6s ease-in-out infinite;
+        }
+        .deco-star {
+            width: 24px;
+            height: 24px;
+            background: #ffd98e;
+            clip-path: polygon(50% 0%,63% 35%,100% 38%,71% 60%,82% 100%,50% 76%,18% 100%,29% 60%,0% 38%,37% 35%);
+            opacity: 0.55;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(0.9); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <div class="deco deco-heart" style="top: 24px; left: 20px;"></div>
+    <div class="deco deco-star" style="top: 70px; right: 24px;"></div>
+    <div class="deco deco-heart" style="top: 130px; right: 48px; animation-delay: 1.2s;"></div>
+    <div class="deco deco-star" style="top: 190px; left: 44px; animation-delay: 0.6s;"></div>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 我的股票持仓 🎮</h1>
+        </div>
+        <div class="holdings-grid">
+            {{each userStocks stock}}
+            <div class="holding-card">
+                <div class="stock-info">
+                    <div class="stock-name">
+                        <span class="cute-icon">🎯</span>{{stock.name}}
+                    </div>
+                    <div class="stock-id">{{stock.id}}</div>
+                </div>
+                <div class="holding-details">
+                    <div>
+                        <span class="cute-icon">📈</span>持有数量: {{stock.amount}}
+                    </div>
+                    <div>
+                        <span class="cute-icon">💰</span>买入价: {{stock.buyPrice}}
+                    </div>
+                </div>
+                <div class="price-info">
+                    <div>
+                        <span class="cute-icon">📊</span>当前价: {{stock.currentPrice}}
+                    </div>
+                    <div>
+                        <span class="cute-icon">💎</span>市值: {{stock.currentValue}}
+                    </div>
+                    <div class="profit {{stock.profit >= 0 ? 'positive' : 'negative'}}">
+                        <span class="cute-icon">{{stock.profit >= 0 ? '📈' : '📉'}}</span>
+                        盈亏: {{stock.profit >= 0 ? '+' : ''}}{{stock.profit}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="footer">
+            <p>💫 使用 #股市 查看最新行情 | #买入股票/#卖出股票 进行交易 💫</p>
+        </div>
+    </div>
+</body>
+</html>

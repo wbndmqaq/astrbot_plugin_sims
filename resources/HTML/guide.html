@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>新手引导</title>
+<style>
+    @font-face {
+        font-family: miaomiao;
+        src: url(./也字工厂喵喵体.ttf);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        width: 860px;
+        font-family: miaomiao, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+        overflow: hidden;
+        position: relative;
+        padding: 36px 30px;
+    }
+    .deco { position: absolute; pointer-events: none; }
+    .heart {
+        width: 26px; height: 24px;
+        background: #ffb7d5;
+        clip-path: path('M13 24 C5 16 0 11 0 6.5 C0 2.5 3 0 6.5 0 C9.5 0 12 2 13 4.5 C14 2 16.5 0 19.5 0 C23 0 26 2.5 26 6.5 C26 11 21 16 13 24 Z');
+        opacity: .55;
+        animation: floatUp 5s ease-in-out infinite;
+    }
+    .bubble {
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(255,182,213,.35));
+        animation: floatUp 6s ease-in-out infinite;
+    }
+    .star {
+        width: 18px; height: 18px;
+        background: #ffd98e;
+        clip-path: polygon(50% 0%, 63% 35%, 100% 38%, 71% 60%, 82% 100%, 50% 76%, 18% 100%, 29% 60%, 0% 38%, 37% 35%);
+        animation: twinkle 2.6s ease-in-out infinite;
+    }
+    @keyframes floatUp {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-14px) scale(1.06); }
+    }
+    @keyframes twinkle {
+        0%, 100% { opacity: .35; transform: scale(.85) rotate(0deg); }
+        50% { opacity: .95; transform: scale(1.15) rotate(20deg); }
+    }
+    .mask {
+        position: absolute; inset: 0;
+        background: rgba(120, 40, 80, .18);
+        border-radius: 28px;
+        pointer-events: none;
+    }
+    .card {
+        position: relative;
+        background: rgba(255, 255, 255, .96);
+        border-radius: 28px;
+        border: 3px solid #ffc3da;
+        box-shadow: 0 12px 40px rgba(255, 133, 183, .35);
+        padding: 30px 34px 26px;
+        animation: popIn .5s cubic-bezier(.2, 1.4, .4, 1) both;
+    }
+    @keyframes popIn {
+        0% { transform: scale(.82); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    .ribbon {
+        display: inline-block;
+        background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+        color: #fff;
+        font-size: 20px;
+        padding: 6px 22px;
+        border-radius: 999px;
+        box-shadow: 0 4px 12px rgba(255, 111, 174, .4);
+    }
+    .stage-line { display: flex; justify-content: space-between; align-items: center; }
+    .dots { display: flex; gap: 8px; }
+    .dot {
+        width: 14px; height: 14px; border-radius: 50%;
+        background: #ffd9e8; border: 2px solid #ff9ec6;
+    }
+    .dot.on { background: #ff6fae; box-shadow: 0 0 8px #ff6fae; }
+    h1.title {
+        margin-top: 14px;
+        font-size: 40px;
+        color: #e75490;
+        letter-spacing: 2px;
+    }
+    .scene {
+        margin-top: 12px;
+        font-size: 24px;
+        line-height: 1.7;
+        color: #8a4a68;
+        background: #fff5fa;
+        border: 2px dashed #ffb7d5;
+        border-radius: 18px;
+        padding: 14px 18px;
+    }
+    .spot-wrap { margin-top: 18px; position: relative; }
+    .spot-mask {
+        background: rgba(64, 20, 44, .72);
+        border-radius: 20px;
+        padding: 26px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .spot-hole {
+        position: relative;
+        background: #fff;
+        color: #d63384;
+        font-size: 30px;
+        padding: 12px 34px;
+        border-radius: 16px;
+        border: 3px solid #ffe3f0;
+        box-shadow: 0 0 0 6px rgba(255, 111, 174, .35), 0 0 26px 8px rgba(255, 143, 191, .8);
+        animation: glowPulse 1.6s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+        0%, 100% { box-shadow: 0 0 0 5px rgba(255,111,174,.3), 0 0 18px 5px rgba(255,143,191,.65); transform: scale(1); }
+        50% { box-shadow: 0 0 0 9px rgba(255,111,174,.5), 0 0 34px 12px rgba(255,143,191,.95); transform: scale(1.05); }
+    }
+    .spot-label {
+        position: absolute;
+        top: 8px; left: 14px;
+        color: #ffd3e6;
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+    .pointer {
+        position: absolute;
+        right: 30px; bottom: -8px;
+        width: 0; height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 20px solid #ff6fae;
+        animation: bounceArrow 1s ease-in-out infinite;
+    }
+    @keyframes bounceArrow {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-12px); }
+    }
+    .points { margin-top: 18px; list-style: none; }
+    .points li {
+        font-size: 22px;
+        color: #7a3b5c;
+        line-height: 1.9;
+        padding-left: 34px;
+        position: relative;
+    }
+    .points li::before {
+        content: '';
+        position: absolute;
+        left: 4px; top: 12px;
+        width: 18px; height: 17px;
+        background: #ff8fbf;
+        clip-path: path('M9 17 C3.5 11.5 0 8 0 4.8 C0 1.8 2.2 0 4.8 0 C6.8 0 8.4 1.4 9 3.2 C9.6 1.4 11.2 0 13.2 0 C15.8 0 18 1.8 18 4.8 C18 8 14.5 11.5 9 17 Z');
+    }
+    .footer {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .reward {
+        font-size: 20px;
+        color: #b0527c;
+        background: linear-gradient(90deg, #fff0f7, #ffe3f0);
+        border: 2px solid #ffc3da;
+        border-radius: 999px;
+        padding: 8px 20px;
+    }
+    .progress-text { font-size: 20px; color: #c66a97; }
+    .bar {
+        margin-top: 10px;
+        height: 14px;
+        border-radius: 999px;
+        background: #ffe0ec;
+        overflow: hidden;
+        border: 1px solid #ffb7d5;
+    }
+    .bar i {
+        display: block;
+        height: 100%;
+        background: linear-gradient(90deg, #ff9ec6, #ff6fae);
+        border-radius: 999px;
+        animation: barGrow 1s ease-out both;
+    }
+    @keyframes barGrow { from { width: 0; } }
+    .hints {
+        margin-top: 16px;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+    }
+    .hint {
+        font-size: 18px;
+        color: #d63384;
+        background: #fff;
+        border: 2px solid #ffb7d5;
+        border-radius: 999px;
+        padding: 6px 18px;
+        box-shadow: 0 3px 10px rgba(255, 143, 191, .3);
+    }
+</style>
+</head>
+<body>
+<span class="deco heart" style="left:24px;top:30px"></span>
+<span class="deco heart" style="right:40px;top:70px;animation-delay:.8s"></span>
+<span class="deco heart" style="left:60px;bottom:40px;animation-delay:1.6s"></span>
+<span class="deco bubble" style="width:70px;height:70px;right:70px;bottom:60px;animation-delay:.4s"></span>
+<span class="deco bubble" style="width:40px;height:40px;left:150px;top:90px;animation-delay:1.2s"></span>
+<span class="deco star" style="right:160px;top:34px"></span>
+<span class="deco star" style="left:220px;bottom:80px;animation-delay:1s"></span>
+<div class="mask"></div>
+<div class="card">
+    <div class="stage-line">
+        <span class="ribbon">{{stageName}} {{stageIndex}}/{{stageTotal}}</span>
+        <span class="dots">
+            {{each dots as d}}
+            <span class="dot{{if d}} on{{/if}}"></span>
+            {{/each}}
+        </span>
+    </div>
+    <h1 class="title">{{title}}</h1>
+    <div class="scene">{{scene}}</div>
+    {{if action}}
+    <div class="spot-wrap">
+        <div class="spot-mask">
+            <span class="spot-label">{{highlight}}</span>
+            <span class="spot-hole">{{action}}</span>
+            <span class="pointer"></span>
+        </div>
+    </div>
+    {{/if}}
+    <ul class="points">
+        {{each points as p}}
+        <li>{{p}}</li>
+        {{/each}}
+    </ul>
+    <div class="footer">
+        <span class="reward">{{rewardText}}</span>
+        <span class="progress-text">进度 {{stepGlobal}}/{{stepTotal}}</span>
+    </div>
+    <div class="bar"><i style="width: {{pct}}%"></i></div>
+    <div class="hints">
+        {{each hints as h}}
+        <span class="hint">{{h}}</span>
+        {{/each}}
+    </div>
+</div>
+</body>
+</html>

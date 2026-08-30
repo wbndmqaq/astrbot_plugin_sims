@@ -1,0 +1,387 @@
+{
+    "clothes": {
+      "hair": [
+        {
+          "id": "H001",
+          "name": "🌸樱花飞舞",
+          "price": 680,
+          "quality": "稀有",
+          "type": "发型",
+          "style": ["甜美", "淑女"],
+          "season": "spring",
+          "attributes": {
+            "attack": 35,
+            "defense": 25,
+            "hp": 80,
+            "critRate": 0.15,
+            "critDamage": 1.4,
+            "charm": 40,
+            "mood": 25
+          },
+          "special_effects": {
+            "name": "樱花缭绕",
+            "description": "走路时会飘落樱花特效",
+            "bonus": {
+              "charm": 1.2,
+              "mood": 1.15
+            }
+          },
+          "description": "如樱花般柔美的长发,随风飘动时宛如樱花纷飞~",
+          "isLimited": false,
+          "tags": ["长发", "飘逸", "粉色"],
+          "set": "樱花物语",
+          "matches": ["D001", "A001"] 
+        }
+      ],
+      "dress": [
+        {
+          "id": "D001",
+          "name": "✨星光梦境",
+          "price": 1280,
+          "quality": "史诗",
+          "type": "连衣裙",
+          "style": ["华丽", "梦幻"],
+          "season": "all",
+          "attributes": {
+            "attack": 75,
+            "defense": 60,
+            "hp": 150,
+            "critRate": 0.25,
+            "critDamage": 1.8,
+            "charm": 65,
+            "mood": 35
+          },
+          "special_effects": {
+            "name": "星光闪耀",
+            "description": "穿戴时会有星光环绕特效",
+            "bonus": {
+              "charm": 1.3,
+              "critRate": 1.2
+            }
+          },
+          "description": "缀满星光的梦幻长裙,仿佛穿上了整片星空~",
+          "isLimited": true,
+          "tags": ["长裙", "星星", "闪耀"],
+          "set": "星光物语",
+          "matches": ["H001", "S001"]
+        }
+      ],
+      "coat": [
+        {
+          "id": "C001",
+          "name": "💫轻羽飞舞",
+          "price": 880,
+          "quality": "稀有",
+          "type": "外套",
+          "style": ["优雅", "温柔"],
+          "season": "spring",
+          "attributes": {
+            "attack": 45,
+            "defense": 70,
+            "hp": 120,
+            "critRate": 0.15,
+            "critDamage": 1.5,
+            "charm": 45,
+            "mood": 30
+          },
+          "special_effects": {
+            "name": "羽毛飘舞",
+            "description": "走路时会飘落羽毛特效",
+            "bonus": {
+              "defense": 1.2,
+              "mood": 1.1
+            }
+          },
+          "description": "轻盈如羽的外套,走路时衣摆随风轻扬~",
+          "isLimited": false,
+          "tags": ["轻薄", "飘逸", "温柔"],
+          "set": "轻羽物语",
+          "matches": ["D001", "H001"]
+        }
+      ],
+      "top": [
+        {
+          "id": "T001",
+          "name": "🎀甜心蝴蝶结",
+          "price": 580,
+          "quality": "精良",
+          "type": "上衣",
+          "style": ["甜美", "可爱"],
+          "season": "all",
+          "attributes": {
+            "attack": 40,
+            "defense": 35,
+            "hp": 90,
+            "critRate": 0.18,
+            "critDamage": 1.4,
+            "charm": 38,
+            "mood": 28
+          },
+          "special_effects": {
+            "name": "蝴蝶飞舞",
+            "description": "走路时会有蝴蝶特效",
+            "bonus": {
+              "charm": 1.15,
+              "mood": 1.2
+            }
+          },
+          "description": "点缀着蝴蝶结的可爱上衣,穿上它心情也会变好呢~",
+          "isLimited": false,
+          "tags": ["蝴蝶结", "甜美", "短袖"],
+          "set": "甜心物语",
+          "matches": ["B001", "A002"]
+        }
+      ],
+      "bottom": [
+        {
+          "id": "B001",
+          "name": "🌺花语裙摆",
+          "price": 680,
+          "quality": "精良",
+          "type": "下装",
+          "style": ["淑女", "甜美"],
+          "season": "spring",
+          "attributes": {
+            "attack": 38,
+            "defense": 42,
+            "hp": 95,
+            "critRate": 0.16,
+            "critDamage": 1.45,
+            "charm": 42,
+            "mood": 25
+          },
+          "special_effects": {
+            "name": "花瓣飞舞",
+            "description": "走路时会飘落花瓣特效",
+            "bonus": {
+              "charm": 1.18,
+              "mood": 1.12
+            }
+          },
+          "description": "印着淡雅花朵的裙子,走路时裙摆轻轻摇曳~",
+          "isLimited": false,
+          "tags": ["花朵", "裙子", "飘逸"],
+          "set": "花语物语",
+          "matches": ["T001", "S001"]
+        }
+      ],
+      "socks": [
+        {
+          "id": "S001",
+          "name": "✨星光丝袜",
+          "price": 320,
+          "quality": "稀有",
+          "type": "袜子",
+          "style": ["优雅", "梦幻"],
+          "season": "all",
+          "attributes": {
+            "attack": 25,
+            "defense": 30,
+            "hp": 60,
+            "critRate": 0.12,
+            "critDamage": 1.3,
+            "charm": 28,
+            "mood": 20
+          },
+          "special_effects": {
+            "name": "星光闪烁",
+            "description": "走路时会有星光闪烁特效",
+            "bonus": {
+              "charm": 1.15,
+              "critRate": 1.1
+            }
+          },
+          "description": "闪烁着星光的丝袜,让双腿更显修长~",
+          "isLimited": false,
+          "tags": ["长袜", "闪亮", "优雅"],
+          "set": "星光物语",
+          "matches": ["D001", "B001"]
+        }
+      ],
+      "shoes": [
+        {
+          "id": "SH001",
+          "name": "🎀蝴蝶结高跟鞋",
+          "price": 580,
+          "quality": "精良",
+          "type": "鞋子",
+          "style": ["优雅", "甜美"],
+          "season": "all",
+          "attributes": {
+            "attack": 35,
+            "defense": 40,
+            "hp": 85,
+            "critRate": 0.15,
+            "critDamage": 1.4,
+            "charm": 45,
+            "mood": 25
+          },
+          "special_effects": {
+            "name": "蝴蝶飞舞",
+            "description": "走路时会有蝴蝶特效",
+            "bonus": {
+              "charm": 1.2,
+              "mood": 1.15
+            }
+          },
+          "description": "点缀着蝴蝶结的优雅高跟鞋,走路时充满优雅气质~",
+          "isLimited": false,
+          "tags": ["高跟", "蝴蝶结", "优雅"],
+          "set": "甜心物语",
+          "matches": ["D001", "S001"]
+        }
+      ],
+      "accessories": {
+        "earrings": [
+          {
+            "id": "E001",
+            "name": "✨星月耳坠",
+            "price": 420,
+            "quality": "稀有",
+            "type": "耳饰",
+            "style": ["梦幻", "优雅"],
+            "season": "all",
+            "attributes": {
+              "attack": 20,
+              "defense": 15,
+              "hp": 45,
+              "critRate": 0.1,
+              "critDamage": 1.25,
+              "charm": 35,
+              "mood": 20
+            },
+            "special_effects": {
+              "name": "星月闪耀",
+              "description": "会随机闪烁星星月亮特效",
+              "bonus": {
+                "charm": 1.15,
+                "critRate": 1.1
+              }
+            },
+            "description": "星星月亮造型的耳坠,闪烁着梦幻的光芒~",
+            "isLimited": false,
+            "tags": ["星星", "月亮", "闪耀"],
+            "set": "星光物语",
+            "matches": ["H001", "D001"]
+          }
+        ],
+        "necklace": [
+          {
+            "id": "N001",
+            "name": "🌸樱花项链",
+            "price": 480,
+            "quality": "稀有",
+            "type": "项链",
+            "style": ["甜美", "淑女"],
+            "season": "spring",
+            "attributes": {
+              "attack": 25,
+              "defense": 20,
+              "hp": 55,
+              "critRate": 0.12,
+              "critDamage": 1.3,
+              "charm": 38,
+              "mood": 22
+            },
+            "special_effects": {
+              "name": "樱花缭绕",
+              "description": "会有樱花特效环绕",
+              "bonus": {
+                "charm": 1.18,
+                "mood": 1.12
+              }
+            },
+            "description": "精致的樱花造型项链,带来春天般的清新气息~",
+            "isLimited": false,
+            "tags": ["樱花", "粉色", "清新"],
+            "set": "樱花物语",
+            "matches": ["D001", "H001"]
+          }
+        ]
+      }
+    },
+    
+    "sets": {
+      "star_dream": {
+        "name": "✨星光梦境套装",
+        "pieces": ["D001", "H001", "S001", "SH001", "E001"],
+        "bonus": {
+          "2": {
+            "charm": 1.1,
+            "critRate": 1.05
+          },
+          "4": {
+            "charm": 1.2,
+            "critRate": 1.1,
+            "critDamage": 1.1
+          },
+          "full": {
+            "charm": 1.3,
+            "critRate": 1.15,
+            "critDamage": 1.2,
+            "special_effect": "整套穿戴时会有星空环绕特效"
+          }
+        }
+      }
+    },
+  
+    "qualities": {
+      "普通": {
+        "color": "#FFFFFF",
+        "bonus": 1.0
+      },
+      "精良": {
+        "color": "#2CC058",
+        "bonus": 1.1
+      },
+      "稀有": {
+        "color": "#4B69FF",
+        "bonus": 1.2
+      },
+      "史诗": {
+        "color": "#8847FF",
+        "bonus": 1.3
+      },
+      "传说": {
+        "color": "#D32CE6",
+        "bonus": 1.4
+      },
+      "限定": {
+        "color": "#FFD700",
+        "bonus": 1.5
+      }
+    },
+  
+    "styles": {
+      "甜美": {
+        "bonus": {
+          "charm": 1.1,
+          "mood": 1.1
+        }
+      },
+      "优雅": {
+        "bonus": {
+          "defense": 1.1,
+          "charm": 1.1
+        }
+      },
+      "华丽": {
+        "bonus": {
+          "attack": 1.1,
+          "critDamage": 1.1
+        }
+      },
+      "清新": {
+        "bonus": {
+          "hp": 1.1,
+          "mood": 1.1
+        }
+      },
+      "性感": {
+        "bonus": {
+          "critRate": 1.1,
+          "charm": 1.1
+        }
+      }
+    }
+  }

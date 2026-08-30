@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模拟人生 · 小镇物语 WebUI</title>
+    <link rel="stylesheet" href="/webui/style.css">
+</head>
+<body>
+    <div class="deco-heart" style="top: 15%; left: 8%;"></div>
+    <div class="deco-star" style="top: 25%; right: 10%;"></div>
+    <div class="deco-heart" style="bottom: 20%; right: 15%;"></div>
+    <div class="deco-star" style="bottom: 12%; left: 12%;"></div>
+
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-box">
+            <div style="font-size: 40px; margin-bottom: 8px;">🎀</div>
+            <h2 style="color: var(--primary); margin-bottom: 8px;">管理面板认证</h2>
+            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px;">请输入 WebUI 管理密码以继续访问</p>
+            <input type="password" id="loginPwd" placeholder="管理密码" style="width: 100%; margin-bottom: 14px;">
+            <button class="btn" style="width: 100%;" onclick="doLogin()">解 锁</button>
+            <p id="loginErr" style="color: #ff4d79; font-size: 13px; margin-top: 10px;"></p>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div class="hdr">
+            <h1>🌸 模拟人生 · 小镇物语</h1>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <span class="chip" id="metaVer">v1.0.0</span>
+                <span class="chip" id="metaPort">端口 ...</span>
+                <button class="btn ghost" onclick="doLogout()">退出登录</button>
+            </div>
+        </div>
+
+        <div class="stat-grid" id="statGrid">
+            <div class="stat-card"><div>👥 玩家总数</div><div class="val" id="statPlayers">0</div></div>
+            <div class="stat-card"><div>💰 全镇总资产</div><div class="val" id="statMoney">0</div></div>
+            <div class="stat-card"><div>⚡ 指令总数</div><div class="val" id="statCmds">0</div></div>
+            <div class="stat-card"><div>💾 数据库大小</div><div class="val" id="statDb">0 KB</div></div>
+        </div>
+
+        <nav class="nav">
+            <button class="nav-btn on" onclick="switchTab('rank', this)">🏆 排行榜</button>
+            <button class="nav-btn" onclick="switchTab('players', this)">👥 玩家管理</button>
+            <button class="nav-btn" onclick="switchTab('stocks', this)">📈 股市管理</button>
+            <button class="nav-btn" onclick="switchTab('world', this)">🌍 世界事件</button>
+            <button class="nav-btn" onclick="switchTab('config', this)">⚙️ 插件配置</button>
+        </nav>
+
+        <!-- 排行榜 -->
+        <section id="p-rank" class="panel on">
+            <h3 style="color: var(--primary); margin-bottom: 12px;">💰 富豪榜 TOP 20</h3>
+            <div class="tbl-wrap">
+                <table>
+                    <thead><tr><th>排名</th><th>玩家</th><th>职业</th><th>金币</th></tr></thead>
+                    <tbody id="wealthBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 玩家管理 -->
+        <section id="p-players" class="panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="color: var(--primary);">全服玩家列表</h3>
+                <button class="btn" onclick="loadPlayers(1)">刷新列表</button>
+            </div>
+            <div class="tbl-wrap">
+                <table>
+                    <thead><tr><th>UID</th><th>昵称</th><th>职业</th><th>职阶</th><th>金币</th><th>体力</th><th>操作</th></tr></thead>
+                    <tbody id="playerBody"></tbody>
+                </table>
+            </div>
+            <div style="text-align: center; margin-top: 14px;">
+                <button class="btn ghost" id="prevBtn" onclick="prevPage()">上一页</button>
+                <span id="pageInfo" style="margin: 0 14px; font-weight: bold;">1 / 1</span>
+                <button class="btn ghost" id="nextBtn" onclick="nextPage()">下一页</button>
+            </div>
+        </section>
+
+        <!-- 股市管理 -->
+        <section id="p-stocks" class="panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="color: var(--primary);">股票行情干预</h3>
+                <button class="btn" onclick="loadStocks()">刷新行情</button>
+            </div>
+            <div class="tbl-wrap">
+                <table>
+                    <thead><tr><th>代码</th><th>名称</th><th>现价 (元)</th><th>涨跌幅</th><th>操作</th></tr></thead>
+                    <tbody id="stockBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 世界事件 -->
+        <section id="p-world" class="panel">
+            <h3 style="color: var(--primary); margin-bottom: 12px;">当前世界随机事件</h3>
+            <div id="worldEventBox" style="padding: 18px; background: #fff5f9; border-radius: 14px; border: 1.5px solid var(--border-color); margin-bottom: 16px;">
+                <p>暂无正在进行的世界事件</p>
+            </div>
+            <button class="btn" onclick="forceWorldEvent()">🎲 强制触发新随机事件</button>
+        </section>
+
+        <!-- 插件配置 -->
+        <section id="p-config" class="panel">
+            <h3 style="color: var(--primary); margin-bottom: 12px;">运行时参数配置</h3>
+            <div id="configForm" style="display: grid; gap: 12px; max-width: 500px;"></div>
+            <button class="btn" style="margin-top: 16px;" onclick="saveConfig()">💾 保存配置</button>
+        </section>
+    </div>
+
+    <script src="/webui/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+{
+  "schema": "careers_v1",
+  "version": "1.0.0",
+  "description": "统一职业系统数据",
+  "careers": {
+    "doctor": {
+      "id": "doctor",
+      "name": "医生",
+      "name_en": "Doctor",
+      "description": "救死扶伤的医疗工作者",
+      "icon": "👨‍⚕️",
+      "category": "medical",
+      "baseSalary": 100,
+      "ranks": [
+        { "level": 1, "title": "实习医生", "salary": 100, "requirements": { "exp": 0 }, "permissions": ["diagnose"] },
+        { "level": 2, "title": "住院医师", "salary": 200, "requirements": { "exp": 500 }, "permissions": ["diagnose", "prescribe"] },
+        { "level": 3, "title": "主治医师", "salary": 400, "requirements": { "exp": 1500 }, "permissions": ["diagnose", "prescribe", "surgery"] },
+        { "level": 4, "title": "副主任医师", "salary": 700, "requirements": { "exp": 3500 }, "permissions": ["diagnose", "prescribe", "surgery", "teach"] },
+        { "level": 5, "title": "主任医师", "salary": 1200, "requirements": { "exp": 7000 }, "permissions": ["all"] }
+      ],
+      "skills": [
+        { "id": "diagnosis", "name": "诊断学", "description": "提高诊断准确率", "maxLevel": 10 },
+        { "id": "surgery", "name": "外科手术", "description": "提高手术成功率", "maxLevel": 10 },
+        { "id": "pharmacology", "name": "药理学", "description": "了解药物作用", "maxLevel": 10 }
+      ],
+      "workplaces": ["hospital", "clinic"]
+    },
+    "chef": {
+      "id": "chef",
+      "name": "厨师",
+      "name_en": "Chef",
+      "description": "烹饪美食的专家",
+      "icon": "👨‍🍳",
+      "category": "culinary",
+      "baseSalary": 80,
+      "ranks": [
+        { "level": 1, "title": "学徒厨师", "salary": 80, "requirements": { "exp": 0 } },
+        { "level": 2, "title": "初级厨师", "salary": 150, "requirements": { "exp": 400 } },
+        { "level": 3, "title": "中级厨师", "salary": 280, "requirements": { "exp": 1000 } },
+        { "level": 4, "title": "高级厨师", "salary": 500, "requirements": { "exp": 2500 } },
+        { "level": 5, "title": "主厨", "salary": 900, "requirements": { "exp": 5000 } },
+        { "level": 6, "title": "米其林大厨", "salary": 1500, "requirements": { "exp": 10000 } }
+      ],
+      "skills": [
+        { "id": "cooking", "name": "烹饪技巧", "description": "提高烹饪成功率", "maxLevel": 10 },
+        { "id": "baking", "name": "烘焙技术", "description": "擅长烘焙食品", "maxLevel": 10 },
+        { "id": "plating", "name": "摆盘艺术", "description": "提高菜品美观度", "maxLevel": 10 }
+      ],
+      "workplaces": ["restaurant", "hotel", "cafe"]
+    },
+    "firefighter": {
+      "id": "firefighter",
+      "name": "消防员",
+      "name_en": "Firefighter",
+      "description": "守护人民生命财产安全的英雄",
+      "icon": "👨‍🚒",
+      "category": "emergency",
+      "baseSalary": 120,
+      "ranks": [
+        { "level": 1, "title": "实习消防员", "salary": 120, "requirements": { "exp": 0 } },
+        { "level": 2, "title": "初级消防员", "salary": 220, "requirements": { "exp": 600 } },
+        { "level": 3, "title": "中级消防员", "salary": 400, "requirements": { "exp": 1500 } },
+        { "level": 4, "title": "高级消防员", "salary": 650, "requirements": { "exp": 3000 } },
+        { "level": 5, "title": "消防队长", "salary": 1000, "requirements": { "exp": 6000 } }
+      ],
+      "skills": [
+        { "id": "fire_suppression", "name": "灭火技术", "description": "提高灭火效率", "maxLevel": 10 },
+        { "id": "rescue", "name": "救援技能", "description": "提高救援成功率", "maxLevel": 10 },
+        { "id": "equipment", "name": "装备操作", "description": "熟练使用消防设备", "maxLevel": 10 }
+      ],
+      "workplaces": ["fire_station"]
+    },
+    "police": {
+      "id": "police",
+      "name": "警察",
+      "name_en": "Police Officer",
+      "description": "维护社会治安的守护者",
+      "icon": "👮",
+      "category": "law",
+      "baseSalary": 110,
+      "ranks": [
+        { "level": 1, "title": "见习警员", "salary": 110, "requirements": { "exp": 0 } },
+        { "level": 2, "title": "警员", "salary": 200, "requirements": { "exp": 500 } },
+        { "level": 3, "title": "警司", "salary": 380, "requirements": { "exp": 1200 } },
+        { "level": 4, "title": "警督", "salary": 600, "requirements": { "exp": 2800 } },
+        { "level": 5, "title": "警监", "salary": 950, "requirements": { "exp": 5500 } }
+      ],
+      "skills": [
+        { "id": "investigation", "name": "侦查技能", "description": "提高破案率", "maxLevel": 10 },
+        { "id": "combat", "name": "格斗技巧", "description": "提高战斗能力", "maxLevel": 10 },
+        { "id": "negotiation", "name": "谈判技巧", "description": "提高谈判成功率", "maxLevel": 10 }
+      ],
+      "workplaces": ["police_station"]
+    },
+    "fisherman": {
+      "id": "fisherman",
+      "name": "渔夫",
+      "name_en": "Fisherman",
+      "description": "以捕鱼为生的职业",
+      "icon": "🎣",
+      "category": "outdoor",
+      "baseSalary": 60,
+      "ranks": [
+        { "level": 1, "title": "新手渔夫", "salary": 60, "requirements": { "exp": 0 } },
+        { "level": 2, "title": "业余渔夫", "salary": 120, "requirements": { "exp": 300 } },
+        { "level": 3, "title": "职业渔夫", "salary": 220, "requirements": { "exp": 800 } },
+        { "level": 4, "title": "钓鱼大师", "salary": 400, "requirements": { "exp": 2000 } },
+        { "level": 5, "title": "传奇渔夫", "salary": 700, "requirements": { "exp": 4500 } }
+      ],
+      "skills": [
+        { "id": "fishing", "name": "钓鱼技巧", "description": "提高钓鱼成功率", "maxLevel": 10 },
+        { "id": "aquatic", "name": "水生知识", "description": "了解鱼类习性", "maxLevel": 10 }
+      ],
+      "workplaces": ["lake", "river", "sea"]
+    },
+    "farmer": {
+      "id": "farmer",
+      "name": "农民",
+      "name_en": "Farmer",
+      "description": "辛勤耕耘的劳动者",
+      "icon": "👨‍🌾",
+      "category": "agriculture",
+      "baseSalary": 50,
+      "ranks": [
+        { "level": 1, "title": "新手农民", "salary": 50, "requirements": { "exp": 0 } },
+        { "level": 2, "title": "熟练农民", "salary": 100, "requirements": { "exp": 300 } },
+        { "level": 3, "title": "农场主", "salary": 200, "requirements": { "exp": 800 } },
+        { "level": 4, "title": "农业专家", "salary": 400, "requirements": { "exp": 2000 } },
+        { "level": 5, "title": "农业大亨", "salary": 800, "requirements": { "exp": 5000 } }
+      ],
+      "skills": [
+        { "id": "planting", "name": "种植技术", "description": "提高作物产量", "maxLevel": 10 },
+        { "id": "harvesting", "name": "收获技巧", "description": "提高收获效率", "maxLevel": 10 },
+        { "id": "breeding", "name": "养殖技术", "description": "提高养殖效率", "maxLevel": 10 }
+      ],
+      "workplaces": ["farm"]
+    }
+  },
+  "commonSkills": [
+    { "id": "strength", "name": "力量", "description": "影响负重和攻击力", "maxLevel": 100 },
+    { "id": "agility", "name": "敏捷", "description": "影响速度和闪避", "maxLevel": 100 },
+    { "id": "intelligence", "name": "智力", "description": "影响学习和工作效率", "maxLevel": 100 },
+    { "id": "charisma", "name": "魅力", "description": "影响社交和交易", "maxLevel": 100 },
+    { "id": "luck", "name": "幸运", "description": "影响随机事件结果", "maxLevel": 100 }
+  ]
+}

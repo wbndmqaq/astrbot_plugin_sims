@@ -1,0 +1,101 @@
+base:
+  initial_money: 50000
+  max_level: 10
+business:
+  hourly_rate:
+    basic: 100
+    standard: 150
+    premium: 200
+createCost: 50000
+upgradeCostMultiplier: 50000
+reputationMultiplier: 20
+experienceMultiplier: 1000
+hourlyIncome:
+  base: 100
+  perLevel: 50
+  perComputer: 10
+  perEmployee: 20
+vipRooms:
+  basic:
+    cost: 10000
+    computers: 4
+    name: 基础包间
+  deluxe:
+    cost: 20000
+    computers: 6
+    name: 豪华包间
+  premium:
+    cost: 35000
+    computers: 8
+    name: 至尊包间
+equipment:
+  computer:
+    cost: 3000
+    durability: 100
+    incomeBonus: 5
+  chair:
+    cost: 500
+    durability: 100
+    comfortBonus: 2
+  aircon:
+    cost: 5000
+    durability: 100
+    comfortBonus: 10
+  router:
+    cost: 2000
+    durability: 100
+    speedBonus: 5
+employees:
+  technician:
+    salary: 200
+    skill: 维护设备
+    efficiency: 1.2
+  cashier:
+    salary: 150
+    skill: 收银服务
+    efficiency: 1.0
+  waiter:
+    salary: 120
+    skill: 客户服务
+    efficiency: 0.8
+  manager:
+    salary: 500
+    skill: 全面管理
+    efficiency: 1.5
+foodItems:
+  cola:
+    name: 可乐
+    cost: 24
+    price: 48
+    stock: 24
+    unit: 瓶
+  sprite:
+    name: 雪碧
+    cost: 24
+    price: 48
+    stock: 24
+    unit: 瓶
+  water:
+    name: 矿泉水
+    cost: 12
+    price: 24
+    stock: 24
+    unit: 瓶
+  instant_noodles:
+    name: 方便面
+    cost: 30
+    price: 60
+    stock: 12
+    unit: 桶
+  chips:
+    name: 薯片
+    cost: 18
+    price: 36
+    stock: 10
+    unit: 包
+  chocolate:
+    name: 巧克力
+    cost: 25
+    price: 50
+    stock: 12
+    unit: 块

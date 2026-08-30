@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="#"/>
+    <link rel="preload" href="{{_res_path}}common/font/HYWH-65W.woff" as="font" type="font/woff">
+    <link rel="preload" href="{{_res_path}}common/font/NZBZ.woff" as="font" type="font/woff">
+    <link rel="preload" href="{{_res_path}}common/font/tttgbnumber.woff" as="font" type="font/woff">
+    <link rel="stylesheet" type="text/css" href="{{_res_path}}common/common.css"/>
+    <title>miao-plugin</title>
+    <style>
+      @font-face {
+        font-family: miaomiao;
+        src: url(../../HTML/也字工厂喵喵体.ttf);
+      }
+      body {
+        background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+        min-height: 100vh;
+        color: #7a3b5c;
+        font-family: miaomiao, sans-serif;
+      }
+    </style>
+    {{block 'css'}}
+    {{/block}}
+  </head>
+  <body class="elem-{{element||elem||`dendro`}} {{displayMode || mode || `default`}}-mode  {{bodyClass}}" {{sys.scale}}>
+    <div class="container" id="container">
+      {{block 'main'}}{{/block}}
+      <div class="copyright">{{@sys.copyright}}</div>
+    </div>
+  </body>
+</html>

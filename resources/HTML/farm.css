@@ -1,0 +1,196 @@
+/* 导入科幻字体 */
+@font-face {
+    font-family: 'Sci-Fi';
+    src: url('也字工厂喵喵体.ttf') format('truetype');
+}
+
+/* 全局样式 */
+:root {
+    --primary-color: #1E90FF;
+    --accent-color: #4CAF50;
+    --highlight-color: #FF9800;
+    --bg-dark: #0a1929;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --hologram-glow: 0 0 10px rgba(30, 144, 255, 0.5);
+}
+
+/* 星空背景动画 */
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes hologram-flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(30, 144, 255, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(30, 144, 255, 0.8); }
+}
+
+/* 基础样式 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Sci-Fi', 'Arial', sans-serif;
+    background: var(--bg-dark);
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* 星空背景 */
+.starry-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+}
+
+/* 全息容器 */
+.hologram-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(30, 144, 255, 0.3);
+    box-shadow: var(--hologram-glow);
+    padding: 20px;
+    margin: 20px;
+    animation: hologram-flicker 5s infinite;
+}
+
+/* 科幻按钮 */
+.sci-fi-button {
+    background: linear-gradient(45deg, var(--primary-color), var(--highlight-color));
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    padding: 12px 30px;
+    font-family: 'Sci-Fi', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sci-fi-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.8);
+}
+
+.sci-fi-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+/* 机器人助手 */
+.robot-assistant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    animation: float 3s ease-in-out infinite;
+    z-index: 1000;
+}
+
+.robot-assistant img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 全息信息卡片 */
+.info-card {
+    background: var(--glass-bg);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid rgba(30, 144, 255, 0.3);
+    animation: glow-pulse 3s infinite;
+}
+
+.info-card h3 {
+    color: var(--primary-color);
+    margin: 0 0 10px 0;
+}
+
+/* 进度条 */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--highlight-color));
+    animation: progress 2s ease-in-out infinite;
+}
+
+/* 动画效果 */
+@keyframes shine {
+    0% { transform: rotate(45deg) translateX(-100%); }
+    100% { transform: rotate(45deg) translateX(100%); }
+}
+
+@keyframes progress {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* 地块样式 */
+.hex-plot.empty {
+    background: rgba(100, 100, 100, 0.2);
+    border: 2px solid rgba(100, 100, 100, 0.4);
+}
+
+.hex-plot.has-crop {
+    background: rgba(76, 175, 80, 0.2);
+    border: 2px solid rgba(76, 175, 80, 0.4);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .hologram-container {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .robot-assistant {
+        width: 60px;
+        height: 60px;
+    }
+}

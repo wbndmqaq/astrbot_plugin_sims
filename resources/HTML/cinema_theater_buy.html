@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>购买影厅</title>
+    <style>
+        @font-face {
+            font-family: miaomiao;
+            src: url(./也字工厂喵喵体.ttf);
+        }
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .deco-heart {
+            width: 34px;
+            height: 34px;
+            background: #ffb7d5;
+            clip-path: polygon(50% 100%, 0 35%, 25% 0, 50% 20%, 75% 0, 100% 35%);
+            animation: floatUp 3.5s ease-in-out infinite;
+        }
+        .deco-star {
+            width: 26px;
+            height: 26px;
+            background: #ffd98e;
+            clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: floatUp 4s ease-in-out infinite, twinkle 2s infinite;
+        }
+        body {
+            font-family: miaomiao, 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #7a3b5c;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 18px;
+            border: 2px solid #ffc3da;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #e75490;
+            font-family: miaomiao, sans-serif;
+            font-size: 28px;
+            margin: 0;
+        }
+        .content {
+            text-align: center;
+        }
+        .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            color: #ff8fbf;
+        }
+        .message {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #8a4a68;
+        }
+        .details {
+            background: rgba(255, 240, 246, 0.9);
+            border-radius: 18px;
+            border: 2px solid #ffc3da;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .detail-item span:first-child {
+            color: #b07a95;
+        }
+        .detail-item span:last-child {
+            font-weight: bold;
+            color: #d63384;
+        }
+        .theater-info {
+            background: #ffe3ee;
+            border-radius: 18px;
+            border: 2px solid #ffc3da;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .theater-info h3 {
+            color: #d63384;
+            font-family: miaomiao, sans-serif;
+            margin-top: 0;
+        }
+        .theater-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .theater-stat {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #ffc3da;
+            text-align: center;
+        }
+        .theater-stat-label {
+            font-size: 14px;
+            color: #b07a95;
+            margin-bottom: 5px;
+        }
+        .theater-stat-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e75490;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #b07a95;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="deco deco-heart" style="top: 24px; left: 20px;"></div>
+    <div class="deco deco-star" style="top: 70px; right: 24px;"></div>
+    <div class="deco deco-heart" style="top: 130px; right: 48px; animation-delay: 1.2s;"></div>
+    <div class="deco deco-star" style="top: 190px; left: 44px; animation-delay: 0.6s;"></div>
+    <div class="container">
+        <div class="header">
+            <h1>🎭 购买影厅成功！</h1>
+        </div>
+        <div class="content">
+            <div class="icon">🎉</div>
+            <div class="message">
+                恭喜 <span style="color: #e75490; font-weight: bold;">{{name}}</span> 成功购买新影厅！
+            </div>
+            <div class="details">
+                <div class="detail-item">
+                    <span>影厅名称：</span>
+                    <span>{{theaterName}}</span>
+                </div>
+                <div class="detail-item">
+                    <span>购买费用：</span>
+                    <span>{{cost}}元</span>
+                </div>
+                <div class="detail-item">
+                    <span>剩余金钱：</span>
+                    <span>{{money}}元</span>
+                </div>
+            </div>
+            <div class="theater-info">
+                <h3>影厅信息</h3>
+                <div class="theater-stats">
+                    <div class="theater-stat">
+                        <div class="theater-stat-label">容量</div>
+                        <div class="theater-stat-value">{{capacity}}人</div>
+                    </div>
+                    <div class="theater-stat">
+                        <div class="theater-stat-label">维护费</div>
+                        <div class="theater-stat-value">{{maintenanceCost}}元/小时</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            使用 #电影院信息 查看详细信息
+        </div>
+    </div>
+</body>
+</html> 

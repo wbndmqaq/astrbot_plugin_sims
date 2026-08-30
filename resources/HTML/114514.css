@@ -1,0 +1,79 @@
+body {
+    background-color: #fce4ec;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+.avatar img {
+    border-radius: 50%;
+    border: 5px solid #ff6f61;
+}
+
+.username {
+    font-size: 24px;
+    color: #ff6f61;
+    margin: 10px 0;
+}
+
+.level, .status {
+    font-size: 16px;
+    color: #888;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.stat {
+    background-color: #ffe0f0;
+    border-radius: 10px;
+    padding: 10px;
+    flex: 1;
+    margin: 0 5px;
+}
+
+.stat h2 {
+    font-size: 14px;
+    color: #ff6f61;
+}
+
+.stat p {
+    font-size: 20px;
+    color: #ff4081;
+}
+
+.btn {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ff4081;
+}

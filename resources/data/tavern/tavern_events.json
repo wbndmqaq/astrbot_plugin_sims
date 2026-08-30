@@ -1,0 +1,432 @@
+{
+  "events": [
+    {
+      "id": "drunk_customer",
+      "title": "醉酒顾客",
+      "description": "一位顾客喝醉了，开始在酒馆内大声喧哗。",
+      "type": "negative",
+      "frequency": 15,
+      "minLevel": 1,
+      "choices": [
+        {
+          "text": "尝试安抚他",
+          "effects": {
+            "popularity": -2,
+            "reputation": 0,
+            "customerSatisfaction": -5,
+            "cleanliness": -5
+          },
+          "requirements": {}
+        },
+        {
+          "text": "请他离开",
+          "effects": {
+            "popularity": -5,
+            "reputation": -2,
+            "customerSatisfaction": 0,
+            "cleanliness": 0
+          },
+          "requirements": {}
+        },
+        {
+          "text": "让保安处理",
+          "effects": {
+            "popularity": 0,
+            "reputation": 2,
+            "customerSatisfaction": 5,
+            "cleanliness": 0
+          },
+          "requirements": {
+            "staff": ["security"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "celebrity_visit",
+      "title": "名人光临",
+      "description": "一位当地名人来到你的酒馆，吸引了不少顾客的注意。",
+      "type": "positive",
+      "frequency": 8,
+      "minLevel": 3,
+      "choices": [
+        {
+          "text": "默默提供服务",
+          "effects": {
+            "popularity": 10,
+            "reputation": 5,
+            "customerSatisfaction": 5,
+            "income": 200
+          },
+          "requirements": {}
+        },
+        {
+          "text": "提供特殊待遇",
+          "effects": {
+            "popularity": 20,
+            "reputation": 10,
+            "customerSatisfaction": 10,
+            "income": 100
+          },
+          "requirements": {
+            "drinks": ["premium"]
+          }
+        },
+        {
+          "text": "请求合影宣传",
+          "effects": {
+            "popularity": 30,
+            "reputation": 15,
+            "customerSatisfaction": 5,
+            "income": 300
+          },
+          "requirements": {
+            "reputation": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "supply_shortage",
+      "title": "物资短缺",
+      "description": "你发现某些关键物资已经用完了，而今天特别忙。",
+      "type": "negative",
+      "frequency": 12,
+      "minLevel": 2,
+      "choices": [
+        {
+          "text": "紧急采购（高价）",
+          "effects": {
+            "popularity": 0,
+            "reputation": 0,
+            "customerSatisfaction": 0,
+            "costs": 500
+          },
+          "requirements": {}
+        },
+        {
+          "text": "替换其他原料",
+          "effects": {
+            "popularity": -5,
+            "reputation": -5,
+            "customerSatisfaction": -10,
+            "costs": 0
+          },
+          "requirements": {}
+        },
+        {
+          "text": "使用库存备用物资",
+          "effects": {
+            "popularity": 5,
+            "reputation": 5,
+            "customerSatisfaction": 5,
+            "costs": 0
+          },
+          "requirements": {
+            "supplies": 150
+          }
+        }
+      ]
+    },
+    {
+      "id": "local_festival",
+      "title": "当地节日",
+      "description": "今天是当地的传统节日，街上游人如织，酒馆顾客激增。",
+      "type": "positive",
+      "frequency": 5,
+      "minLevel": 1,
+      "choices": [
+        {
+          "text": "常规营业",
+          "effects": {
+            "popularity": 5,
+            "reputation": 0,
+            "customerSatisfaction": -5,
+            "income": 300
+          },
+          "requirements": {}
+        },
+        {
+          "text": "延长营业时间",
+          "effects": {
+            "popularity": 10,
+            "reputation": 5,
+            "customerSatisfaction": -10,
+            "income": 600,
+            "cleanliness": -15
+          },
+          "requirements": {}
+        },
+        {
+          "text": "推出节日特饮",
+          "effects": {
+            "popularity": 15,
+            "reputation": 10,
+            "customerSatisfaction": 10,
+            "income": 800
+          },
+          "requirements": {
+            "staff": ["bartender"],
+            "supplies": {"special": 1}
+          }
+        }
+      ]
+    },
+    {
+      "id": "health_inspection",
+      "title": "卫生检查",
+      "description": "卫生部门突然前来检查你的酒馆。",
+      "type": "neutral",
+      "frequency": 7,
+      "minLevel": 2,
+      "choices": [
+        {
+          "text": "正常接受检查",
+          "effects": {
+            "popularity": 0,
+            "reputation": "cleanliness > 80 ? 5 : -10",
+            "customerSatisfaction": "cleanliness > 80 ? 5 : -10",
+            "costs": "cleanliness < 60 ? 300 : 0"
+          },
+          "requirements": {}
+        },
+        {
+          "text": "紧急清理",
+          "effects": {
+            "popularity": 0,
+            "reputation": "cleanliness > 50 ? 2 : -5",
+            "customerSatisfaction": -5,
+            "costs": 200
+          },
+          "requirements": {}
+        },
+        {
+          "text": "贿赂检查员",
+          "effects": {
+            "popularity": 0,
+            "reputation": -5,
+            "customerSatisfaction": 0,
+            "costs": 500
+          },
+          "requirements": {}
+        }
+      ]
+    },
+    {
+      "id": "bar_fight",
+      "title": "酒馆斗殴",
+      "description": "两位顾客因为争执开始打架，情况正在升级。",
+      "type": "negative",
+      "frequency": 10,
+      "minLevel": 1,
+      "choices": [
+        {
+          "text": "亲自介入制止",
+          "effects": {
+            "popularity": -5,
+            "reputation": "random(0, 1) > 0.5 ? 5 : -5",
+            "customerSatisfaction": -10,
+            "cleanliness": -10
+          },
+          "requirements": {}
+        },
+        {
+          "text": "报警处理",
+          "effects": {
+            "popularity": -10,
+            "reputation": 0,
+            "customerSatisfaction": -5,
+            "cleanliness": -5
+          },
+          "requirements": {}
+        },
+        {
+          "text": "保安快速处理",
+          "effects": {
+            "popularity": 0,
+            "reputation": 5,
+            "customerSatisfaction": 0,
+            "cleanliness": -5
+          },
+          "requirements": {
+            "staff": ["security"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "music_night",
+      "title": "音乐之夜",
+      "description": "你的酒馆正举办一场音乐表演之夜，顾客们很兴奋。",
+      "type": "positive",
+      "frequency": 9,
+      "minLevel": 3,
+      "choices": [
+        {
+          "text": "普通表演",
+          "effects": {
+            "popularity": 10,
+            "reputation": 5,
+            "customerSatisfaction": 10,
+            "income": 200
+          },
+          "requirements": {}
+        },
+        {
+          "text": "请专业乐队",
+          "effects": {
+            "popularity": 20,
+            "reputation": 15,
+            "customerSatisfaction": 20,
+            "income": 400,
+            "costs": 300
+          },
+          "requirements": {}
+        },
+        {
+          "text": "驻唱歌手专场",
+          "effects": {
+            "popularity": 25,
+            "reputation": 15,
+            "customerSatisfaction": 20,
+            "income": 500
+          },
+          "requirements": {
+            "staff": ["musician"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "competition",
+      "title": "新竞争对手",
+      "description": "附近新开了一家酒馆，吸引了一部分你的老顾客。",
+      "type": "negative",
+      "frequency": 6,
+      "minLevel": 4,
+      "choices": [
+        {
+          "text": "降低价格",
+          "effects": {
+            "popularity": 5,
+            "reputation": -5,
+            "customerSatisfaction": 5,
+            "income": -200
+          },
+          "requirements": {}
+        },
+        {
+          "text": "提高服务质量",
+          "effects": {
+            "popularity": 10,
+            "reputation": 10,
+            "customerSatisfaction": 15,
+            "costs": 300
+          },
+          "requirements": {}
+        },
+        {
+          "text": "推出特色活动",
+          "effects": {
+            "popularity": 15,
+            "reputation": 5,
+            "customerSatisfaction": 10,
+            "costs": 500,
+            "income": 300
+          },
+          "requirements": {
+            "level": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "special_recipe",
+      "title": "特殊配方",
+      "description": "一位老酒客向你分享了一个古老的饮品配方。",
+      "type": "positive",
+      "frequency": 4,
+      "minLevel": 5,
+      "choices": [
+        {
+          "text": "感谢但婉拒",
+          "effects": {
+            "popularity": 0,
+            "reputation": 0,
+            "customerSatisfaction": 0
+          },
+          "requirements": {}
+        },
+        {
+          "text": "试着制作",
+          "effects": {
+            "popularity": "random(0, 1) > 0.6 ? 15 : -5",
+            "reputation": "random(0, 1) > 0.6 ? 10 : -5",
+            "customerSatisfaction": "random(0, 1) > 0.6 ? 15 : -10"
+          },
+          "requirements": {
+            "staff": ["bartender"]
+          }
+        },
+        {
+          "text": "改良并加入菜单",
+          "effects": {
+            "popularity": 20,
+            "reputation": 15,
+            "customerSatisfaction": 15,
+            "income": 400
+          },
+          "requirements": {
+            "staff": ["bartender"],
+            "level": 6
+          },
+          "rewards": {
+            "newDrink": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "vip_reservation",
+      "title": "VIP预订",
+      "description": "一群重要人物想要预订你的酒馆举办私人聚会。",
+      "type": "positive",
+      "frequency": 3,
+      "minLevel": 6,
+      "choices": [
+        {
+          "text": "拒绝（保持正常营业）",
+          "effects": {
+            "popularity": 0,
+            "reputation": -5,
+            "customerSatisfaction": 0,
+            "income": 0
+          },
+          "requirements": {}
+        },
+        {
+          "text": "接受（关闭普通营业）",
+          "effects": {
+            "popularity": 5,
+            "reputation": 15,
+            "customerSatisfaction": -5,
+            "income": 1000
+          },
+          "requirements": {}
+        },
+        {
+          "text": "部分区域接待VIP",
+          "effects": {
+            "popularity": 10,
+            "reputation": 10,
+            "customerSatisfaction": 5,
+            "income": 700
+          },
+          "requirements": {
+            "level": 7
+          }
+        }
+      ]
+    }
+  ]
+} 

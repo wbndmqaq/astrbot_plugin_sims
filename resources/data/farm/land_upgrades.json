@@ -1,0 +1,49 @@
+{
+  "landUpgrades": [
+    {
+      "level": 1,
+      "name": "初级农田",
+      "price": 500,
+      "size": 4,
+      "waterRetention": 1,
+      "fertilityBonus": 1,
+      "description": "小块的基础农田，适合初学者"
+    },
+    {
+      "level": 2,
+      "name": "改良农田",
+      "price": 1500,
+      "size": 6,
+      "waterRetention": 1.2,
+      "fertilityBonus": 1.2,
+      "description": "经过改良的农田，土壤质量更好"
+    },
+    {
+      "level": 3,
+      "name": "高级农田",
+      "price": 3000,
+      "size": 8,
+      "waterRetention": 1.5,
+      "fertilityBonus": 1.5,
+      "description": "高品质农田，作物生长更快更好"
+    },
+    {
+      "level": 4,
+      "name": "精耕农田",
+      "price": 6000,
+      "size": 10,
+      "waterRetention": 2,
+      "fertilityBonus": 2,
+      "description": "经过精心改造的优质农田，产量大幅提升"
+    },
+    {
+      "level": 5,
+      "name": "科技农田",
+      "price": 12000,
+      "size": 12,
+      "waterRetention": 2.5,
+      "fertilityBonus": 2.5,
+      "description": "应用现代科技的高科技农田，效率最大化"
+    }
+  ]
+} 

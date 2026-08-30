@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒馆员工</title>
+    <style>
+        @font-face { font-family: miaomiao; src: url(./也字工厂喵喵体.ttf); }
+        body {
+            font-family: miaomiao, 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            background-attachment: fixed;
+            color: #7a3b5c;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #e75490;
+            margin: 0;
+            padding: 10px;
+            text-shadow: 2px 2px 4px rgba(255, 183, 213, 0.5);
+        }
+
+        .header .subtitle {
+            font-size: 18px;
+            color: #8a4a68;
+            margin-top: 5px;
+        }
+
+        .divider {
+            border-bottom: 2px solid #ffd3e6;
+            margin: 20px 0;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: #e75490;
+            margin-bottom: 10px;
+            border-left: 4px solid #ff6fae;
+            padding-left: 10px;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .staff-card {
+            background: #fff8fb;
+            border: 1px solid #ffd3e6;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(255, 133, 183, 0.4);
+            background: #fff0f7;
+        }
+
+        .staff-card.locked {
+            opacity: 0.6;
+        }
+
+        .staff-header {
+            padding: 15px;
+            background: #fff0f7;
+            border-bottom: 1px solid #ffd3e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .staff-name {
+            font-weight: bold;
+            font-size: 18px;
+            color: #d63384;
+        }
+
+        .staff-role {
+            background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+            padding: 3px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            color: #fff;
+        }
+
+        .staff-body {
+            padding: 15px;
+        }
+
+        .staff-desc {
+            color: #7a3b5c;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .staff-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .stat-item {
+            background: #fff0f7;
+            border: 1px solid #ffd3e6;
+            padding: 8px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #8a4a68;
+            margin-bottom: 3px;
+        }
+
+        .stat-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e75490;
+        }
+
+        .staff-benefits {
+            margin-bottom: 15px;
+        }
+
+        .benefits-title {
+            font-size: 14px;
+            color: #e75490;
+            margin-bottom: 5px;
+        }
+
+        .benefits-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #7a3b5c;
+            margin-bottom: 3px;
+        }
+
+        .benefit-icon {
+            color: #66bb6a;
+            margin-right: 5px;
+        }
+
+        .hire-command {
+            background: #fff0f7;
+            border: 1px solid #ffd3e6;
+            padding: 10px;
+            border-radius: 12px;
+            font-family: monospace;
+            text-align: center;
+            color: #d63384;
+        }
+
+        .locked-message {
+            background: #fff0f7;
+            border: 1px solid #ffd3e6;
+            padding: 10px;
+            border-radius: 12px;
+            text-align: center;
+            color: #e57373;
+            font-size: 14px;
+        }
+
+        .current-staff-section {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .current-staff-title {
+            font-size: 18px;
+            color: #e75490;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ffd3e6;
+            padding-bottom: 5px;
+        }
+
+        .staff-count {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .count-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e75490;
+        }
+
+        .count-label {
+            font-size: 14px;
+            color: #8a4a68;
+        }
+
+        .current-staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .current-staff-card {
+            background: #fff8fb;
+            border: 1px solid #ffd3e6;
+            border-radius: 12px;
+            padding: 15px;
+        }
+
+        .current-staff-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .current-staff-name {
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        .current-staff-role {
+            background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+            padding: 2px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            color: #fff;
+        }
+
+        .current-staff-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+        }
+
+        .current-stat {
+            font-size: 12px;
+            color: #7a3b5c;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .current-stat-value {
+            font-weight: bold;
+        }
+
+        .current-stat-value.salary {
+            color: #e57373;
+        }
+
+        .no-staff {
+            text-align: center;
+            padding: 20px;
+            color: #8a4a68;
+            font-style: italic;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #8a4a68;
+        }
+
+        .deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .deco.heart {
+            clip-path: path('M12 22 C4.5 15 0 10.5 0 6 C0 2.2 2.7 0 6 0 C8.8 0 11 1.8 12 4.2 C13 1.8 15.2 0 18 0 C21.3 0 24 2.2 24 6 C24 10.5 19.5 15 12 22 Z');
+            background: #ffb7d5;
+            animation: floatUp 6s ease-in-out infinite;
+        }
+
+        .deco.star {
+            clip-path: polygon(50% 0%,63% 35%,100% 38%,71% 60%,82% 100%,50% 76%,18% 100%,29% 60%,0% 38%,37% 35%);
+            background: #ffd98e;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.15); }
+        }
+    </style>
+</head>
+<body>
+    <div class="deco heart" style="top: 40px; left: 6%; width: 32px; height: 29px; opacity: 0.5;"></div>
+    <div class="deco star" style="top: 140px; right: 7%; width: 26px; height: 26px; opacity: 0.5;"></div>
+    <div class="deco heart" style="top: 55%; left: 3%; width: 22px; height: 20px; opacity: 0.4;"></div>
+    <div class="deco star" style="bottom: 120px; right: 4%; width: 22px; height: 22px; opacity: 0.45;"></div>
+    <div class="deco heart" style="bottom: 40px; left: 12%; width: 26px; height: 23px; opacity: 0.5;"></div>
+    <div class="container">
+        <div class="header">
+            <h1>酒馆员工管理</h1>
+            <div class="subtitle">雇佣和管理你的酒馆员工</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="section-title">当前员工</div>
+            <div class="current-staff-section">
+                <div class="staff-count">
+                    <div class="count-number">{{currentStaff.length}}</div>
+                    <div class="count-label">已雇佣员工</div>
+                </div>
+
+                {{if currentStaff && currentStaff.length > 0}}
+                <div class="current-staff-grid">
+                    {{each currentStaff staff}}
+                    <div class="current-staff-card">
+                        <div class="current-staff-header">
+                            <div class="current-staff-name">{{staff.name}}</div>
+                            <div class="current-staff-role">{{staff.type}}</div>
+                        </div>
+                        <div class="current-staff-stats">
+                            <div class="current-stat">
+                                <span>效率:</span>
+                                <span class="current-stat-value">{{staff.efficiency}}</span>
+                            </div>
+                            <div class="current-stat">
+                                <span>忠诚度:</span>
+                                <span class="current-stat-value">{{staff.loyalty}}</span>
+                            </div>
+                            <div class="current-stat">
+                                <span>雇佣天数:</span>
+                                <span class="current-stat-value">{{staff.daysHired}}</span>
+                            </div>
+                            <div class="current-stat">
+                                <span>日薪:</span>
+                                <span class="current-stat-value salary">{{staff.salary}}元</span>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                {{else}}
+                <div class="no-staff">
+                    <p>你目前没有雇佣任何员工</p>
+                    <p>查看下方可雇佣的员工列表，使用指令雇佣</p>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">可雇佣员工</div>
+            <div class="staff-grid">
+                {{each availableStaff staff}}
+                <div class="staff-card {{staff.unlocked ? '' : 'locked'}}">
+                    <div class="staff-header">
+                        <div class="staff-name">{{staff.name}}</div>
+                        <div class="staff-role">{{staff.type}}</div>
+                    </div>
+                    <div class="staff-body">
+                        <div class="staff-desc">{{staff.description}}</div>
+                        <div class="staff-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">效率</div>
+                                <div class="stat-value">{{staff.efficiency}}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">忠诚度</div>
+                                <div class="stat-value">{{staff.loyalty}}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">雇佣费用</div>
+                                <div class="stat-value">{{staff.hireCost}}元</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">日薪</div>
+                                <div class="stat-value">{{staff.salary}}元</div>
+                            </div>
+                        </div>
+                        <div class="staff-benefits">
+                            <div class="benefits-title">员工特长：</div>
+                            <ul class="benefits-list">
+                                {{each staff.benefits benefit}}
+                                <li class="benefit-item">
+                                    <span class="benefit-icon">✓</span>
+                                    {{benefit}}
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+
+                        {{if staff.unlocked}}
+                        <div class="hire-command">
+                            #雇佣员工 {{staff.type}}
+                        </div>
+                        {{else}}
+                        <div class="locked-message">
+                            需要酒馆等级 {{staff.requiredLevel}} 解锁
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="footer">
+            模拟人生插件 - 酒馆系统 v1.0
+        </div>
+    </div>
+</body>
+</html>

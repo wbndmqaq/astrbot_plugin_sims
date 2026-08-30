@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.ruff_cache/
+data/_runtime/
+resources/**/tmp*.png
+.pytest_cache/

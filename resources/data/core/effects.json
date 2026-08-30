@@ -1,0 +1,193 @@
+{
+  "schema": "effects_v1",
+  "version": "1.0.0",
+  "description": "统一效果定义系统",
+  "effectTypes": {
+    "attribute": { "name": "属性修改", "description": "直接修改角色属性值" },
+    "status": { "name": "状态效果", "description": "添加持续状态" },
+    "cure": { "name": "治疗效果", "description": "治愈疾病或负面状态" },
+    "buff": { "name": "增益效果", "description": "临时提升能力" },
+    "debuff": { "name": "减益效果", "description": "临时降低能力" }
+  },
+  "effects": {
+    "hunger": {
+      "id": "hunger",
+      "name": "饱食度恢复",
+      "type": "attribute",
+      "description": "恢复饱食度",
+      "target": "hunger",
+      "stackable": true,
+      "maxStacks": 99
+    },
+    "thirst": {
+      "id": "thirst",
+      "name": "口渴度恢复",
+      "type": "attribute",
+      "description": "恢复口渴度",
+      "target": "thirst",
+      "stackable": true,
+      "maxStacks": 99
+    },
+    "health": {
+      "id": "health",
+      "name": "生命值恢复",
+      "type": "attribute",
+      "description": "恢复生命值",
+      "target": "life",
+      "stackable": true,
+      "maxStacks": 99
+    },
+    "stamina": {
+      "id": "stamina",
+      "name": "体力恢复",
+      "type": "attribute",
+      "description": "恢复体力值",
+      "target": "stamina",
+      "stackable": true,
+      "maxStacks": 99
+    },
+    "mood": {
+      "id": "mood",
+      "name": "心情提升",
+      "type": "attribute",
+      "description": "提升心情值",
+      "target": "mood",
+      "stackable": true,
+      "maxStacks": 99
+    },
+    "cure": {
+      "id": "cure",
+      "name": "疾病治疗",
+      "type": "cure",
+      "description": "治愈指定疾病",
+      "stackable": false,
+      "maxStacks": 1
+    },
+    "speed": {
+      "id": "speed",
+      "name": "速度提升",
+      "type": "buff",
+      "description": "临时提升移动速度",
+      "duration": 3600,
+      "stackable": false,
+      "maxStacks": 1
+    },
+    "strength": {
+      "id": "strength",
+      "name": "力量提升",
+      "type": "buff",
+      "description": "临时提升力量",
+      "duration": 3600,
+      "stackable": false,
+      "maxStacks": 1
+    },
+    "luck": {
+      "id": "luck",
+      "name": "幸运提升",
+      "type": "buff",
+      "description": "临时提升幸运值",
+      "duration": 3600,
+      "stackable": false,
+      "maxStacks": 1
+    },
+    "charm": {
+      "id": "charm",
+      "name": "魅力提升",
+      "type": "buff",
+      "description": "临时提升魅力值",
+      "duration": 3600,
+      "stackable": false,
+      "maxStacks": 1
+    },
+    "cold_resist": {
+      "id": "cold_resist",
+      "name": "抗寒",
+      "type": "buff",
+      "description": "抵抗寒冷天气",
+      "duration": 7200,
+      "stackable": false,
+      "maxStacks": 1
+    },
+    "stamina_regen": {
+      "id": "stamina_regen",
+      "name": "体力回复",
+      "type": "buff",
+      "description": "持续恢复体力",
+      "duration": 3600,
+      "tickInterval": 60,
+      "stackable": false,
+      "maxStacks": 1
+    },
+    "poison": {
+      "id": "poison",
+      "name": "中毒",
+      "type": "debuff",
+      "description": "持续损失生命值",
+      "duration": 600,
+      "tickInterval": 30,
+      "stackable": true,
+      "maxStacks": 5
+    },
+    "burn": {
+      "id": "burn",
+      "name": "烧伤",
+      "type": "debuff",
+      "description": "持续损失生命值",
+      "duration": 300,
+      "tickInterval": 10,
+      "stackable": true,
+      "maxStacks": 3
+    },
+    "fatigue": {
+      "id": "fatigue",
+      "name": "疲劳",
+      "type": "debuff",
+      "description": "降低工作效率",
+      "duration": 3600,
+      "stackable": false,
+      "maxStacks": 1
+    }
+  },
+  "statusEffects": {
+    "sick": {
+      "id": "sick",
+      "name": "生病",
+      "type": "status",
+      "description": "生病状态，需要治疗",
+      "negative": true,
+      "cureItems": ["med_001", "med_002"]
+    },
+    "injured": {
+      "id": "injured",
+      "name": "受伤",
+      "type": "status",
+      "description": "受伤状态，需要包扎",
+      "negative": true,
+      "cureItems": ["med_004", "med_001"]
+    },
+    "exhausted": {
+      "id": "exhausted",
+      "name": "精疲力尽",
+      "type": "status",
+      "description": "精疲力尽，需要休息",
+      "negative": true,
+      "cureItems": ["cons_001", "cons_002"]
+    },
+    "blessed": {
+      "id": "blessed",
+      "name": "祝福",
+      "type": "status",
+      "description": "获得祝福，提升幸运",
+      "negative": false,
+      "duration": 3600
+    },
+    "protected": {
+      "id": "protected",
+      "name": "保护",
+      "type": "status",
+      "description": "受到保护，减少伤害",
+      "negative": false,
+      "duration": 1800
+    }
+  }
+}

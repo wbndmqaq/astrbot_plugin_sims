@@ -1,0 +1,192 @@
+enabled: true
+autoHint: true
+stages:
+  - id: start
+    name: 初识小镇
+    reward:
+      money: 500
+      stamina: 20
+      items: []
+    steps:
+      - id: create
+        title: 创建你的人生角色
+        scene: 欢迎来到模拟人生小镇。在这里你将拥有属于自己的第二人生，第一步就是创建你的专属角色。
+        action: '#开始模拟人生'
+        highlight: 角色创建入口
+        points:
+          - 创建角色后系统将为你建立专属存档
+          - 初始可获得1000金币与100点体力
+          - 存档数据会实时保存，可随时继续游戏
+      - id: profile
+        title: 完善个人资料
+        scene: 一个独特的形象能让你在小镇中更受欢迎，来设置你的性别与昵称吧。
+        action: '#设置性别女'
+        highlight: 资料设置
+        points:
+          - 发送 #设置性别男 或 #设置性别女 完成性别设置
+          - 发送 #模拟人生改名昵称 可以修改你的名字
+          - 首次修改昵称免费，之后每次需花费300金币
+      - id: signin
+        title: 每日签到福利
+        scene: 小镇每天都会为居民准备签到礼物，连续签到奖励更加丰厚。
+        action: '#模拟人生签到'
+        highlight: 每日签到
+        points:
+          - 每天可签到一次，获得金币与体力奖励
+          - 连续签到天数越多，额外奖励越高
+          - 体力是工作钓鱼等活动的基础消耗，上限100点
+      - id: info
+        title: 查看我的状态
+        scene: 随时了解自己的状态是小镇生活的基本技能。
+        action: '#模拟人生信息'
+        highlight: 状态面板
+        points:
+          - 可查看金币体力心情饱腹度等全部属性
+          - 属性过低会影响工作与生活效率
+          - 发送 #模拟人生查看头像馆 可以更换个性头像
+  - id: career
+    name: 职业之路
+    reward:
+      money: 800
+      stamina: 30
+      items: []
+    steps:
+      - id: list
+        title: 浏览职业列表
+        scene: 小镇提供多种职业发展方向，每个职业都有独特的成长体系与专属玩法。
+        action: '#模拟人生职业列表'
+        highlight: 职业列表
+        points:
+          - 当前开放医生厨师消防员警察四大职业
+          - 每个职业拥有独立的等级薪资与技能体系
+          - 职业之间存在协作联动玩法，后续引导会详细介绍
+      - id: choose
+        title: 选择心仪职业
+        scene: 选择一份职业，开启你的职场成长之旅。
+        action: '#选择职业医生'
+        highlight: 职业选择
+        points:
+          - 发送 #选择职业 加职业名即可完成入职
+          - 入职后可随时通过 #辞职 更换职业方向
+          - 跨职业协作任务需要不同职业的玩家配合完成
+      - id: work
+        title: 开始第一份工作
+        scene: 工作是金币与职业经验的主要来源。
+        action: '#开始工作'
+        highlight: 工作入口
+        points:
+          - 工作消耗体力并获得薪资与职业经验
+          - 工作存在冷却时间，请合理安排节奏
+          - 经验满足条件后发送 #职业升级 晋升更高职级
+      - id: skill
+        title: 职业技能成长
+        scene: 每个职业都有专属技能，学习技能可解锁更强力的职业玩法。
+        action: '#职业技能'
+        highlight: 技能面板
+        points:
+          - 发送 #学习技能 加技能名学习新技能
+          - 医生可诊断治疗，厨师可烹饪研发，警察可巡逻破案，消防员可灭火救援
+          - 能力互补的职业组队可触发协作加成
+  - id: wealth
+    name: 财富之路
+    reward:
+      money: 1000
+      stamina: 0
+      items:
+        - name: 初级鱼竿
+          type: fishing_rod
+          count: 1
+    steps:
+      - id: fish
+        title: 悠闲垂钓时光
+        scene: 小镇湖畔盛产各类鱼类，垂钓是稳定的收入来源。
+        action: '#开始钓鱼'
+        highlight: 钓鱼系统
+        points:
+          - 发送 #开始钓鱼 后等待鱼儿上钩，再发送 #收杆 收获
+          - 鱼获可通过 #出售鱼获 换取金币
+          - 升级鱼竿与鱼饵能钓到更稀有的鱼
+      - id: farm
+        title: 经营专属农场
+        scene: 拥有一片农场，体验从播种到收获的完整乐趣。
+        action: '#创建农场'
+        highlight: 农场系统
+        points:
+          - 创建农场后购买农田与种子即可开始种植
+          - 定期浇水施肥可加速作物生长
+          - 收获的农产品可出售换取金币
+      - id: shop
+        title: 商店与背包
+        scene: 小镇商店出售各类实用道具，背包是你管理物品的地方。
+        action: '#商店列表'
+        highlight: 商店系统
+        points:
+          - 发送 #进入商店 加商店名浏览商品
+          - 发送 #背包 查看随身物品，#查看装备 查看已穿戴装备
+          - 部分道具可装备使用，提供属性加成
+      - id: stock
+        title: 股市投资理财
+        scene: 小镇股市每日波动，把握时机可以获得丰厚回报。
+        action: '#股市'
+        highlight: 股票交易
+        points:
+          - 发送 #买入股票 加股票名与数量进行投资
+          - 股价实时波动，低买高卖赚取差价
+          - 投资有风险，请合理分配资产
+  - id: life
+    name: 小镇生活
+    reward:
+      money: 2000
+      stamina: 50
+      items:
+        - name: 小型体力药水
+          type: stamina_potion
+          count: 2
+        - name: 抽奖券
+          type: lottery_ticket
+          count: 3
+    steps:
+      - id: estate
+        title: 置业安家
+        scene: 积攒足够财富后，可以在小镇购置属于自己的房产。
+        action: '#房产市场'
+        highlight: 房产系统
+        points:
+          - 房产可装修升级提升价值
+          - 闲置房产可出租获得持续租金收入
+      - id: business
+        title: 经营产业
+        scene: 酒馆网吧电影院三大产业等你经营，打造你的商业帝国。
+        action: '#创建酒馆'
+        highlight: 产业经营
+        points:
+          - 酒馆靠饮品经营，网吧靠设备与包间，电影院靠排片卖票
+          - 雇佣与培训员工可提升产业收益
+          - 各产业均有排行榜，与全服玩家一较高下
+      - id: collab
+        title: 职业协作联动
+        scene: 不同职业的玩家可以发起协作，触发能力互补加成与专属联动玩法。
+        action: '#职业协作'
+        highlight: 协作大厅
+        points:
+          - 发送 #发起协作 邀请其他职业玩家组队
+          - 协作成功后双方获得额外金币与经验加成
+          - 跨职业任务链提供稀有奖励
+      - id: lottery
+        title: 幸运抽奖
+        scene: 小镇抽奖中心提供多档位奖池，限定道具与保底机制等你体验。
+        action: '#抽奖'
+        highlight: 抽奖中心
+        points:
+          - 新手礼包赠送的抽奖券可免费抽取
+          - 十连抽必出稀有奖励，累计次数触发保底
+          - 发送 #奖池预览 查看各档位奖励明细
+      - id: achievement
+        title: 成就收集
+        scene: 小镇记录着每位居民的成长足迹，完成成就可获得徽章与奖励。
+        action: '#我的成就'
+        highlight: 成就殿堂
+        points:
+          - 成就涵盖日常操作特殊事件跨职业协作成长突破四大分类
+          - 解锁成就可领取金币道具等专属奖励
+          - 发送 #成就列表 查看全部成就进度

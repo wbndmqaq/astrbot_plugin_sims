@@ -1,0 +1,170 @@
+{
+  "lastUpdated": "2023-12-15T00:00:00Z",
+  "marketItems": [
+    {
+      "id": "beer_basic",
+      "name": "基础啤酒原料",
+      "type": "beer",
+      "description": "普通啤酒的基础原料，性价比高",
+      "price": 150,
+      "quantity": 30,
+      "quality": 1
+    },
+    {
+      "id": "beer_craft",
+      "name": "精酿啤酒原料",
+      "type": "beer",
+      "description": "高质量的精酿啤酒原料，适合制作特色啤酒",
+      "price": 300,
+      "quantity": 20,
+      "quality": 2
+    },
+    {
+      "id": "beer_premium",
+      "name": "顶级啤酒原料",
+      "type": "beer",
+      "description": "最高品质的啤酒原料，来自进口麦芽",
+      "price": 500,
+      "quantity": 10,
+      "quality": 3
+    },
+    {
+      "id": "wine_table",
+      "name": "餐酒原料",
+      "type": "wine",
+      "description": "适合日常饮用的葡萄酒原料",
+      "price": 250,
+      "quantity": 15,
+      "quality": 1
+    },
+    {
+      "id": "wine_vintage",
+      "name": "陈年葡萄酒原料",
+      "type": "wine",
+      "description": "优质葡萄酿造的陈年葡萄酒原料",
+      "price": 500,
+      "quantity": 8,
+      "quality": 2
+    },
+    {
+      "id": "wine_premium",
+      "name": "顶级葡萄酒原料",
+      "type": "wine",
+      "description": "来自著名产区的顶级葡萄酒原料",
+      "price": 800,
+      "quantity": 5,
+      "quality": 3
+    },
+    {
+      "id": "spirits_vodka",
+      "name": "伏特加原料",
+      "type": "spirits",
+      "description": "制作伏特加和伏特加鸡尾酒的基础原料",
+      "price": 300,
+      "quantity": 10,
+      "quality": 1
+    },
+    {
+      "id": "spirits_whiskey",
+      "name": "威士忌原料",
+      "type": "spirits",
+      "description": "优质威士忌原料，口感醇厚",
+      "price": 600,
+      "quantity": 6,
+      "quality": 2
+    },
+    {
+      "id": "spirits_premium",
+      "name": "顶级烈酒原料",
+      "type": "spirits",
+      "description": "稀有的顶级烈酒原料，适合制作高端鸡尾酒",
+      "price": 1000,
+      "quantity": 3,
+      "quality": 3
+    },
+    {
+      "id": "food_snacks",
+      "name": "小吃原料",
+      "type": "food",
+      "description": "制作简单酒吧小吃的原料",
+      "price": 200,
+      "quantity": 20,
+      "quality": 1
+    },
+    {
+      "id": "food_appetizers",
+      "name": "开胃菜原料",
+      "type": "food",
+      "description": "制作各类开胃小菜的原料",
+      "price": 400,
+      "quantity": 15,
+      "quality": 2
+    },
+    {
+      "id": "food_gourmet",
+      "name": "美食原料",
+      "type": "food",
+      "description": "制作高级酒馆美食的原料组合",
+      "price": 600,
+      "quantity": 8,
+      "quality": 3
+    },
+    {
+      "id": "deco_basic",
+      "name": "基础装饰品",
+      "type": "decorations",
+      "description": "简单的酒馆装饰品，提升基础氛围",
+      "price": 300,
+      "quantity": 10,
+      "quality": 1
+    },
+    {
+      "id": "deco_themed",
+      "name": "主题装饰品",
+      "type": "decorations",
+      "description": "特色主题装饰品，显著提升酒馆氛围",
+      "price": 600,
+      "quantity": 5,
+      "quality": 2
+    },
+    {
+      "id": "deco_luxury",
+      "name": "豪华装饰品",
+      "type": "decorations",
+      "description": "奢华装饰品，极大提升酒馆格调和吸引力",
+      "price": 1000,
+      "quantity": 3,
+      "quality": 3
+    },
+    {
+      "id": "special_fruit",
+      "name": "稀有水果",
+      "type": "special",
+      "description": "稀有水果，可用于制作特色果酒和鸡尾酒",
+      "price": 800,
+      "quantity": 5,
+      "quality": 3,
+      "limited": true
+    },
+    {
+      "id": "special_honey",
+      "name": "野生蜂蜜",
+      "type": "special",
+      "description": "天然野生蜂蜜，制作蜂蜜酒的绝佳原料",
+      "price": 750,
+      "quantity": 3,
+      "quality": 3,
+      "limited": true
+    },
+    {
+      "id": "special_herb",
+      "name": "神秘草药",
+      "type": "special",
+      "description": "来自深山的神秘草药，能制作独特口味的饮品",
+      "price": 1200,
+      "quantity": 2,
+      "quality": 3,
+      "limited": true
+    }
+  ]
+} 

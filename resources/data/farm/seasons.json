@@ -1,0 +1,56 @@
+{
+  "seasons": [
+    {
+      "id": 1,
+      "name": "春季",
+      "months": [3, 4, 5],
+      "effects": {
+        "growth": 1.2,
+        "water": 1.0,
+        "temperature": "适中"
+      },
+      "description": "万物复苏的季节，适合大多数作物生长",
+      "special": "草莓生长速度提升30%",
+      "icon": "spring.png"
+    },
+    {
+      "id": 2,
+      "name": "夏季",
+      "months": [6, 7, 8],
+      "effects": {
+        "growth": 1.5,
+        "water": 0.7,
+        "temperature": "炎热"
+      },
+      "description": "炎热的季节，瓜果类作物生长迅速，但需要更多的水分",
+      "special": "番茄、茄子和黄瓜产量提升40%",
+      "icon": "summer.png"
+    },
+    {
+      "id": 3,
+      "name": "秋季",
+      "months": [9, 10, 11],
+      "effects": {
+        "growth": 1.0,
+        "water": 1.2,
+        "temperature": "凉爽"
+      },
+      "description": "丰收的季节，根茎类作物生长良好",
+      "special": "土豆和南瓜产量提升30%",
+      "icon": "autumn.png"
+    },
+    {
+      "id": 4,
+      "name": "冬季",
+      "months": [12, 1, 2],
+      "effects": {
+        "growth": 0.5,
+        "water": 1.5,
+        "temperature": "寒冷"
+      },
+      "description": "寒冷的季节，大多数作物生长缓慢，但雪水滋养土壤",
+      "special": "可以种植特殊的耐寒作物",
+      "icon": "winter.png"
+    }
+  ]
+} 

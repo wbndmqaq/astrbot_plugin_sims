@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: miaomiao;
+            src: url(./也字工厂喵喵体.ttf);
+        }
+        body {
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            min-height: 100vh;
+            color: #7a3b5c;
+            position: relative;
+        }
+        .deco {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .deco-heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #ffb7d5;
+            clip-path: polygon(50% 100%, 0 35%, 25% 0, 50% 20%, 75% 0, 100% 35%);
+            animation: floatUp 3.5s ease-in-out infinite;
+        }
+        .deco-star {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: #ffd98e;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: twinkle 2s infinite;
+        }
+        .dh1 { top: 8%; left: 5%; }
+        .dh2 { top: 16%; right: 8%; width: 22px; height: 22px; animation-delay: 0.8s; }
+        .dh3 { top: 42%; left: 3%; width: 18px; height: 18px; animation-delay: 1.6s; }
+        .ds1 { top: 6%; left: 42%; animation-delay: 0.5s; }
+        .ds2 { top: 30%; right: 4%; width: 18px; height: 18px; animation-delay: 1.2s; }
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ffc3da;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+            position: relative;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #e75490;
+            margin: 0;
+            font-size: 2em;
+            font-family: miaomiao, 'Arial', sans-serif;
+        }
+        .ranking-section {
+            margin: 30px 0;
+        }
+        .section-title {
+            color: #d63384;
+            margin: 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffc3da;
+            font-family: miaomiao, 'Arial', sans-serif;
+        }
+        .ranking-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .ranking-card {
+            background: white;
+            border-radius: 14px;
+            padding: 15px;
+            border: 2px solid #ffc3da;
+            position: relative;
+        }
+        .rank-number {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(255, 111, 174, 0.4);
+        }
+        .player-name {
+            font-size: 1.2em;
+            color: #e75490;
+            margin: 10px 0;
+        }
+        .player-stats {
+            margin: 10px 0;
+            color: #8a4a68;
+        }
+        .best-catch {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed #ffc3da;
+            color: #8a4a68;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #b07a95;
+            font-size: 0.9em;
+        }
+        .cute-icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        .medal-1 { background: #ffd700; }
+        .medal-2 { background: #c0c0c0; }
+        .medal-3 { background: #cd7f32; }
+    </style>
+</head>
+<body>
+    <div class="deco">
+        <div class="deco-heart dh1"></div>
+        <div class="deco-heart dh2"></div>
+        <div class="deco-heart dh3"></div>
+        <div class="deco-star ds1"></div>
+        <div class="deco-star ds2"></div>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>🏆 钓鱼排行榜 🏆</h1>
+        </div>
+        
+        <div class="ranking-section">
+            <div class="section-title">
+                <span class="cute-icon">🎣</span>总捕获量排行
+            </div>
+            <div class="ranking-list">
+                {{each sortByTotalCatch(ranking) player index}}
+                <div class="ranking-card">
+                    <div class="rank-number medal-{{index + 1}}">{{index + 1}}</div>
+                    <div class="player-name">
+                        <span class="cute-icon">👤</span>{{player.name}}
+                    </div>
+                    <div class="player-stats">
+                        <div><span class="cute-icon">🐟</span>总捕获：{{player.total_catch}}条</div>
+                        <div><span class="cute-icon">⚖️</span>总重量：{{player.total_weight.toFixed(2)}}kg</div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="ranking-section">
+            <div class="section-title">
+                <span class="cute-icon">🏅</span>最佳渔获
+            </div>
+            <div class="ranking-list">
+                {{each sortByBestCatch(ranking) player index}}
+                <div class="ranking-card">
+                    <div class="rank-number medal-{{index + 1}}">{{index + 1}}</div>
+                    <div class="player-name">
+                        <span class="cute-icon">👤</span>{{player.name}}
+                    </div>
+                    <div class="best-catch">
+                        <div><span class="cute-icon">🐠</span>{{getFishName(player.best_catch.fish_id)}}</div>
+                        <div><span class="cute-icon">⚖️</span>重量：{{player.best_catch.weight.toFixed(2)}}kg</div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>💫 继续努力，争取更好的排名！ 💫</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+{{extend defaultLayout}}
+
+{{block 'css'}}
+<link rel="stylesheet" type="text/css" href="{{_res_path}}/help/index.css"/>
+<% style = style.replace(/{{_res_path}}/g, _res_path) %>
+{{@style}}
+<style>
+  @font-face {
+    font-family: miaomiao;
+    src: url(../HTML/也字工厂喵喵体.ttf);
+  }
+
+  body {
+    background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+    min-height: 100vh;
+    color: #7a3b5c;
+  }
+
+  .deco {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .deco .heart {
+    position: absolute;
+    background: #ffb7d5;
+    clip-path: polygon(50% 100%, 0 35%, 25% 0, 50% 20%, 75% 0, 100% 35%);
+    opacity: 0.75;
+    animation: floatUp 3.5s ease-in-out infinite;
+  }
+
+  .deco .heart.h1 { top: 8%; left: 5%; width: 34px; height: 34px; }
+  .deco .heart.h2 { top: 16%; right: 7%; width: 26px; height: 26px; animation-duration: 4s; }
+  .deco .heart.h3 { top: 55%; left: 3%; width: 20px; height: 20px; animation-duration: 3s; }
+
+  .deco .star {
+    position: absolute;
+    background: #ffd98e;
+    clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: twinkle 2s infinite;
+  }
+
+  .deco .star.s1 { top: 6%; left: 42%; width: 20px; height: 20px; }
+  .deco .star.s2 { top: 26%; right: 14%; width: 16px; height: 16px; animation-delay: 0.6s; }
+  .deco .star.s3 { top: 68%; right: 5%; width: 18px; height: 18px; animation-delay: 1.1s; }
+
+  @keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .head-box,
+  .cont-box,
+  .info-box {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #ffc3da;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(255, 133, 183, 0.3);
+  }
+
+  .head-box .title {
+    font-family: miaomiao;
+    color: #e75490;
+    text-shadow: 0 2px 8px rgba(255, 143, 191, 0.4);
+  }
+
+  .head-box .label {
+    color: #b07a95;
+  }
+
+  .help-group {
+    font-family: miaomiao;
+    color: #d63384;
+  }
+
+  .help-title {
+    color: #e75490;
+  }
+
+  .help-desc {
+    color: #8a4a68;
+  }
+
+  .icon-help {
+    background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+    color: #fff;
+  }
+</style>
+{{/block}}
+
+{{block 'main'}}
+
+<div class="deco">
+  <div class="heart h1"></div>
+  <div class="heart h2"></div>
+  <div class="heart h3"></div>
+  <div class="star s1"></div>
+  <div class="star s2"></div>
+  <div class="star s3"></div>
+</div>
+
+<div class="info-box">
+  <div class="head-box type{{bgType}}">
+    <div class="title">{{helpCfg.title||"使用帮助"}}</div>
+    <div class="label">{{helpCfg.subTitle || "Yunzai-Bot & sims-Plugin"}}</div>
+  </div>
+  <div class="logo-container">
+    <img class="logo-img" src="{{_res_path}}/logo.png" alt="模拟人生Logo"/>
+  </div>
+</div>
+
+{{each helpGroup group}}
+{{set len = group?.list?.length || 0 }}
+<div class="cont-box">
+  <div class="help-group">{{group.group}}</div>
+  {{if len > 0}}
+  <div class="help-table">
+    <div class="tr">
+      {{each group.list help idx}}
+      <div class="td">
+        <span class="help-icon" style="{{help.css}}"></span>
+        <strong class="help-title">{{help.title}}</strong>
+        <span class="help-desc">{{help.desc}}</span>
+      </div>
+      {{if idx%colCount === colCount-1 && idx>0 && idx< len-1}}
+    </div>
+    <div class="tr">
+      {{/if}}
+      {{/each}}
+      <% for(let i=(len-1)%colCount; i< colCount-1 ; i++){ %>
+      <div class="td"></div>
+      <% } %>
+    </div>
+  </div>
+  {{/if}}
+</div>
+{{/each}}
+{{/block}}

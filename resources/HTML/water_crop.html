@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨浇水系统✨</title>
+    <style>
+        @font-face { font-family: miaomiao; src: url(./也字工厂喵喵体.ttf); }
+        :root {
+            --primary: #e75490;
+            --secondary: #ff6fae;
+            --accent: #ff8fbf;
+            --dark: #fff0f6;
+            --light: #7a3b5c;
+            --warning: #ffd98e;
+        }
+
+        @font-face {
+            font-family: 'SciFi';
+            src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        }
+
+        body {
+            font-family: miaomiao, 'SciFi', 'Arial Rounded MT Bold', sans-serif;
+            background: linear-gradient(135deg, #fff0f6 0%, #ffe3ee 45%, #ffd3e6 100%);
+            color: var(--light);
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .deco { position: absolute; pointer-events: none; opacity: 0.5; z-index: 0; }
+        .deco-heart { width: 34px; height: 34px; background: #ffb7d5; clip-path: path('M12 22 C4.5 15 0 10.5 0 6 C0 2.2 2.7 0 6 0 C8.8 0 11 1.8 12 4.2 C13 1.8 15.2 0 18 0 C21.3 0 24 2.2 24 6 C24 10.5 19.5 15 12 22 Z'); animation: floatUp 6s ease-in-out infinite; }
+        .deco-star { width: 28px; height: 28px; background: #ffd98e; clip-path: polygon(50% 0%,63% 35%,100% 38%,71% 60%,82% 100%,50% 76%,18% 100%,29% 60%,0% 38%,37% 35%); animation: twinkle 3s ease-in-out infinite; }
+        @keyframes floatUp { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-16px) rotate(10deg); } }
+        @keyframes twinkle { 0%,100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.85); } }
+
+        .water-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            position: relative;
+        }
+
+        .water-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23ff8fbf10" d="M0,0 L100,0 L100,100 L0,100 Z M20,20 L80,20 L80,80 L20,80 Z" stroke="%23ff8fbf30" stroke-width="0.5"/></svg>');
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #e75490;
+            text-shadow: 0 0 15px var(--secondary), 0 0 30px var(--primary);
+            position: relative;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--secondary); }
+            to { text-shadow: 0 0 20px var(--secondary), 0 0 30px var(--primary); }
+        }
+
+        .plot-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 2px solid #ffc3da;
+            box-shadow: 0 8px 24px rgba(255,133,183,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plot-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .plot-icon {
+            font-size: 2.5rem;
+            margin-right: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .plot-name {
+            font-size: 1.5rem;
+            color: #d63384;
+        }
+
+        .empty-plot {
+            color: var(--warning);
+            font-style: italic;
+        }
+
+        .water-progress {
+            height: 30px;
+            background: rgba(231,84,144,0.12);
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .water-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+            width: {{waterLevel || 0}}%;
+            border-radius: 15px;
+            transition: width 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .water-fill::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, transparent 45%, rgba(255,255,255,0.5) 50%, transparent 55%);
+            opacity: 0.5;
+            transform: rotate(30deg);
+            animation: shine 3s infinite linear;
+        }
+
+        @keyframes shine {
+            0% { transform: translateY(-100%) rotate(30deg); }
+            100% { transform: translateY(100%) rotate(30deg); }
+        }
+
+        .water-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .water-value {
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+
+        .water-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .water-btn {
+            background: linear-gradient(90deg, #ff8fbf, #ff6fae);
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 20px;
+            font-family: miaomiao, 'SciFi', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .water-btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,133,183,0.5);
+        }
+
+        .water-btn:disabled {
+            background: #e9b8cd;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .water-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, transparent 45%, rgba(255,255,255,0.5) 50%, transparent 55%);
+            opacity: 0.3;
+            transform: rotate(30deg);
+            animation: shine 3s infinite linear;
+        }
+
+        .water-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .water-drops {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .drop {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0;
+            animation: drop 1s linear forwards;
+        }
+
+        @keyframes drop {
+            0% { transform: translateY(-100px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100px); opacity: 0; }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="deco deco-heart" style="top: 6%; left: 4%;"></div>
+    <div class="deco deco-star" style="top: 16%; right: 5%;"></div>
+    <div class="deco deco-heart" style="bottom: 14%; left: 8%;"></div>
+    <div class="deco deco-star" style="bottom: 8%; right: 10%;"></div>
+    <div class="water-container">
+        <h1>✨{{farmName || '农场'}}浇水系统✨</h1>
+
+        <div class="plot-card">
+            <div class="plot-header">
+                <div class="plot-icon">{{cropName ? '🌱' : '🟫'}}</div>
+                <div class="plot-name">
+                    地块 #{{plotId || '1'}} - {{cropName || '<span class="empty-plot">未种植</span>'}}
+                </div>
+            </div>
+
+            <div class="water-info">
+                <div>当前水分:</div>
+                <div class="water-value">{{waterLevel || 0}}%</div>
+            </div>
+
+            <div class="water-progress">
+                <div class="water-fill"></div>
+            </div>
+
+            <div class="water-buttons">
+                <button class="water-btn" data-amount="10" {{cropName ? '' : 'disabled'}}>少量浇水</button>
+                <button class="water-btn" data-amount="30" {{cropName ? '' : 'disabled'}}>适量浇水</button>
+                <button class="water-btn" data-amount="50" {{cropName ? '' : 'disabled'}}>大量浇水</button>
+            </div>
+
+            <div class="water-effect">
+                <div class="water-drops" id="waterDrops"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>⚡ 测试 ⚡</p>
+
+        </div>
+    </div>
+
+    <script>
+        // 浇水动画效果
+        document.querySelectorAll('.water-btn:not(:disabled)').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const dropsContainer = document.getElementById('waterDrops');
+                dropsContainer.innerHTML = '';
+
+                // 创建水滴动画
+                for(let i = 0; i < 20; i++) {
+                    const drop = document.createElement('div');
+                    drop.classList.add('drop');
+                    drop.style.left = `${Math.random() * 100}%`;
+                    drop.style.animationDelay = `${Math.random() * 0.5}s`;
+                    dropsContainer.appendChild(drop);
+                }
+
+                // 显示动画
+                document.querySelector('.water-effect').style.opacity = '1';
+                setTimeout(() => {
+                    document.querySelector('.water-effect').style.opacity = '0';
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

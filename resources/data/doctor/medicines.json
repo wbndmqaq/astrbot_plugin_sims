@@ -1,0 +1,222 @@
+[
+    {
+        "id": 1,
+        "name": "阿司匹林",
+        "type": "解热镇痛药",
+        "effect": "减轻疼痛，降低发热",
+        "effectiveness": 70,
+        "price": 20,
+        "description": "常用于缓解轻至中度疼痛和发热症状",
+        "side_effects": "可能引起胃部不适",
+        "application": ["头痛", "发热", "感冒"]
+    },
+    {
+        "id": 2,
+        "name": "布洛芬",
+        "type": "非甾体抗炎药",
+        "effect": "减轻疼痛，消炎",
+        "effectiveness": 75,
+        "price": 25,
+        "description": "用于缓解各种疼痛和炎症",
+        "side_effects": "胃部不适，可能影响肝肾功能",
+        "application": ["关节疼痛", "肌肉疼痛", "发热"]
+    },
+    {
+        "id": 3,
+        "name": "对乙酰氨基酚",
+        "type": "解热镇痛药",
+        "effect": "缓解疼痛，降低体温",
+        "effectiveness": 65,
+        "price": 18,
+        "description": "适用于轻度疼痛和发热",
+        "side_effects": "过量可能损伤肝脏",
+        "application": ["头痛", "发热", "感冒"]
+    },
+    {
+        "id": 4,
+        "name": "阿莫西林",
+        "type": "抗生素",
+        "effect": "杀灭细菌",
+        "effectiveness": 85,
+        "price": 40,
+        "description": "用于治疗由敏感细菌引起的各种感染",
+        "side_effects": "可能引起过敏反应，腹泻",
+        "application": ["呼吸道感染", "尿路感染", "中耳炎"]
+    },
+    {
+        "id": 5,
+        "name": "头孢克洛",
+        "type": "抗生素",
+        "effect": "杀灭细菌",
+        "effectiveness": 88,
+        "price": 55,
+        "description": "广谱抗生素，对多种细菌有效",
+        "side_effects": "可能引起过敏，肠道菌群失调",
+        "application": ["呼吸道感染", "皮肤感染", "扁桃体炎"]
+    },
+    {
+        "id": 6,
+        "name": "洛匹那韦利托那韦",
+        "type": "抗病毒药",
+        "effect": "抑制病毒复制",
+        "effectiveness": 80,
+        "price": 200,
+        "description": "用于治疗某些病毒感染",
+        "side_effects": "恶心，腹泻，可能引起肝功能异常",
+        "application": ["病毒性感染", "流感"]
+    },
+    {
+        "id": 7,
+        "name": "奥司他韦",
+        "type": "抗病毒药",
+        "effect": "抑制流感病毒",
+        "effectiveness": 75,
+        "price": 120,
+        "description": "用于治疗和预防流感",
+        "side_effects": "恶心，呕吐，头痛",
+        "application": ["流感"]
+    },
+    {
+        "id": 8,
+        "name": "胰岛素",
+        "type": "激素药物",
+        "effect": "降低血糖",
+        "effectiveness": 95,
+        "price": 150,
+        "description": "用于糖尿病患者控制血糖",
+        "side_effects": "低血糖反应",
+        "application": ["糖尿病"]
+    },
+    {
+        "id": 9,
+        "name": "美托洛尔",
+        "type": "心血管药物",
+        "effect": "降低心率和血压",
+        "effectiveness": 90,
+        "price": 60,
+        "description": "用于高血压和心脏疾病",
+        "side_effects": "乏力，头晕，心率过慢",
+        "application": ["高血压", "心律不齐", "心绞痛"]
+    },
+    {
+        "id": 10,
+        "name": "氯雷他定",
+        "type": "抗过敏药",
+        "effect": "缓解过敏症状",
+        "effectiveness": 70,
+        "price": 35,
+        "description": "用于过敏性鼻炎和荨麻疹等",
+        "side_effects": "嗜睡，口干",
+        "application": ["过敏性鼻炎", "荨麻疹", "皮肤瘙痒"]
+    },
+    {
+        "id": 11,
+        "name": "地高辛",
+        "type": "强心药",
+        "effect": "增强心肌收缩力",
+        "effectiveness": 85,
+        "price": 70,
+        "description": "用于心力衰竭和某些心律失常",
+        "side_effects": "恶心，呕吐，视觉异常",
+        "application": ["心力衰竭", "心房颤动"]
+    },
+    {
+        "id": 12,
+        "name": "华法林",
+        "type": "抗凝血药",
+        "effect": "预防血栓形成",
+        "effectiveness": 92,
+        "price": 80,
+        "description": "用于预防和治疗血栓疾病",
+        "side_effects": "出血风险增加",
+        "application": ["深静脉血栓", "肺栓塞", "心房颤动"]
+    },
+    {
+        "id": 13,
+        "name": "氟西汀",
+        "type": "抗抑郁药",
+        "effect": "改善情绪",
+        "effectiveness": 75,
+        "price": 90,
+        "description": "用于抑郁症和焦虑症",
+        "side_effects": "恶心，失眠，性功能障碍",
+        "application": ["抑郁症", "焦虑症", "强迫症"]
+    },
+    {
+        "id": 14,
+        "name": "甲状腺素",
+        "type": "激素药物",
+        "effect": "补充甲状腺激素",
+        "effectiveness": 95,
+        "price": 50,
+        "description": "用于甲状腺功能减退",
+        "side_effects": "心悸，体重减轻，失眠",
+        "application": ["甲状腺功能减退"]
+    },
+    {
+        "id": 15,
+        "name": "沙丁胺醇",
+        "type": "支气管扩张剂",
+        "effect": "舒张支气管",
+        "effectiveness": 85,
+        "price": 45,
+        "description": "用于哮喘和慢性阻塞性肺病",
+        "side_effects": "心悸，手抖，头痛",
+        "application": ["哮喘", "慢性阻塞性肺病"]
+    },
+    {
+        "id": 16,
+        "name": "阿司匹林肠溶片",
+        "type": "抗血小板药",
+        "effect": "预防血栓形成",
+        "effectiveness": 80,
+        "price": 30,
+        "description": "用于预防心血管疾病",
+        "side_effects": "胃肠不适，出血风险增加",
+        "application": ["心肌梗死预防", "脑卒中预防"]
+    },
+    {
+        "id": 17,
+        "name": "维生素C",
+        "type": "维生素",
+        "effect": "增强免疫力",
+        "effectiveness": 60,
+        "price": 15,
+        "description": "补充维生素C，增强抵抗力",
+        "side_effects": "大剂量可能引起腹泻",
+        "application": ["感冒", "免疫力低下", "坏血病"]
+    },
+    {
+        "id": 18,
+        "name": "葡萄糖酸钙",
+        "type": "矿物质补充剂",
+        "effect": "补充钙元素",
+        "effectiveness": 70,
+        "price": 20,
+        "description": "用于缺钙和骨质疏松",
+        "side_effects": "便秘，胃不适",
+        "application": ["骨质疏松", "钙缺乏", "手足抽搐"]
+    },
+    {
+        "id": 19,
+        "name": "复方感冒药",
+        "type": "感冒药",
+        "effect": "缓解感冒多种症状",
+        "effectiveness": 65,
+        "price": 28,
+        "description": "用于缓解感冒引起的发热、头痛、鼻塞等症状",
+        "side_effects": "嗜睡，口干",
+        "application": ["感冒", "流感"]
+    },
+    {
+        "id": 20,
+        "name": "活血化瘀片",
+        "type": "中药",
+        "effect": "活血化瘀",
+        "effectiveness": 60,
+        "price": 25,
+        "description": "用于瘀血引起的疼痛",
+        "side_effects": "可能影响凝血功能",
+        "application": ["跌打损伤", "瘀血疼痛"]
+    }
+] 

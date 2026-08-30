@@ -1,0 +1,166 @@
+{
+    "movies": {
+        "action": {
+            "name": "动作片",
+            "basePrice": 50,
+            "basePopularity": 70,
+            "duration": 120,
+            "maintenanceCost": 1000,
+            "examples": [
+                {
+                    "id": "action_001",
+                    "title": "城市英雄",
+                    "description": "一位普通市民在危机时刻挺身而出，成为城市英雄的故事。",
+                    "actors": ["张明", "李华", "王芳"],
+                    "director": "陈导",
+                    "releaseDate": "2024-03-01",
+                    "rating": 8.5,
+                    "popularity": 85,
+                    "genre": "动作",
+                    "duration": 120,
+                    "cost": 500000,
+                    "revenue": 0,
+                    "viewers": 0
+                }
+            ]
+        },
+        "comedy": {
+            "name": "喜剧片",
+            "basePrice": 45,
+            "basePopularity": 75,
+            "duration": 100,
+            "maintenanceCost": 800,
+            "examples": [
+                {
+                    "id": "comedy_001",
+                    "title": "欢乐时光",
+                    "description": "一群年轻人追逐梦想的欢乐故事。",
+                    "actors": ["刘星", "周杰", "林美"],
+                    "director": "王导",
+                    "releaseDate": "2024-03-05",
+                    "rating": 8.8,
+                    "popularity": 90,
+                    "genre": "喜剧",
+                    "duration": 100,
+                    "cost": 400000,
+                    "revenue": 0,
+                    "viewers": 0
+                }
+            ]
+        },
+        "romance": {
+            "name": "爱情片",
+            "basePrice": 40,
+            "basePopularity": 80,
+            "duration": 110,
+            "maintenanceCost": 900,
+            "examples": [
+                {
+                    "id": "romance_001",
+                    "title": "心动时刻",
+                    "description": "一段跨越时空的浪漫爱情故事。",
+                    "actors": ["赵阳", "孙婷", "钱明"],
+                    "director": "李导",
+                    "releaseDate": "2024-03-10",
+                    "rating": 8.7,
+                    "popularity": 88,
+                    "genre": "爱情",
+                    "duration": 110,
+                    "cost": 450000,
+                    "revenue": 0,
+                    "viewers": 0
+                }
+            ]
+        }
+    },
+    "theaters": {
+        "small": {
+            "name": "小型影厅",
+            "capacity": 100,
+            "cost": 500000,
+            "maintenanceCost": 1000,
+            "upgradeCost": 1000000,
+            "nextLevel": "medium"
+        },
+        "medium": {
+            "name": "中型影厅",
+            "capacity": 200,
+            "cost": 1000000,
+            "maintenanceCost": 2000,
+            "upgradeCost": 2000000,
+            "nextLevel": "large"
+        },
+        "large": {
+            "name": "大型影厅",
+            "capacity": 300,
+            "cost": 2000000,
+            "maintenanceCost": 3000,
+            "upgradeCost": 4000000,
+            "nextLevel": "vip"
+        },
+        "vip": {
+            "name": "VIP影厅",
+            "capacity": 50,
+            "cost": 3000000,
+            "maintenanceCost": 5000,
+            "upgradeCost": null,
+            "nextLevel": null
+        }
+    },
+    "facilities": {
+        "snackBar": {
+            "name": "零食店",
+            "cost": 100000,
+            "maintenanceCost": 500,
+            "revenueMultiplier": 1.2
+        },
+        "drinkBar": {
+            "name": "饮品店",
+            "cost": 150000,
+            "maintenanceCost": 800,
+            "revenueMultiplier": 1.3
+        },
+        "restaurant": {
+            "name": "餐厅",
+            "cost": 300000,
+            "maintenanceCost": 1500,
+            "revenueMultiplier": 1.5
+        },
+        "giftShop": {
+            "name": "礼品店",
+            "cost": 200000,
+            "maintenanceCost": 1000,
+            "revenueMultiplier": 1.4
+        }
+    },
+    "staff": {
+        "ticketSeller": {
+            "name": "售票员",
+            "salary": 3000,
+            "efficiency": 1.0,
+            "trainingCost": 1000,
+            "maxLevel": 5
+        },
+        "usher": {
+            "name": "引座员",
+            "salary": 2500,
+            "efficiency": 1.0,
+            "trainingCost": 800,
+            "maxLevel": 5
+        },
+        "cleaner": {
+            "name": "清洁工",
+            "salary": 2000,
+            "efficiency": 1.0,
+            "trainingCost": 500,
+            "maxLevel": 5
+        },
+        "manager": {
+            "name": "经理",
+            "salary": 5000,
+            "efficiency": 1.0,
+            "trainingCost": 2000,
+            "maxLevel": 5
+        }
+    }
+} 

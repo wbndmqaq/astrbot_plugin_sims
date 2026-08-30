@@ -1,0 +1,127 @@
+{
+  "被困人员救援": {
+    "id": "trapped_rescue",
+    "name": "被困人员救援",
+    "description": "搜救被火灾或其他灾害困住的人员",
+    "difficulty": 3,
+    "danger": 4,
+    "timeLimit": 300,
+    "xpReward": 100,
+    "moneyReward": 200,
+    "equipment": [
+      "防毒面具",
+      "空气呼吸器",
+      "热成像仪"
+    ],
+    "skills": [
+      "火场搜救",
+      "高温环境适应"
+    ],
+    "minRank": "消防员",
+    "successRate": {
+      "baseRate": 70,
+      "skillBonus": 15,
+      "equipmentBonus": 10
+    }
+  },
+  "电梯故障救援": {
+    "id": "elevator_rescue",
+    "name": "电梯故障救援",
+    "description": "营救被困在故障电梯中的人员",
+    "difficulty": 2,
+    "danger": 2,
+    "timeLimit": 180,
+    "xpReward": 60,
+    "moneyReward": 120,
+    "equipment": [
+      "基础消防服",
+      "消防水带"
+    ],
+    "skills": [
+      "火灾侦察"
+    ],
+    "minRank": "消防员",
+    "successRate": {
+      "baseRate": 85,
+      "skillBonus": 10,
+      "equipmentBonus": 5
+    }
+  },
+  "交通事故救援": {
+    "id": "traffic_accident_rescue",
+    "name": "交通事故救援",
+    "description": "解救交通事故中被困的受害者",
+    "difficulty": 3,
+    "danger": 3,
+    "timeLimit": 240,
+    "xpReward": 80,
+    "moneyReward": 150,
+    "equipment": [
+      "基础消防服",
+      "消防水带",
+      "大型设备"
+    ],
+    "skills": [
+      "火场搜救",
+      "指挥协调"
+    ],
+    "minRank": "消防班长",
+    "successRate": {
+      "baseRate": 75,
+      "skillBonus": 15,
+      "equipmentBonus": 10
+    }
+  },
+  "地震救援": {
+    "id": "earthquake_rescue",
+    "name": "地震救援",
+    "description": "在地震后废墟中搜救幸存者",
+    "difficulty": 5,
+    "danger": 5,
+    "timeLimit": 600,
+    "xpReward": 200,
+    "moneyReward": 400,
+    "equipment": [
+      "基础消防服",
+      "消防无人机",
+      "热成像仪",
+      "大型设备"
+    ],
+    "skills": [
+      "火场搜救",
+      "高空救援",
+      "指挥协调"
+    ],
+    "minRank": "消防队长",
+    "successRate": {
+      "baseRate": 60,
+      "skillBonus": 20,
+      "equipmentBonus": 15
+    }
+  },
+  "水域救援": {
+    "id": "water_rescue",
+    "name": "水域救援",
+    "description": "救援溺水人员或水中被困者",
+    "difficulty": 4,
+    "danger": 4,
+    "timeLimit": 180,
+    "xpReward": 120,
+    "moneyReward": 250,
+    "equipment": [
+      "基础消防服",
+      "特种救生衣",
+      "救生绳"
+    ],
+    "skills": [
+      "水域救援",
+      "指挥协调"
+    ],
+    "minRank": "消防班长",
+    "successRate": {
+      "baseRate": 65,
+      "skillBonus": 20,
+      "equipmentBonus": 15
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+    "pools": [
+        {
+            "id": "standard",
+            "name": "标准寵物池",
+            "description": "包含常见的可爱宠物",
+            "price": 1000,
+            "pets": [
+                {
+                    "id": "cat_01",
+                    "name": "橘猫咪",
+                    "rarity": "R",
+                    "rate": 3,
+                    "type": "猫咪",
+                    "baseStats": {
+                        "health": 100,
+                        "hunger": 100,
+                        "mood": 100,
+                        "energy": 100
+                    },
+                    "growth": {
+                        "healthGrowth": 10,
+                        "attackGrowth": 5,
+                        "defenseGrowth": 5
+                    },
+                    "skills": ["撒娇", "卖萌"],
+                    "description": "活泼可爱的橘猫，特别喜欢吃零食"
+                },
+                {
+                    "id": "dog_01",
+                    "name": "柴犬",
+                    "rarity": "R",
+                    "rate": 3,
+                    "type": "狗狗",
+                    "baseStats": {
+                        "health": 120,
+                        "hunger": 100,
+                        "mood": 100,
+                        "energy": 110
+                    },
+                    "growth": {
+                        "healthGrowth": 12,
+                        "attackGrowth": 8,
+                        "defenseGrowth": 6
+                    },
+                    "skills": ["汪汪叫", "摇尾巴"],
+                    "description": "忠诚可爱的柴犬，非常亲人"
+                },
+                {
+                    "id": "cat_02",
+                    "name": "布偶猫",
+                    "rarity": "SR",
+                    "rate": 1.5,
+                    "type": "猫咪",
+                    "baseStats": {
+                        "health": 110,
+                        "hunger": 100,
+                        "mood": 120,
+                        "energy": 90
+                    },
+                    "growth": {
+                        "healthGrowth": 11,
+                        "attackGrowth": 6,
+                        "defenseGrowth": 7
+                    },
+                    "skills": ["优雅漫步", "温柔蹭蹭"],
+                    "description": "优雅美丽的布偶猫，性格温顺"
+                },
+                {
+                    "id": "dog_02",
+                    "name": "哈士奇",
+                    "rarity": "SR",
+                    "rate": 1.5,
+                    "type": "狗狗",
+                    "baseStats": {
+                        "health": 130,
+                        "hunger": 120,
+                        "mood": 110,
+                        "energy": 130
+                    },
+                    "growth": {
+                        "healthGrowth": 13,
+                        "attackGrowth": 9,
+                        "defenseGrowth": 7
+                    },
+                    "skills": ["拆家", "二哈笑"],
+                    "description": "活力四射的哈士奇，调皮捣蛋"
+                },
+                {
+                    "id": "cat_03",
+                    "name": "仙女猫",
+                    "rarity": "SSR",
+                    "rate": 0.5,
+                    "type": "猫咪",
+                    "baseStats": {
+                        "health": 150,
+                        "hunger": 100,
+                        "mood": 150,
+                        "energy": 120
+                    },
+                    "growth": {
+                        "healthGrowth": 15,
+                        "attackGrowth": 10,
+                        "defenseGrowth": 10
+                    },
+                    "skills": ["仙气飘飘", "月光闪耀"],
+                    "description": "传说中的仙女猫，浑身散发着神秘的光芒"
+                }
+            ]
+        },
+        {
+            "id": "special",
+            "name": "限定宠物池",
+            "description": "限时开放的特殊宠物池",
+            "price": 1500,
+            "pets": [
+                {
+                    "id": "dragon_01",
+                    "name": "迷你龙",
+                    "rarity": "SSR",
+                    "rate": 1,
+                    "type": "神兽",
+                    "baseStats": {
+                        "health": 200,
+                        "hunger": 150,
+                        "mood": 130,
+                        "energy": 180
+                    },
+                    "growth": {
+                        "healthGrowth": 20,
+                        "attackGrowth": 15,
+                        "defenseGrowth": 12
+                    },
+                    "skills": ["吐火球", "飞行"],
+                    "description": "可爱的迷你龙，能够喷出小火球"
+                }
+            ]
+        }
+    ]
+}

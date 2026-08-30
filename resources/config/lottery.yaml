@@ -1,0 +1,253 @@
+enabled: true
+ticketType: lottery_ticket
+maxRecords: 50
+rarities:
+  - id: common
+    name: 普通
+    rank: 1
+  - id: rare
+    name: 稀有
+    rank: 2
+  - id: epic
+    name: 史诗
+    rank: 3
+  - id: legendary
+    name: 传说
+    rank: 4
+pools:
+  - id: normal
+    name: 常驻心愿池
+    desc: 日常小确幸，稳定出货的常驻奖池
+    cost: 200
+    tenCost: 1800
+    pity:
+      rare: 10
+      epic: 50
+      legendary: 100
+    items:
+      - name: 金币x300
+        rarity: common
+        weight: 30
+        grant:
+          type: money
+          value: 300
+      - name: 金币x500
+        rarity: common
+        weight: 20
+        grant:
+          type: money
+          value: 500
+      - name: 小型体力药水
+        rarity: common
+        weight: 25
+        grant:
+          type: item
+          itemType: stamina_potion
+          count: 1
+      - name: 体力x30
+        rarity: common
+        weight: 15
+        grant:
+          type: stamina
+          value: 30
+      - name: 金币x1000
+        rarity: rare
+        weight: 6
+        grant:
+          type: money
+          value: 1000
+      - name: 大型体力药水
+        rarity: rare
+        weight: 3
+        grant:
+          type: item
+          itemType: stamina_potion
+          count: 1
+      - name: 抽奖券x2
+        rarity: rare
+        weight: 1
+        grant:
+          type: ticket
+          count: 2
+      - name: 金币x5000
+        rarity: epic
+        weight: 0.8
+        grant:
+          type: money
+          value: 5000
+      - name: 草莓蛋糕礼盒
+        rarity: epic
+        weight: 0.6
+        grant:
+          type: item
+          itemType: gift_box
+          count: 1
+      - name: 金币x20000
+        rarity: legendary
+        weight: 0.3
+        grant:
+          type: money
+          value: 20000
+      - name: 心愿魔法盒
+        rarity: legendary
+        weight: 0.2
+        grant:
+          type: item
+          itemType: magic_box
+          count: 1
+  - id: advanced
+    name: 星光进阶池
+    desc: 高价值道具聚集地，进阶玩家首选
+    cost: 500
+    tenCost: 4500
+    pity:
+      rare: 10
+      epic: 40
+      legendary: 80
+    items:
+      - name: 金币x800
+        rarity: common
+        weight: 28
+        grant:
+          type: money
+          value: 800
+      - name: 小型体力药水x2
+        rarity: common
+        weight: 24
+        grant:
+          type: item
+          itemType: stamina_potion
+          count: 2
+      - name: 体力x50
+        rarity: common
+        weight: 18
+        grant:
+          type: stamina
+          value: 50
+      - name: 金币x2500
+        rarity: rare
+        weight: 12
+        grant:
+          type: money
+          value: 2500
+      - name: 大型体力药水x2
+        rarity: rare
+        weight: 8
+        grant:
+          type: item
+          itemType: stamina_potion
+          count: 2
+      - name: 抽奖券x3
+        rarity: rare
+        weight: 4
+        grant:
+          type: ticket
+          count: 3
+      - name: 金币x12000
+        rarity: epic
+        weight: 3
+        grant:
+          type: money
+          value: 12000
+      - name: 星光宝匣
+        rarity: epic
+        weight: 2
+        grant:
+          type: item
+          itemType: star_box
+          count: 1
+      - name: 金币x50000
+        rarity: legendary
+        weight: 0.6
+        grant:
+          type: money
+          value: 50000
+      - name: 星光权杖
+        rarity: legendary
+        weight: 0.4
+        grant:
+          type: item
+          itemType: star_wand
+          count: 1
+  - id: limited
+    name: 甜心限定池
+    desc: 活动限定奖池，错过不再，可在配置中设置开放窗口
+    cost: 300
+    tenCost: 2700
+    limited: true
+    window:
+      start: ''
+      end: ''
+    pity:
+      rare: 10
+      epic: 30
+      legendary: 60
+    items:
+      - name: 金币x500
+        rarity: common
+        weight: 26
+        grant:
+          type: money
+          value: 500
+      - name: 蝴蝶结发饰
+        rarity: common
+        weight: 22
+        grant:
+          type: item
+          itemType: decoration
+          count: 1
+      - name: 体力x40
+        rarity: common
+        weight: 18
+        grant:
+          type: stamina
+          value: 40
+      - name: 金币x1500
+        rarity: rare
+        weight: 12
+        grant:
+          type: money
+          value: 1500
+      - name: 珍珠项链
+        rarity: rare
+        weight: 8
+        grant:
+          type: item
+          itemType: decoration
+          count: 1
+      - name: 抽奖券x3
+        rarity: rare
+        weight: 5
+        grant:
+          type: ticket
+          count: 3
+      - name: 限定甜心头像框
+        rarity: epic
+        weight: 4
+        limitedItem: true
+        grant:
+          type: item
+          itemType: limited_frame
+          count: 1
+      - name: 金币x15000
+        rarity: epic
+        weight: 3
+        grant:
+          type: money
+          value: 15000
+      - name: 限定粉晶权杖
+        rarity: legendary
+        weight: 1.5
+        limitedItem: true
+        grant:
+          type: item
+          itemType: limited_wand
+          count: 1
+      - name: 限定梦幻城堡
+        rarity: legendary
+        weight: 0.5
+        limitedItem: true
+        grant:
+          type: item
+          itemType: limited_castle
+          count: 1

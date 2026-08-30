@@ -1,0 +1,66 @@
+{
+  "reply_mode": {
+    "description": "回复形式",
+    "type": "string",
+    "options": [
+      "auto",
+      "text",
+      "image"
+    ],
+    "labels": [
+      "智能自适应 (QQ官方走Markdown排版，其余走文字)",
+      "纯文本回复 (所有平台统一纯文本)",
+      "全局图片回复 (所有回复均经由 reply.html 渲染为精美图片)"
+    ],
+    "default": "auto",
+    "hint": "控制游戏指令执行后的结果展现形式"
+  },
+  "render_scale": {
+    "description": "图片渲染缩放比 (%)",
+    "type": "int",
+    "default": 100,
+    "hint": "范围 50 ~ 250，数字越大图片分辨率与文字越清晰"
+  },
+  "hourly_cron": {
+    "description": "启用每小时后台调度任务",
+    "type": "bool",
+    "default": true,
+    "hint": "定时结算农田作物生长、店铺营业营收、房产租金、股市行情波动等"
+  },
+  "webui_enabled": {
+    "description": "启用独立可视化 WebUI 面板",
+    "type": "bool",
+    "default": true,
+    "hint": "开启后可在独立端口访问可视化管理控制台"
+  },
+  "webui_host": {
+    "description": "WebUI 监听地址",
+    "type": "string",
+    "default": "127.0.0.1",
+    "hint": "若需局域网或公网访问请填写 0.0.0.0，并在下方设置密码"
+  },
+  "webui_port": {
+    "description": "WebUI 监听端口",
+    "type": "int",
+    "default": 17818,
+    "hint": "独立管理面板的服务端口"
+  },
+  "webui_password": {
+    "description": "WebUI 访问密码",
+    "type": "string",
+    "default": "",
+    "hint": "留空为免密访问；设置后访问 WebUI 将需输入密码解锁"
+  },
+  "max_daily_work": {
+    "description": "每日工作次数上限",
+    "type": "int",
+    "default": 10,
+    "hint": "每个玩家每天最多可在职业中工作多少次"
+  },
+  "promotion_bonus": {
+    "description": "职业晋升基础奖金",
+    "type": "int",
+    "default": 500,
+    "hint": "每次职业职阶晋升时发放的金币奖励"
+  }
+}

@@ -1,0 +1,39 @@
+ranks:
+  - name: 实习警员
+    exp_required: 0
+    salary: 2000
+  - name: 正式警员
+    exp_required: 100
+    salary: 3000
+  - name: 高级警员
+    exp_required: 300
+    salary: 4500
+  - name: 警长
+    exp_required: 600
+    salary: 6000
+  - name: 警督
+    exp_required: 1000
+    salary: 8000
+departments:
+  - 巡逻组
+  - 刑侦组
+  - 交通组
+  - 特警组
+case_types:
+  - 盗窃
+  - 抢劫
+  - 诈骗
+  - 暴力
+  - 毒品
+  - 交通
+equipment_prices:
+  警棍: 500
+  手铐: 800
+  对讲机: 1200
+  防弹衣: 3000
+  手枪: 5000
+  警用电脑: 8000
+exp_rewards:
+  case_solved: 20
+  case_complex: 50
+  promotion: 100

@@ -1,0 +1,37 @@
+name: astrbot_plugin_sims
+display_name: 模拟人生 Sims
+author: wbndm
+version: 1.0.0
+short_desc: Yunzai sims-plugin 完整移植 —— 角色扮演/职业/经营/钓鱼/股市/抽奖全玩法
+social_link: https://github.com/wbndm
+repo: https://github.com/wbndm/astrbot_plugin_sims
+astrbot_version: ">=4.16.0"
+category: 娱乐
+tags:
+  - 游戏
+  - 模拟经营
+  - 角色扮演
+support_platforms:
+  - aiocqhttp
+  - qq_official
+  - telegram
+desc: |
+  模拟人生（Sims）AstrBot 移植版，完整对齐 Yunzai 原版 sims-plugin 的全部玩法指令。
+
+  ## 🌟 玩法一览
+  - 🎮 **人生核心**：创建角色 / 签到 / 头像馆 / 改名签名 / 体力药水
+  - 🛒 **统一商店**：8 家 NPC 商店、道具购买/使用/装备/出售、商品搜索
+  - 🌱 **农场**：买地开荒、种子农具、播种浇水施肥收获、季节与农场日志
+  - 💼 **职业**：医生/厨师/消防员/警察/渔夫/农民，技能晋升、跨玩家协作、联动任务链
+  - 🍻 **酒馆**：调酒上架、原料行情、雇佣解雇、营业随机事件、排行榜
+  - 🎬 **影院**：影厅购置升级、片源采购排片、设施与员工、票房排行
+  - 💻 **网吧**：设备维护、零食进货定价、包间预订、店内活动、每小时自动结算
+  - 🎣 **钓鱼**：两段式垂钓、鱼竿鱼饵升级、渔具商店、钓鱼排行
+  - 📈 **股市**：实时行情、买卖持仓盈亏
+  - 🎰 **抽奖**：单抽十连、奖池预览、保底机制、抽奖记录
+  - 🏠 **房产**：市场浏览、购置装修出租出售
+  - 🏅 **成就**：成就解锁与奖励领取
+  - 📢 **其他**：版本公告、新手引导、管理员配置、反作弊封禁体系
+
+  图片面板由插件内置的 art-template 编译器 + 本地 Playwright 无头浏览器渲染，
+  不依赖任何云端服务，离线可用。

@@ -1,0 +1,545 @@
+{
+  "schema": "shops_v1",
+  "version": "1.0.0",
+  "description": "统一商店系统数据",
+  "shopTypes": {
+    "general": {
+      "name": "杂货店",
+      "icon": "🏪",
+      "refreshInterval": 86400
+    },
+    "clothing": {
+      "name": "服装店",
+      "icon": "👕",
+      "refreshInterval": 86400
+    },
+    "equipment": {
+      "name": "装备店",
+      "icon": "⚔️",
+      "refreshInterval": 86400
+    },
+    "food": {
+      "name": "食品店",
+      "icon": "🍔",
+      "refreshInterval": 3600
+    },
+    "medicine": {
+      "name": "药店",
+      "icon": "💊",
+      "refreshInterval": 86400
+    },
+    "material": {
+      "name": "材料店",
+      "icon": "🔧",
+      "refreshInterval": 86400
+    },
+    "special": {
+      "name": "特色商店",
+      "icon": "✨",
+      "refreshInterval": 86400
+    },
+    "furniture": {
+      "name": "家具城",
+      "icon": "🛋️",
+      "refreshInterval": 86400
+    }
+  },
+  "shops": {
+    "general_store": {
+      "id": "general_store",
+      "name": "杂货店",
+      "type": "general",
+      "description": "出售各种日常用品",
+      "npc": "杂货店老板",
+      "openHours": [
+        6,
+        22
+      ],
+      "items": [
+        {
+          "itemId": "food_001",
+          "price": 5,
+          "stock": -1
+        },
+        {
+          "itemId": "food_002",
+          "price": 10,
+          "stock": -1
+        },
+        {
+          "itemId": "food_003",
+          "price": 3,
+          "stock": -1
+        },
+        {
+          "itemId": "tool_005",
+          "price": 50,
+          "stock": 10
+        },
+        {
+          "itemId": "tool_021",
+          "price": 2,
+          "stock": -1
+        },
+        {
+          "itemId": "tool_022",
+          "price": 20,
+          "stock": 50
+        }
+      ]
+    },
+    "clothing_store": {
+      "id": "clothing_store",
+      "name": "时尚服装店",
+      "type": "clothing",
+      "description": "出售各种时尚服饰",
+      "npc": "服装店老板",
+      "openHours": [
+        9,
+        21
+      ],
+      "items": [
+        {
+          "itemId": "cloth_001",
+          "price": 100,
+          "stock": 26
+        },
+        {
+          "itemId": "cloth_002",
+          "price": 150,
+          "stock": 20
+        },
+        {
+          "itemId": "cloth_003",
+          "price": 200,
+          "stock": 15
+        },
+        {
+          "itemId": "cloth_004",
+          "price": 300,
+          "stock": 10
+        },
+        {
+          "itemId": "cloth_005",
+          "price": 250,
+          "stock": 10
+        },
+        {
+          "itemId": "cloth_006",
+          "price": 300,
+          "stock": 15
+        },
+        {
+          "itemId": "cloth_007",
+          "price": 250,
+          "stock": 10
+        },
+        {
+          "itemId": "cloth_008",
+          "price": 350,
+          "stock": 8
+        }
+      ]
+    },
+    "medicine_store": {
+      "id": "medicine_store",
+      "name": "药店",
+      "type": "medicine",
+      "description": "出售各种药品和医疗用品",
+      "npc": "药剂师",
+      "openHours": [
+        0,
+        24
+      ],
+      "items": [
+        {
+          "itemId": "med_001",
+          "price": 50,
+          "stock": 50
+        },
+        {
+          "itemId": "med_002",
+          "price": 30,
+          "stock": 100
+        },
+        {
+          "itemId": "med_003",
+          "price": 35,
+          "stock": 80
+        },
+        {
+          "itemId": "med_004",
+          "price": 5,
+          "stock": 200
+        },
+        {
+          "itemId": "cons_001",
+          "price": 350,
+          "stock": 30
+        },
+        {
+          "itemId": "cons_002",
+          "price": 700,
+          "stock": 20
+        },
+        {
+          "itemId": "cons_003",
+          "price": 1050,
+          "stock": 10
+        },
+        {
+          "itemId": "cons_004",
+          "price": 1400,
+          "stock": 5
+        }
+      ]
+    },
+    "material_store": {
+      "id": "material_store",
+      "name": "五金店",
+      "type": "material",
+      "description": "出售各种建筑材料和工具",
+      "npc": "五金店老板",
+      "openHours": [
+        8,
+        20
+      ],
+      "items": [
+        {
+          "itemId": "mat_001",
+          "price": 15,
+          "stock": -1
+        },
+        {
+          "itemId": "mat_002",
+          "price": 25,
+          "stock": -1
+        },
+        {
+          "itemId": "mat_003",
+          "price": 20,
+          "stock": -1
+        },
+        {
+          "itemId": "mat_004",
+          "price": 10,
+          "stock": -1
+        },
+        {
+          "itemId": "mat_005",
+          "price": 5,
+          "stock": -1
+        }
+      ]
+    },
+    "equipment_store": {
+      "id": "equipment_store",
+      "name": "装备店",
+      "type": "equipment",
+      "description": "出售各种工具和装备",
+      "npc": "装备商人",
+      "openHours": [
+        9,
+        21
+      ],
+      "items": [
+        {
+          "itemId": "tool_001",
+          "price": 40,
+          "stock": 10
+        },
+        {
+          "itemId": "tool_002",
+          "price": 60,
+          "stock": 8
+        },
+        {
+          "itemId": "tool_003",
+          "price": 15,
+          "stock": 20
+        },
+        {
+          "itemId": "tool_004",
+          "price": 25,
+          "stock": 15
+        },
+        {
+          "itemId": "tool_006",
+          "price": 300,
+          "stock": 5
+        },
+        {
+          "itemId": "tool_007",
+          "price": 500,
+          "stock": 3
+        }
+      ]
+    },
+    "fishing_store": {
+      "id": "fishing_store",
+      "name": "渔具店",
+      "type": "equipment",
+      "description": "出售各种钓鱼装备",
+      "npc": "老渔夫",
+      "openHours": [
+        5,
+        19
+      ],
+      "items": [
+        {
+          "itemId": "tool_002",
+          "price": 60,
+          "stock": 15
+        },
+        {
+          "itemId": "tool_005",
+          "price": 50,
+          "stock": 20
+        },
+        {
+          "itemId": "food_003",
+          "price": 3,
+          "stock": -1
+        }
+      ]
+    },
+    "tavern": {
+      "id": "tavern",
+      "name": "酒馆",
+      "type": "food",
+      "description": "提供各种饮品和小吃",
+      "npc": "酒馆老板",
+      "openHours": [
+        18,
+        4
+      ],
+      "items": [
+        {
+          "itemId": "food_006",
+          "price": 25,
+          "stock": -1
+        },
+        {
+          "itemId": "food_004",
+          "price": 15,
+          "stock": -1
+        },
+        {
+          "itemId": "food_005",
+          "price": 20,
+          "stock": -1
+        }
+      ]
+    },
+    "black_market": {
+      "id": "black_market",
+      "name": "黑市",
+      "type": "special",
+      "description": "出售稀有物品，价格昂贵",
+      "npc": "神秘商人",
+      "openHours": [
+        0,
+        24
+      ],
+      "items": [
+        {
+          "itemId": "cons_004",
+          "price": 2000,
+          "stock": 2
+        },
+        {
+          "itemId": "tool_007",
+          "price": 800,
+          "stock": 1
+        }
+      ]
+    },
+    "toy_store": {
+      "id": "toy_store",
+      "name": "玩具店",
+      "type": "special",
+      "description": "出售各种可爱的玩具与摆件",
+      "npc": "玩具店店长",
+      "openHours": [
+        9,
+        21
+      ],
+      "items": [
+        {
+          "itemId": "toy_001",
+          "price": 39,
+          "stock": 99
+        },
+        {
+          "itemId": "toy_002",
+          "price": 99,
+          "stock": 50
+        },
+        {
+          "itemId": "toy_003",
+          "price": 159,
+          "stock": 30
+        },
+        {
+          "itemId": "toy_004",
+          "price": 129,
+          "stock": 40
+        },
+        {
+          "itemId": "toy_005",
+          "price": 49,
+          "stock": 60
+        }
+      ]
+    },
+    "furniture_store": {
+      "id": "furniture_store",
+      "name": "家具城",
+      "type": "furniture",
+      "description": "添置家具，装扮温馨小家",
+      "npc": "家具城导购",
+      "openHours": [
+        9,
+        22
+      ],
+      "items": [
+        {
+          "itemId": "furn_001",
+          "price": 2000,
+          "stock": 20
+        },
+        {
+          "itemId": "furn_002",
+          "price": 3000,
+          "stock": 20
+        },
+        {
+          "itemId": "furn_003",
+          "price": 1500,
+          "stock": 20
+        },
+        {
+          "itemId": "furn_004",
+          "price": 1800,
+          "stock": 20
+        },
+        {
+          "itemId": "furn_005",
+          "price": 1200,
+          "stock": 20
+        },
+        {
+          "itemId": "furn_006",
+          "price": 2500,
+          "stock": 20
+        }
+      ]
+    },
+    "smart_home_store": {
+      "id": "smart_home_store",
+      "name": "智能家居馆",
+      "type": "special",
+      "description": "科技感十足的智能家居设备",
+      "npc": "智能家居顾问",
+      "openHours": [
+        10,
+        20
+      ],
+      "items": [
+        {
+          "itemId": "smart_001",
+          "price": 300,
+          "stock": 30
+        },
+        {
+          "itemId": "smart_002",
+          "price": 500,
+          "stock": 30
+        },
+        {
+          "itemId": "smart_003",
+          "price": 400,
+          "stock": 30
+        },
+        {
+          "itemId": "smart_004",
+          "price": 600,
+          "stock": 30
+        }
+      ]
+    },
+    "space_store": {
+      "id": "space_store",
+      "name": "星空百货",
+      "type": "special",
+      "description": "来自星辰大海的稀有商品",
+      "npc": "神秘太空商人",
+      "openHours": [
+        20,
+        24
+      ],
+      "items": [
+        {
+          "itemId": "space_001",
+          "price": 1000,
+          "stock": 10
+        },
+        {
+          "itemId": "space_002",
+          "price": 2000,
+          "stock": 10
+        },
+        {
+          "itemId": "space_003",
+          "price": 1500,
+          "stock": 10
+        },
+        {
+          "itemId": "space_004",
+          "price": 2500,
+          "stock": 10
+        },
+        {
+          "itemId": "space_005",
+          "price": 300,
+          "stock": 10
+        },
+        {
+          "itemId": "space_006",
+          "price": 500,
+          "stock": 10
+        },
+        {
+          "itemId": "space_007",
+          "price": 200,
+          "stock": 10
+        },
+        {
+          "itemId": "space_008",
+          "price": 500,
+          "stock": 10
+        },
+        {
+          "itemId": "space_009",
+          "price": 800,
+          "stock": 10
+        },
+        {
+          "itemId": "space_010",
+          "price": 600,
+          "stock": 10
+        },
+        {
+          "itemId": "space_011",
+          "price": 1000,
+          "stock": 10
+        },
+        {
+          "itemId": "space_012",
+          "price": 3000,
+          "stock": 10
+        }
+      ]
+    }
+  }
+}
